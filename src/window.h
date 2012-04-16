@@ -16,6 +16,8 @@ class Window {
     int id_;
     static std::map<int, Window*> windows_;
     static void display ();
+    static void reshape (int w, int h);
+    static void mouse (int btn, int state, int x, int y);
 };
 
 } // namespace ep1
