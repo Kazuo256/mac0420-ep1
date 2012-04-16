@@ -12,7 +12,7 @@
 
 namespace ep1 {
 
-using std::map;
+using std::tr1::unordered_map;
 
 /* triângulo inicial */
 static GLfloat v[4][3] = {
@@ -25,7 +25,7 @@ static GLfloat v[4][3] = {
 /* número de subdivisões */                   
 int n;
 
-map<int, Window*> Window::windows_;
+unordered_map<int, Window::Ptr> Window::windows_;
 
 Window::Window (const std::string& caption) {
   id_ = glutCreateWindow(caption.c_str());
@@ -56,12 +56,15 @@ static void init_opengl()
 }
 
 void Window::init () {
-  windows_[id_] = this;
   glutSetWindow(id_);
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
   glutMouseFunc(mouse);
   init_opengl();
+}
+
+Window::Ptr Window::current_window() {
+  return windows_[glutGetWindow()];
 }
 
 void Window::reshape(int w, int h)
