@@ -19,21 +19,13 @@
 #include <cstdlib>
 #include "window.h"
 
-static ep1::Window *win = NULL;
-
-void cleanup (void) {
-  if (win)
-    delete win;
-}
-
-int main(int argc, char **argv)
-{
-   glutInit(&argc, argv);
-   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
-   glutInitWindowSize(500, 500);
-   win = new ep1::Window("Tarefa 3 - 3D Version");
-   win->init();
-   atexit(cleanup);
-   glutMainLoop();
+int main(int argc, char **argv) {
+  ep1::Window::Ptr win;
+  glutInit(&argc, argv);
+  glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+  glutInitWindowSize(500, 500);
+  win = ep1::Window::create("Tarefa 3 - 3D Version");
+  win->init();
+  glutMainLoop();
 }
 
