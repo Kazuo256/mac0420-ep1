@@ -1,13 +1,5 @@
 
-/*#define MACOSX*/
-#ifdef MACOSX
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-
+#include "getglut.h"
 #include "window.h"
 
 namespace ep1 {
@@ -136,7 +128,7 @@ void Window::display()
     glBegin(GL_TRIANGLES);
        tetraedro(n);
     glEnd();        
-    glFlush();
+    glutSwapBuffers();
 }
 
 } // namespace ep1

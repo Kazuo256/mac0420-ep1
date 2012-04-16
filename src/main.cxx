@@ -8,24 +8,11 @@
  * Modificação 2: Translação do baricentro para origem
  */
 
-/*#define MACOSX*/
-#ifdef MACOSX
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-#include <cstdlib>
-#include "window.h"
+#include "ep1.h"
 
 int main(int argc, char **argv) {
-  ep1::Window::Ptr win;
-  glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
-  glutInitWindowSize(500, 500);
-  win = ep1::Window::create("Tarefa 3 - 3D Version");
-  win->init();
-  glutMainLoop();
+  ep1::init(argc, argv);
+  ep1::run();
+  return 0;
 }
 
