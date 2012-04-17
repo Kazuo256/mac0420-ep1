@@ -20,7 +20,7 @@ class Window {
     void init ();
     /** Creates a new window object.
      ** @param caption - The window's caption. */
-    static Ptr create(const std::string& caption) {
+    static Ptr create (const std::string& caption) {
       Ptr created(new Window(caption));
       windows_[created->id_] = created;
       return created;
