@@ -11,7 +11,7 @@ std::vector<ep1::Vec3D> Utils::LoadForceFieldInfo(std::string file_name) {
   pfile = fopen( file_name.c_str(), "r");
   infos = std::vector<ep1::Vec3D>();
   
-
+  
 }
 
 
