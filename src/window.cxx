@@ -145,7 +145,7 @@ void Window::display() {
     Object::Renderer(draw),
     Vec3D(0.5, 0.5, 0.0),
     Vec3D(1.0, 1.0, 1.0),
-    Vec3D(1.0, 1.0, 0.0)
+    Vec3D(0.0, 0.0, 45.0)
   );
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   obj.render();
