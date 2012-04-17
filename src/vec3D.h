@@ -36,9 +36,10 @@ class Vec3D {
     GLdouble angle_to (const Vec3D& rhs) const;
     Vec3D normalized () const;
     void dump() const;
-    static Vec3D X() { return Vec3D(1.0, 0.0, 0.0); }
-    static Vec3D Y() { return Vec3D(0.0, 1.0, 0.0); }
-    static Vec3D Z() { return Vec3D(0.0, 0.0, 1.0); }
+    static Vec3D X () { return Vec3D(1.0, 0.0, 0.0); }
+    static Vec3D Y () { return Vec3D(0.0, 1.0, 0.0); }
+    static Vec3D Z () { return Vec3D(0.0, 0.0, 1.0); }
+    static Vec3D ypr (GLdouble yaw, GLdouble pitch, GLdouble roll);
   private:
     union {
       struct {

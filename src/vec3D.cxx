@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <cmath>
 
+#include "getglut.h"
 #include "vec3D.h"
 
 #define PI 3.1415926535898
@@ -24,6 +25,10 @@ Vec3D Vec3D::normalized () const {
 
 void Vec3D::dump () const {
   printf("<%lf, %lf, %lf>\n", x_, y_, z_);
+}
+
+Vec3D Vec3D::ypr (GLdouble yaw, GLdouble pitch, GLdouble roll) {
+  return Vec3D(pitch, yaw, roll);
 }
 
 } // namespace ep1

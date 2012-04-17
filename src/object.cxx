@@ -1,7 +1,7 @@
 
 #include <cstdio>
-#include "getglut.h"
 
+#include "getglut.h"
 #include "object.h"
 
 namespace ep1 {
