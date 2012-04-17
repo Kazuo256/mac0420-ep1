@@ -17,6 +17,6 @@ else (${GLUT_FOUND})
   message (FATAL_ERROR "GLUT not found!")
 endif (${GLUT_FOUND})
 
-add_executable (ep1 src/main.cxx src/ep1.cxx src/window.cxx)
+add_executable (ep1 src/main.cxx src/ep1.cxx src/window.cxx src/vec3D.cxx)
 target_link_libraries (ep1 ${OPENGL_LIBRARIES} ${GLUT_glut_LIBRARY})
 
