@@ -2,7 +2,7 @@
 #ifndef EP1_OBJECT_H_
 #define EP1_OBJECT_H_
 
-#include <functional>
+#include <tr1/functional>
 
 #include "getglut.h"
 #include "vec3D.h"
