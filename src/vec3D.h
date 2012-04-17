@@ -2,7 +2,6 @@
 #ifndef EP1_VEC3D_H_
 #define EP1_VEC3D_H_
 
-#include "getglut.h"
 #include <cstring>
 
 namespace ep1 {

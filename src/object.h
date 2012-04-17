@@ -4,7 +4,6 @@
 
 #include <tr1/functional>
 
-#include "getglut.h"
 #include "vec3D.h"
 
 namespace ep1 {
