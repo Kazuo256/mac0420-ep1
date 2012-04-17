@@ -13,8 +13,7 @@ GLdouble Vec3D::length () const {
 }
 
 GLdouble Vec3D::angle_to (const Vec3D& rhs) const {
-  Vec3D diff = rhs.normalized() - this->normalized();
-  return atan2(diff.y_, diff.x_)*180.0/PI;
+  return acos(normalized()*rhs.normalized())*180.0/PI;
 }
 
 Vec3D Vec3D::normalized () const {
