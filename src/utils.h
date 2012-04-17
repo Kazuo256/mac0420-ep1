@@ -6,11 +6,14 @@
 #include <cstdio>
 #include <vector>
 
+#define BUFFER_SIZE 256
+
+
 namespace ep1 {
 
 class Utils {
   public:
-    std::vector<Vec3D> LoadForceFieldInfo(std::string file_name);
+    std::vector<Vec3D> LoadForceFieldInfo (std::string file_name);
 }
 
 }
