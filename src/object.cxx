@@ -7,8 +7,6 @@
 namespace ep1 {
 
 static void rotate_to_dir (const Vec3D& v) {
-  puts("z norm");
-  Vec3D::Z().normalized().dump();
   Vec3D axis = Vec3D::Z() / v;
   GLdouble angle = Vec3D::Z().angle_to(v);
   axis.dump();
