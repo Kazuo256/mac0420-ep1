@@ -1,9 +1,11 @@
 #include "utils.h"
 
 namespace ep1 {
-    
+
+namespace utils { 
+
 std::vector<ep1::Vec3D> 
-  Utils::LoadForceFieldInfo (std::string file_name) {
+  LoadForceFieldInfo (const std::string& file_name) {
   
   FILE *pfile;
   std::vector<ep1::Vec3D> infos;
@@ -30,5 +32,7 @@ std::vector<ep1::Vec3D>
   
   return infos;
   }
+
+}
 
 }
