@@ -3,11 +3,11 @@
 
 #include "getglut.h"
 #include "vec3D.h"
-#include "object.h"
 #include "window.h"
 
 namespace ep1 {
 
+using std::vector;
 using std::tr1::unordered_map;
 
 /* triângulo inicial */
@@ -58,6 +58,10 @@ void Window::init () {
   glutReshapeFunc(reshape);
   glutMouseFunc(mouse);
   init_opengl();
+}
+
+void Window::add_object(const Object::Ptr& obj) {
+  objects_.push_back(obj);
 }
 
 Window::Ptr Window::current_window() {
@@ -135,20 +139,12 @@ static void tetraedro(int n)
     divide_triangulo(v[0], v[1], v[2], n);
 }
 
-static void draw () {
-  puts("DRAW");
-  glutWireCube(0.1);
-}
-
-void Window::display() {   
-  Object obj = Object(
-    Object::Renderer(draw),
-    Vec3D(0.5, 0.5, 0.0),
-    Vec3D(1.0, 1.0, 1.0),
-    Vec3D::ypr(0.0, 0.0, 45.0)
-  );
+void Window::display() {
+  Ptr win = current_window();
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  obj.render();
+  vector<Object::Ptr>::iterator it;
+  for (it = win->objects_.begin(); it != win->objects_.end(); ++it)
+    (*it)->render();
   //glBegin(GL_TRIANGLES);
   //  tetraedro(n);
   //glEnd();        

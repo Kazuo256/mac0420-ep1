@@ -3,8 +3,11 @@
 #define EP1_WINDOW_H_
 
 #include <string>
+#include <vector>
 #include <tr1/unordered_map>
 #include <tr1/memory>
+
+#include "object.h"
 
 namespace ep1 {
 
@@ -18,6 +21,9 @@ class Window {
      ** Even if created, a window is only displayed if it has been initialized
      ** before. */
     void init ();
+    /** Adds an object to be drawn in the window.
+     ** @param obj The object to de added. */
+    void add_object(const Object::Ptr& obj);
     /** Creates a new window object.
      ** @param caption - The window's caption. */
     static Ptr create (const std::string& caption) {
@@ -27,7 +33,9 @@ class Window {
     }
   private:
     /** Glut window's id. */
-    int id_;
+    int                       id_;
+    /** Objects to be drawn. */
+    std::vector<Object::Ptr>  objects_;
     /** Reference base for all created windows. */
     static std::tr1::unordered_map<int, Ptr> windows_;
     /** Constructor.

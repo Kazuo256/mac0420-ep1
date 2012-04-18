@@ -24,6 +24,11 @@ void CreateCube (vector<ep1::Vec3D> infos) {
         info_cube[z][y][x] = infos[z*nY*nX+y*nX+x];
 }
 
+static void draw () {
+  puts("DRAW");
+  glutWireCube(0.1);
+}
+
 void init (int argc, char **argv) {
   vector<Vec3D> infos;
  
@@ -40,6 +45,7 @@ void init (int argc, char **argv) {
   glutInitWindowSize(500, 500);
   win = Window::create("Tarefa 3 - 3D Version");
   win->init();
+  win->add_object(Object::create(Object::Renderer(draw)));
 }
 
 void run () {
