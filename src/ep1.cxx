@@ -14,14 +14,15 @@ static cube info_cube;
 
 void CreateCube (vector<ep1::Vec3D> infos) {
   int x, y, z, nX, nY, nZ;
-  nX = infos[1].x();
-  nY = infos[1].y();
-  nZ = infos[1].z();
+  nX = infos[0].x();
+  nY = infos[0].y();
+  nZ = infos[0].z();
 
-  for (z = 0; z < infos[0].z(); z++)
-    for (y = 0; y < infos[0].y(); y++) 
-      for (x = 0; x < infos[0].x(); x++)
-        info_cube[z][y][x] = infos[z*nY*nX+y*nX+x];
+  for (z = 0; z < nZ; z++)
+    for (y = 0; y < nY; y++) 
+      for (x = 0; x < nX; x++)
+        info_cube[z][y][x] = infos[z*nY*nX+y*nX+x+2];
+
 }
 
 void init (int argc, char **argv) {
