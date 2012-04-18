@@ -28,7 +28,7 @@ std::vector<ep1::Vec3D>
 
   for (count = 0; count < nX*nY*nZ; count++) {
     fgets(buffer, BUFFER_SIZE, pfile);
-    sscanf(buffer, "%f %f %f", &X, &Y, &Z);
+    sscanf(buffer, "%lf %lf %lf", &X, &Y, &Z);
     infos.push_back(Vec3D(X, Y, Z));     
   }
   
