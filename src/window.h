@@ -14,6 +14,7 @@ namespace ep1 {
 /** Represents a graphic window. */
 class Window {
   public:
+    /** Reference-counting smart pointer for window objects. */
     typedef std::tr1::shared_ptr<Window> Ptr;
     /** Destructor. */
     ~Window () {}
