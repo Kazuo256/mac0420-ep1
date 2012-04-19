@@ -26,7 +26,6 @@ void CreateCube (vector<ep1::Vec3D> infos) {
 }
 
 static void draw () {
-  puts("DRAW");
   glutWireCube(0.1);
 }
 
@@ -53,7 +52,7 @@ void init (int argc, char **argv) {
   }
   Window::Ptr win;
   glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
   glutInitWindowSize(500, 500);
   win = Window::create("Tarefa 3 - 3D Version");
   win->init();
