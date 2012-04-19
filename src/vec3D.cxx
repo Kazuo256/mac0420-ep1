@@ -2,18 +2,17 @@
 #include <cstdio>
 #include <cmath>
 
-#include "getglut.h"
 #include "vec3D.h"
 
 #define PI 3.1415926535898
 
 namespace ep1 {
 
-GLdouble Vec3D::length () const {
+double Vec3D::length () const {
   return sqrt(x_*x_ + y_*y_ + z_*z_);
 }
 
-GLdouble Vec3D::angle_to (const Vec3D& rhs) const {
+double Vec3D::angle_to (const Vec3D& rhs) const {
   return acos(normalized()*rhs.normalized())*180.0/PI;
 }
 
@@ -27,7 +26,7 @@ void Vec3D::dump () const {
   printf("<%lf, %lf, %lf>\n", x_, y_, z_);
 }
 
-Vec3D Vec3D::ypr (GLdouble yaw, GLdouble pitch, GLdouble roll) {
+Vec3D Vec3D::ypr (double yaw, double pitch, double roll) {
   return Vec3D(pitch, yaw, roll);
 }
 
