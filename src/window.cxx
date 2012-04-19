@@ -12,25 +12,36 @@ using std::tr1::unordered_map;
 
 unordered_map<int, Window::Ptr> Window::windows_;
 
-Window::Window (const std::string& caption) {
+Window::Window (const std::string& caption) :
+  camera_pos_(0.0, 0.0, 1.0),
+  camera_target(0.0, 0.0, 0.0) {
   id_ = glutCreateWindow(caption.c_str());
+}
+
+static void set_ortho () {
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  glOrtho(-1, 1, -1, 1, -1, 1);
+}
+
+static void set_perspective () {
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  gluPerspective(60.0, 1.0, 1.0, 256.0);
 }
 
 static void init_opengl()
 {
-    int i;
-    Vec3D b;
-    
-    glEnable(GL_DEPTH_TEST);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(-1, 1, -1, 1, -1, 1);
- 
-    glMatrixMode(GL_MODELVIEW);   
-    glLoadIdentity();
-    
-    glClearColor(0.0, 0.0, 0.0, 1.0);
-    glColor3f(1.0,1.0,1.0);
+  int i;
+  Vec3D b;
+  
+  glEnable(GL_DEPTH_TEST);
+  set_ortho();
+  //set_perspective();
+
+  glMatrixMode(GL_MODELVIEW);
+  glClearColor(0.0, 0.0, 0.0, 1.0);
+  glLineWidth(2.0);
 }
 
 void Window::init () {
@@ -74,11 +85,25 @@ void Window::mouse(int btn, int state, int x, int y)
 }
 
 void Window::display() {
+  // Get the current window.
   Ptr win = current_window();
+  // Prepare for drawing the scene.
+  glMatrixMode(GL_MODELVIEW);   
+  glLoadIdentity();
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  // Position the camera.
+  //glTranslated(0.0, 0.0, -2.0);
+  gluLookAt(win->camera_pos_.x(), win->camera_pos_.y(), win->camera_pos_.z(),
+            win->camera_target.x(), win->camera_target.y(), win->camera_target.z(),
+            0.0, 1.0, 0.0);
+  // Render all objects.
   vector<Object::Ptr>::iterator it;
-  for (it = win->objects_.begin(); it != win->objects_.end(); ++it)
+  for (it = win->objects_.begin(); it != win->objects_.end(); ++it) {
+    glPushMatrix();
     (*it)->render();
+    glPopMatrix();
+  }
+  // Swap buffer to display result.
   glutSwapBuffers();
 }
 

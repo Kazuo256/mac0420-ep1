@@ -26,7 +26,8 @@ void CreateCube (vector<ep1::Vec3D> infos) {
 }
 
 static void draw () {
-  glutWireCube(0.1);
+  glColor3d(1.0, 1.0, 1.0);
+  glutWireCube(.5);
 }
 
 void init (int argc, char **argv) {
