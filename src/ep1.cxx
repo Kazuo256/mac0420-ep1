@@ -54,7 +54,7 @@ void init (int argc, char **argv) {
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
   glutInitWindowSize(500, 500);
-  win = Window::create("Tarefa 3 - 3D Version");
+  win = Window::create("MAC0420 - EP1");
   win->init();
   win->add_object(Object::create(Object::Renderer(draw)));
 }
