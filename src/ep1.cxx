@@ -37,17 +37,9 @@ void init (int argc, char **argv) {
     infos = utils::LoadForceFieldInfo(argv[1]);
     info_cube = cube(infos[0].z(), matrix(infos[0].y(), vector<Vec3D>(infos[0].x())));
     CreateCube(infos);
-    printf("V.x %f  ", info_cube[0][0][0].x());
-    printf("V.y %f  ", info_cube[0][0][0].y());
-    printf("V.z %f\n", info_cube[0][0][0].z());
-    
-    printf("V.x %f  ", info_cube[0][0][2].x());
-    printf("V.y %f  ", info_cube[0][0][2].y());
-    printf("V.z %f\n", info_cube[0][0][2].z());
-
-    printf("V.x %f  ", info_cube[15][15][15].x());
-    printf("V.y %f  ", info_cube[15][15][15].y());
-    printf("V.z %f\n", info_cube[15][15][15].z());
+    info_cube[0][0][0].dump();
+    info_cube[0][0][2].dump();
+    info_cube[15][15][15].dump();
 
   }
   Window::Ptr win;
