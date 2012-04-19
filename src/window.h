@@ -11,44 +11,44 @@
 
 namespace ep1 {
 
-/** Represents a graphic window. */
+/// Represents a graphic window.
 class Window {
   public:
-    /** Reference-counting smart pointer for window objects. */
+    /// Reference-counting smart pointer for window objects.
     typedef std::tr1::shared_ptr<Window> Ptr;
-    /** Destructor. */
+    /// Destructor.
     ~Window () {}
-    /** Initializes the window.
-     ** Even if created, a window is only displayed if it has been initialized
+    /// Initializes the window.
+    /** Even if created, a window is only displayed if it has been initialized
      ** before. */
     void init ();
-    /** Adds an object to be drawn in the window.
-     ** @param obj The object to de added. */
+    /// Adds an object to be drawn in the window.
+    /** @param obj The object to de added. */
     void add_object(const Object::Ptr& obj);
-    /** Creates a new window object.
-     ** @param caption - The window's caption. */
+    /// Creates a new window object.
+    /** @param caption - The window's caption. */
     static Ptr create (const std::string& caption) {
       Ptr created(new Window(caption));
       windows_[created->id_] = created;
       return created;
     }
   private:
-    /** Glut window's id. */
+    /// Glut window's id.
     int                       id_;
-    /** Objects to be drawn. */
+    /// Objects to be drawn.
     std::vector<Object::Ptr>  objects_;
-    /** Reference base for all created windows. */
+    /// Reference base for all created windows.
     static std::tr1::unordered_map<int, Ptr> windows_;
-    /** Constructor.
-     ** @param caption - The window's caption. */
+    /// Constructor.
+    /** @param caption - The window's caption. */
     explicit Window (const std::string& caption);
-    /** Retrieves the current window. */
+    /// Retrieves the current window.
     static Ptr current_window();
-    /** Display callback function for all windows. */
+    /// Display callback function for all windows.
     static void display ();
-    /** Reshape callback function for all windows. */
+    /// Reshape callback function for all windows.
     static void reshape (int w, int h);
-    /** Mouse callback function for all windows. */
+    /// Mouse callback function for all windows.
     static void mouse (int btn, int state, int x, int y);
 };
 
