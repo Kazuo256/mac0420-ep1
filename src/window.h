@@ -41,8 +41,6 @@ class Window {
     ep1::Vec3D                camera_pos_;
     /// Camera target.
     ep1::Vec3D                camera_target;
-    /// Wheter perspective projective is active or not.
-    bool                      perspective_;
     /// Reference base for all created windows.
     static std::tr1::unordered_map<int, Ptr> windows_;
     /// Constructor.
