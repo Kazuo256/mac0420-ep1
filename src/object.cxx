@@ -18,10 +18,8 @@ static void rotate_to_dir (const Vec3D& v) {
 }
 
 void Object::render () const {
-  glLoadIdentity();
   glTranslated(position_.x(), position_.y(), position_.z());
   glScaled(size_.x(), size_.y(), size_.z());
-  rotation_.dump();
   rotate_to_dir(rotation_);
   renderer_();
 }
