@@ -39,6 +39,7 @@ class Vec3D {
     static Vec3D Y () { return Vec3D(0.0, 1.0, 0.0); }
     static Vec3D Z () { return Vec3D(0.0, 0.0, 1.0); }
     static Vec3D ypr (GLdouble yaw, GLdouble pitch, GLdouble roll);
+    static Vec3D dir (const Vec3D& v, const Vec3D& up = Vec3D::Y()); 
   private:
     union {
       struct {
