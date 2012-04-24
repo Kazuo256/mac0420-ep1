@@ -1,6 +1,7 @@
 
 #include "getglut.h"
 #include "window.h"
+#include <cmath>
 #include "utils.h"
 
 namespace ep1 {
@@ -11,7 +12,8 @@ typedef vector< vector< vector< Vec3D > > > cube;
 typedef vector< vector< Vec3D > > matrix;
 
 static cube info_cube;
-static Vec3D max_vec, min_vec, dist;
+static Vec3D max_vec, min_vec;
+static double glyph_size;
 
 void CreateCube (vector<ep1::Vec3D> infos) {
   int x, y, z, nX, nY, nZ, actual_pos;
@@ -19,9 +21,9 @@ void CreateCube (vector<ep1::Vec3D> infos) {
   nY = infos[0].y();
   nZ = infos[0].z();
   
-  max_vec = infos[0];
-  min_vec = infos[0];
-  dist = infos[1];
+  max_vec = infos[2];
+  min_vec = infos[2];
+  glyph_size = sqrt(infos[1]*infos[1]);
   for (z = 0; z < nZ; z++)
     for (y = 0; y < nY; y++) 
       for (x = 0; x < nX; x++) {
@@ -43,11 +45,26 @@ static void draw () {
   glutWireCube(.5);
 }
 
+static void draw_cone () {
+  glColor3d(1.0, 0.50, 0.50);
+  gluCylinder( gluNewQuadric(), 0.25, 0.0, 0.25, 10, 10);  
+}
+
+static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& numbers){
+  int x, y, z;
+ 
+  for (x = 0; x < numbers.x(); x++ )
+    for (y = 0; y < numbers.y(); y++)
+      for (z = 0; z < numbers.z(); z++) {
+        Vec3D position(dist.x()*x, dist.y()*y, dist.z()*z);
+        Vec3D size(1.0, 1.0, info_cube[x][y][z].length()*glyph_size/max_vec.length());
+        Vec3D rotation = Vec3D::dir(info_cube[x][y][z]); 
+        win->add_object(Object::create(Object::Renderer(draw_cone), position, size, rotation));
+      }
+} 
+
 void init (int argc, char **argv) {
   vector<Vec3D> infos;
-  Vec3D teste(1.0, 1.0, 1.0);
-
-  ep1::Vec3D::dir(teste);
   
   if (argc < 2) printf("NOME DO ARQUIVO DEUSES DO CAOS\n");
   else {
@@ -62,6 +79,7 @@ void init (int argc, char **argv) {
   win = Window::create("MAC0420 - EP1");
   win->init();
   win->add_object(Object::create(Object::Renderer(draw)));
+  add_cones(win, infos[1], infos[0]);
 }
 
 void run () {
