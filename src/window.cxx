@@ -1,5 +1,6 @@
 
 #include <cstdio>
+#include <cmath>
 #include <algorithm>
 
 #include "getglut.h"
@@ -14,8 +15,6 @@ using std::tr1::unordered_map;
 unordered_map<int, Window::Ptr> Window::windows_;
 
 Window::Window (const std::string& caption) :
-  camera_pos_(0.0, 0.0, 1.0),
-  camera_target_(0.0, 0.0, 0.0),
   perspective_(false),
   mouse_pos_(0, 0) {
   id_ = glutCreateWindow(caption.c_str());
@@ -45,6 +44,8 @@ void Window::init (double w, double h, double d) {
   height_ = h;
   depth_ = d;
   init_opengl(*this);
+  camera_pos_ = Vec3D(width_/2.0, height_/2.0, 2.0*depth_);
+  camera_target_ = Vec3D(width_/2.0, height_/2.0, depth_/2.0);
 }
 
 void Window::add_object(const Object::Ptr& obj) {
@@ -56,7 +57,11 @@ void Window::set_ortho () {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   double max_dimension = std::max(std::max(width_, height_), depth_);
-  glOrtho(0.0, max_dimension*1.2, 0.0, max_dimension*1.2, 0, max_dimension*1.2);
+  glOrtho(
+    -0.75*max_dimension, 0.75*max_dimension,
+    -0.75*max_dimension, 0.75*max_dimension,
+    -2.0*max_dimension, 2*max_dimension
+  );
   glMatrixMode(GL_MODELVIEW);
 }
 
@@ -64,7 +69,7 @@ void Window::set_perspective () {
   perspective_ = true;
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  gluPerspective(60.0, 1.0, 0.1, depth_*1.2);
+  gluPerspective(60.0, 1.0, depth_*0.1, depth_*2.0);
   glMatrixMode(GL_MODELVIEW);
 }
 
@@ -114,8 +119,8 @@ void Window::motion (int x, int y) {
   Ptr win = current_window();
   if (win->buttons_[0]) {
     Vec3D movement = 
-      Vec3D::X()*(x - win->mouse_pos_.first)*0.01 +
-      Vec3D::Y()*-(y - win->mouse_pos_.second)*0.01;
+      Vec3D::X()*(x - win->mouse_pos_.first)*0.1 +
+      Vec3D::Y()*-(y - win->mouse_pos_.second)*0.1;
     win->camera_pos_ += movement;
     win->camera_target_ += movement;
   }
