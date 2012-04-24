@@ -59,7 +59,7 @@ static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& n
         Vec3D position(dist.x()*x, dist.y()*y, dist.z()*z);
         Vec3D size(1.0, 1.0, info_cube[x][y][z].length()*glyph_size/max_vec.length());
         Vec3D rotation = Vec3D::dir(info_cube[x][y][z]); 
-        win->add_object(Object::create(Object::Renderer(draw_cone)));
+        win->add_object(Object::create(Object::Renderer(draw_cone), position, size, rotation));
       }
 } 
 
