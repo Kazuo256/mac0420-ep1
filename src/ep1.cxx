@@ -32,17 +32,16 @@ static void draw () {
 
 void init (int argc, char **argv) {
   vector<Vec3D> infos;
- 
+  Vec3D teste(1.0, 1.0, 1.0);
+
+  ep1::Vec3D::dir(teste);
+  
   if (argc < 2) printf("NOME DO ARQUIVO DEUSES DO CAOS\n");
   else {
     infos = utils::LoadForceFieldInfo(argv[1]);
     info_cube = cube(infos[0].z(), matrix(infos[0].y(), vector<Vec3D>(infos[0].x())));
     CreateCube(infos);
-    info_cube[0][0][0].dump();
-    info_cube[0][0][2].dump();
-    info_cube[15][15][15].dump();
-
-  }
+  }  
   Window::Ptr win;
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);

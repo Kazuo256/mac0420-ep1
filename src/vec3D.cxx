@@ -13,7 +13,8 @@ double Vec3D::length () const {
 }
 
 double Vec3D::angle_to (const Vec3D& rhs) const {
-  return acos(normalized()*rhs.normalized())*180.0/PI;
+  if (*this == rhs) return 0.0;
+  else return acos(normalized()*rhs.normalized())*180.0/PI;
 }
 
 Vec3D Vec3D::normalized () const {
@@ -30,15 +31,31 @@ Vec3D Vec3D::ypr (double yaw, double pitch, double roll) {
   return Vec3D(pitch, yaw, roll);
 }
 
+Vec3D ortho (const Vec3D& v, const Vec3D& up) {
+  Vec3D result;
+
+  result = v/up;
+  return result/v;
+}
+
 Vec3D Vec3D::dir (const Vec3D& v, const Vec3D& up) {
-  Vec3D v_dir, v_norm = v.normalized();
+  Vec3D v_dir, aux, y;
   double yaw, pitch, roll;
 
-  roll = v_norm.angle_to(Vec3D::Z());
-  v_norm.set_y(0.0);
-  v_norm.normalized();
+  aux = v;
+  aux.set_y(0.0);
+  pitch = aux.angle_to(v);
+  printf("Pitch = %f graus\n", pitch);
 
-  pitch = 0;
+  yaw = aux.angle_to(Vec3D::Z());
+  printf("Pitch = %f graus\n", yaw);
+
+  aux = ortho(v, up);
+  y = ortho(v, Vec3D::Y());
+  roll = aux.angle_to(y);
+  printf("Roll = %f graus\n", roll);
+  
+  return ypr(yaw, pitch, roll);
 }
 
 } // namespace ep1
