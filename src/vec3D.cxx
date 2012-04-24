@@ -32,13 +32,13 @@ Vec3D Vec3D::ypr (double yaw, double pitch, double roll) {
 
 Vec3D Vec3D::dir (const Vec3D& v, const Vec3D& up) {
   Vec3D v_dir, v_norm = v.normalized();
-  GLdouble yaw, pitch, roll;
+  double yaw, pitch, roll;
 
   roll = v_norm.angle_to(Vec3D::Z());
   v_norm.set_y(0.0);
   v_norm.normalized();
 
-  pitch = 
+  pitch = 0;
 }
 
 } // namespace ep1
