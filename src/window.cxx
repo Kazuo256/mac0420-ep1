@@ -18,6 +18,7 @@ Window::Window (const std::string& caption) :
   id_ = glutCreateWindow(caption.c_str());
 }
 
+/*
 static void set_ortho () {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
@@ -29,15 +30,15 @@ static void set_perspective () {
   glLoadIdentity();
   gluPerspective(60.0, 1.0, 1.0, 256.0);
 }
+*/
 
-static void init_opengl()
-{
+static void init_opengl (Window& win) {
   int i;
   Vec3D b;
   
   glEnable(GL_DEPTH_TEST);
-  set_ortho();
-  //set_perspective();
+  //win.set_ortho();
+  win.set_perspective();
 
   glMatrixMode(GL_MODELVIEW);
   glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -49,19 +50,45 @@ void Window::init () {
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
   glutMouseFunc(mouse);
-  init_opengl();
+  glutKeyboardFunc(keyboard);
+  init_opengl(*this);
 }
 
 void Window::add_object(const Object::Ptr& obj) {
   objects_.push_back(obj);
 }
 
+void Window::set_ortho () {
+  perspective_ = false;
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  glOrtho(-1, 1, -1, 1, -1, 1);
+  glMatrixMode(GL_MODELVIEW);
+}
+
+void Window::set_perspective () {
+  perspective_ = true;
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  gluPerspective(60.0, 1.0, 0.5, 2.0);
+  glMatrixMode(GL_MODELVIEW);
+}
+
+void Window::toggle_projection () {
+  if (glutGetWindow() != id_)
+    glutSetWindow(id_);
+  if (perspective_)
+    set_ortho();
+  else
+    set_perspective();
+  glutPostRedisplay();
+}
+
 Window::Ptr Window::current_window() {
   return windows_[glutGetWindow()];
 }
 
-void Window::reshape(int w, int h)
-{
+void Window::reshape(int w, int h) {
    int x = 0, y = 0;
    if (w > h) {
          x = (w - h) / 2;
@@ -74,8 +101,7 @@ void Window::reshape(int w, int h)
    glViewport((GLint)x, (GLint)y, (GLint)w, (GLint)h); 
 }
 
-void Window::mouse(int btn, int state, int x, int y)
-{
+void Window::mouse (int btn, int state, int x, int y) {
    if (btn==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
    	  ;
    if (btn==GLUT_RIGHT_BUTTON && state==GLUT_DOWN)
@@ -84,7 +110,18 @@ void Window::mouse(int btn, int state, int x, int y)
    glutPostRedisplay();
 }
 
-void Window::display() {
+void Window::keyboard (unsigned char key, int x, int y) {
+  Ptr win = current_window();
+  if (!win) puts("BAD APPLE");
+  switch (key) {
+    case '\t':
+      win->toggle_projection();
+      break;
+    default: break;
+  }
+}
+
+void Window::display () {
   // Get the current window.
   Ptr win = current_window();
   // Prepare for drawing the scene.

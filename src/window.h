@@ -24,7 +24,13 @@ class Window {
     void init ();
     /// Adds an object to be drawn in the window.
     /** @param obj The object to de added. */
-    void add_object(const Object::Ptr& obj);
+    void add_object (const Object::Ptr& obj);
+    /// Activates orthgonal projection.
+    void set_ortho ();
+    /// Activates perspective projection.
+    void set_perspective ();
+    /// Toggles between orthogonal and perspective projection.
+    void toggle_projection ();
     /// Creates a new window object.
     /** @param caption - The window's caption. */
     static Ptr create (const std::string& caption) {
@@ -41,6 +47,8 @@ class Window {
     ep1::Vec3D                camera_pos_;
     /// Camera target.
     ep1::Vec3D                camera_target;
+    /// Camera perspective projection flag.
+    bool                      perspective_;
     /// Reference base for all created windows.
     static std::tr1::unordered_map<int, Ptr> windows_;
     /// Constructor.
@@ -54,6 +62,8 @@ class Window {
     static void reshape (int w, int h);
     /// Mouse callback function for all windows.
     static void mouse (int btn, int state, int x, int y);
+    /// Keyboard callsback function for all windows.
+    static void keyboard (unsigned char key, int x, int y);
 };
 
 } // namespace ep1
