@@ -22,7 +22,7 @@ class Window {
     /// Initializes the window.
     /** Even if created, a window is only displayed if it has been initialized
      ** before. */
-    void init ();
+    void init (double w, double h, double d);
     /// Adds an object to be drawn in the window.
     /** @param obj The object to de added. */
     void add_object (const Object::Ptr& obj);
@@ -42,6 +42,12 @@ class Window {
   private:
     /// Glut window's id.
     int                       id_;
+    /// Space width.
+    double                    width_;
+    /// Space height.
+    double                    height_;
+    /// Space depth.
+    double                    depth_;
     /// Objects to be drawn.
     std::vector<Object::Ptr>  objects_;
     /// Camera position.

@@ -1,5 +1,6 @@
 
 #include <cstdio>
+#include <algorithm>
 
 #include "getglut.h"
 #include "vec3D.h"
@@ -21,40 +22,28 @@ Window::Window (const std::string& caption) :
   buttons_[0] = buttons_[1] = buttons_[2] = false;
 }
 
-/*
-static void set_ortho () {
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  glOrtho(-1, 1, -1, 1, -1, 1);
-}
-
-static void set_perspective () {
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  gluPerspective(60.0, 1.0, 1.0, 256.0);
-}
-*/
-
 static void init_opengl (Window& win) {
   int i;
   Vec3D b;
   
   glEnable(GL_DEPTH_TEST);
-  //win.set_ortho();
-  win.set_perspective();
+  win.set_ortho();
 
   glMatrixMode(GL_MODELVIEW);
   glClearColor(0.0, 0.0, 0.0, 1.0);
   glLineWidth(2.0);
 }
 
-void Window::init () {
+void Window::init (double w, double h, double d) {
   glutSetWindow(id_);
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
   glutMouseFunc(mouse);
   glutMotionFunc(motion);
   glutKeyboardFunc(keyboard);
+  width_ = w;
+  height_ = h;
+  depth_ = d;
   init_opengl(*this);
 }
 
@@ -66,7 +55,8 @@ void Window::set_ortho () {
   perspective_ = false;
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  glOrtho(-1, 1, -1, 1, -1, 1);
+  double max_dimension = std::max(std::max(width_, height_), depth_);
+  glOrtho(0.0, max_dimension*1.2, 0.0, max_dimension*1.2, 0, max_dimension*1.2);
   glMatrixMode(GL_MODELVIEW);
 }
 
@@ -74,7 +64,7 @@ void Window::set_perspective () {
   perspective_ = true;
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  gluPerspective(60.0, 1.0, 0.5, 2.0);
+  gluPerspective(60.0, 1.0, 0.1, depth_*1.2);
   glMatrixMode(GL_MODELVIEW);
 }
 

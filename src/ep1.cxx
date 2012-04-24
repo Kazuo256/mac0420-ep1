@@ -77,7 +77,7 @@ void init (int argc, char **argv) {
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
   glutInitWindowSize(500, 500);
   win = Window::create("MAC0420 - EP1");
-  win->init();
+  win->init(infos[0].x(), infos[0].y(), infos[0].z());
   win->add_object(Object::create(Object::Renderer(draw)));
   add_cones(win, infos[1], infos[0]);
 }
