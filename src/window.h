@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include <utility>
 #include <tr1/unordered_map>
 #include <tr1/memory>
 
@@ -46,9 +47,13 @@ class Window {
     /// Camera position.
     ep1::Vec3D                camera_pos_;
     /// Camera target.
-    ep1::Vec3D                camera_target;
+    ep1::Vec3D                camera_target_;
     /// Camera perspective projection flag.
     bool                      perspective_;
+    /// Indicates which mouse buttons are currently pressed.
+    bool                      buttons_[3];
+    /// Last mouse position detected.
+    std::pair<int,int>        mouse_pos_;
     /// Reference base for all created windows.
     static std::tr1::unordered_map<int, Ptr> windows_;
     /// Constructor.
@@ -62,6 +67,8 @@ class Window {
     static void reshape (int w, int h);
     /// Mouse callback function for all windows.
     static void mouse (int btn, int state, int x, int y);
+    /// Mouse motion callback function for all windows.
+    static void motion (int x, int y);
     /// Keyboard callsback function for all windows.
     static void keyboard (unsigned char key, int x, int y);
 };

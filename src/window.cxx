@@ -14,8 +14,11 @@ unordered_map<int, Window::Ptr> Window::windows_;
 
 Window::Window (const std::string& caption) :
   camera_pos_(0.0, 0.0, 1.0),
-  camera_target(0.0, 0.0, 0.0) {
+  camera_target_(0.0, 0.0, 0.0),
+  perspective_(false),
+  mouse_pos_(0, 0) {
   id_ = glutCreateWindow(caption.c_str());
+  buttons_[0] = buttons_[1] = buttons_[2] = false;
 }
 
 /*
@@ -50,6 +53,7 @@ void Window::init () {
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
   glutMouseFunc(mouse);
+  glutMotionFunc(motion);
   glutKeyboardFunc(keyboard);
   init_opengl(*this);
 }
@@ -89,25 +93,44 @@ Window::Ptr Window::current_window() {
 }
 
 void Window::reshape(int w, int h) {
-   int x = 0, y = 0;
-   if (w > h) {
-         x = (w - h) / 2;
-         w = h;
-   } else if (w < h) {
-         y = (h - w) / 2; 
-         h = w;
-   }
-   
-   glViewport((GLint)x, (GLint)y, (GLint)w, (GLint)h); 
+  int x = 0, y = 0;
+  if (w > h) {
+    x = (w - h) / 2;
+    w = h;
+  } else if (w < h) {
+    y = (h - w) / 2; 
+    h = w;
+  }
+  glViewport((GLint)x, (GLint)y, (GLint)w, (GLint)h); 
+  glutPostRedisplay();
 }
 
 void Window::mouse (int btn, int state, int x, int y) {
-   if (btn==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
-   	  ;
-   if (btn==GLUT_RIGHT_BUTTON && state==GLUT_DOWN)
-   	  ;
-   	  
-   glutPostRedisplay();
+  Ptr win = current_window();
+  bool new_state = (state == GLUT_DOWN);
+  switch (btn) {
+    case GLUT_LEFT_BUTTON:
+      win->buttons_[0] = new_state;
+    case GLUT_MIDDLE_BUTTON:
+      win->buttons_[1] = new_state;
+    case GLUT_RIGHT_BUTTON:
+      win->buttons_[2] = new_state;
+  }
+  win->mouse_pos_ = std::make_pair(x, y);
+  glutPostRedisplay();
+}
+
+void Window::motion (int x, int y) {
+  Ptr win = current_window();
+  if (win->buttons_[0]) {
+    Vec3D movement = 
+      Vec3D::X()*(x - win->mouse_pos_.first)*0.01 +
+      Vec3D::Y()*-(y - win->mouse_pos_.second)*0.01;
+    win->camera_pos_ += movement;
+    win->camera_target_ += movement;
+  }
+  win->mouse_pos_ = std::make_pair(x, y);
+  glutPostRedisplay();
 }
 
 void Window::keyboard (unsigned char key, int x, int y) {
@@ -131,7 +154,7 @@ void Window::display () {
   // Position the camera.
   //glTranslated(0.0, 0.0, -2.0);
   gluLookAt(win->camera_pos_.x(), win->camera_pos_.y(), win->camera_pos_.z(),
-            win->camera_target.x(), win->camera_target.y(), win->camera_target.z(),
+            win->camera_target_.x(), win->camera_target_.y(), win->camera_target_.z(),
             0.0, 1.0, 0.0);
   // Render all objects.
   vector<Object::Ptr>::iterator it;
