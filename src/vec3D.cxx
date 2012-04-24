@@ -45,15 +45,12 @@ Vec3D Vec3D::dir (const Vec3D& v, const Vec3D& up) {
   aux = v;
   aux.set_y(0.0);
   pitch = aux.angle_to(v);
-  printf("Pitch = %f graus\n", pitch);
 
   yaw = aux.angle_to(Vec3D::Z());
-  printf("Pitch = %f graus\n", yaw);
 
   aux = ortho(v, up);
   y = ortho(v, Vec3D::Y());
   roll = aux.angle_to(y);
-  printf("Roll = %f graus\n", roll);
   
   return ypr(yaw, pitch, roll);
 }
