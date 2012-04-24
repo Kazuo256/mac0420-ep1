@@ -11,18 +11,31 @@ typedef vector< vector< vector< Vec3D > > > cube;
 typedef vector< vector< Vec3D > > matrix;
 
 static cube info_cube;
+static Vec3D max_vec, min_vec, dist;
 
 void CreateCube (vector<ep1::Vec3D> infos) {
-  int x, y, z, nX, nY, nZ;
+  int x, y, z, nX, nY, nZ, actual_pos;
   nX = infos[0].x();
   nY = infos[0].y();
   nZ = infos[0].z();
-
+  
+  max_vec = infos[0];
+  min_vec = infos[0];
+  dist = infos[1];
   for (z = 0; z < nZ; z++)
     for (y = 0; y < nY; y++) 
-      for (x = 0; x < nX; x++)
-        info_cube[z][y][x] = infos[z*nY*nX+y*nX+x+2];
+      for (x = 0; x < nX; x++) {
+        /*  Actual_pos = The real position that will represent
+            the vector we want in infos.*/ 
+        actual_pos = z*nY*nX+y*nX+x+2;
+        if (infos[actual_pos].length() > max_vec.length())
+          max_vec = infos[actual_pos];
+        else if (infos[actual_pos].length() < min_vec.length())
+          min_vec = infos[actual_pos];
+ 
+        info_cube[z][y][x] = infos[actual_pos];
 
+      }
 }
 
 static void draw () {
