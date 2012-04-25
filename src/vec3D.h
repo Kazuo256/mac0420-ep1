@@ -25,6 +25,7 @@ class Vec3D {
     bool operator == (const Vec3D& rhs) const;
     Vec3D operator - () const;
     Vec3D operator + (const Vec3D& rhs) const;
+    Vec3D& operator += (const Vec3D& rhs);
     Vec3D operator - (const Vec3D& rhs) const;
     double operator * (const Vec3D& rhs) const;
     /** Vetorial product. */
@@ -61,6 +62,13 @@ inline Vec3D Vec3D::operator - () const {
 
 inline Vec3D Vec3D::operator + (const Vec3D& rhs) const {
   return Vec3D(x_ + rhs.x_, y_ + rhs.y_, z_ + rhs.z_);
+}
+
+inline Vec3D& Vec3D::operator += (const Vec3D& rhs) {
+  x_ += rhs.x_;
+  y_ += rhs.y_;
+  z_ += rhs.z_;
+  return *this;
 }
 
 inline Vec3D Vec3D::operator - (const Vec3D& rhs) const {
