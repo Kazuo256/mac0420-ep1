@@ -47,7 +47,7 @@ static void draw () {
 
 static void draw_cone () {
   glColor3d(1.0, 0.50, 0.50);
-  gluCylinder( gluNewQuadric(), 0.25, 0.0, 0.25, 10, 10);  
+  gluCylinder( gluNewQuadric(), 0.25, 0.0, 1.0, 10, 10);  
 }
 
 static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& numbers){
