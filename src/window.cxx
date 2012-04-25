@@ -44,8 +44,8 @@ void Window::init (double w, double h, double d) {
   height_ = h;
   depth_ = d;
   init_opengl(*this);
-  camera_pos_ = Vec3D(width_/2.0, height_/2.0, 2.0*depth_);
-  camera_target_ = Vec3D(width_/2.0, height_/2.0, depth_/2.0);
+  camera_pos_ = Vec3D(width_/2.0, -height_/2.0, depth_);
+  camera_target_ = Vec3D(width_/2.0, -height_/2.0, -depth_/2.0);
 }
 
 void Window::add_object(const Object::Ptr& obj) {
@@ -149,7 +149,8 @@ void Window::display () {
   // Position the camera.
   //glTranslated(0.0, 0.0, -2.0);
   gluLookAt(win->camera_pos_.x(), win->camera_pos_.y(), win->camera_pos_.z(),
-            win->camera_target_.x(), win->camera_target_.y(), win->camera_target_.z(),
+            win->camera_target_.x(), win->camera_target_.y(),
+            win->camera_target_.z(),
             0.0, 1.0, 0.0);
   // Render all objects.
   vector<Object::Ptr>::iterator it;
