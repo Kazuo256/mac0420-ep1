@@ -54,28 +54,27 @@ void Window::add_object(const Object::Ptr& obj) {
 
 void Window::set_ortho () {
   perspective_ = false;
+  set_current();
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   double max_dimension = std::max(std::max(width_, height_), depth_);
   glOrtho(
     -0.75*max_dimension, 0.75*max_dimension,
     -0.75*max_dimension, 0.75*max_dimension,
-    -2.0*max_dimension, 2*max_dimension
+    -2.0*max_dimension, 10.0*max_dimension
   );
-  glMatrixMode(GL_MODELVIEW);
 }
 
 void Window::set_perspective () {
   perspective_ = true;
+  set_current();
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  gluPerspective(60.0, 1.0, depth_*0.1, depth_*2.0);
+  gluPerspective(60.0, 1.0, depth_*0.1, depth_*10.0);
   glMatrixMode(GL_MODELVIEW);
 }
 
 void Window::toggle_projection () {
-  if (glutGetWindow() != id_)
-    glutSetWindow(id_);
   if (perspective_)
     set_ortho();
   else
@@ -83,7 +82,12 @@ void Window::toggle_projection () {
   glutPostRedisplay();
 }
 
-Window::Ptr Window::current_window() {
+void Window::set_current () {
+  if (glutGetWindow() != id_)
+    glutSetWindow(id_);
+}
+
+Window::Ptr Window::current_window () {
   return windows_[glutGetWindow()];
 }
 
@@ -106,10 +110,14 @@ void Window::mouse (int btn, int state, int x, int y) {
   switch (btn) {
     case GLUT_LEFT_BUTTON:
       win->buttons_[0] = new_state;
+      break;
     case GLUT_MIDDLE_BUTTON:
       win->buttons_[1] = new_state;
+      break;
     case GLUT_RIGHT_BUTTON:
       win->buttons_[2] = new_state;
+      break;
+    default: break;
   }
   win->mouse_pos_ = std::make_pair(x, y);
   glutPostRedisplay();
@@ -117,12 +125,15 @@ void Window::mouse (int btn, int state, int x, int y) {
 
 void Window::motion (int x, int y) {
   Ptr win = current_window();
+  Vec3D movement = 
+    Vec3D::X()*(x - win->mouse_pos_.first) +
+    Vec3D::Y()*-(y - win->mouse_pos_.second);
   if (win->buttons_[0]) {
-    Vec3D movement = 
-      Vec3D::X()*(x - win->mouse_pos_.first)*0.1 +
-      Vec3D::Y()*-(y - win->mouse_pos_.second)*0.1;
-    win->camera_pos_ += movement;
-    win->camera_target_ += movement;
+    win->camera_pos_ += movement*0.1;
+    win->camera_target_ += movement*0.1;
+  }
+  else if (win->buttons_[2]) {
+    win->camera_pos_ += -Vec3D::Z()*movement.y()*0.1;
   }
   win->mouse_pos_ = std::make_pair(x, y);
   glutPostRedisplay();
@@ -130,7 +141,6 @@ void Window::motion (int x, int y) {
 
 void Window::keyboard (unsigned char key, int x, int y) {
   Ptr win = current_window();
-  if (!win) puts("BAD APPLE");
   switch (key) {
     case '\t':
       win->toggle_projection();

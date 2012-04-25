@@ -65,6 +65,8 @@ class Window {
     /// Constructor.
     /** @param caption - The window's caption. */
     explicit Window (const std::string& caption);
+    /// Sets this window as the current one, if needed.
+    void set_current ();
     /// Retrieves the current window.
     static Ptr current_window();
     /// Display callback function for all windows.
