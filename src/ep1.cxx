@@ -81,16 +81,16 @@ Vec3D calc_delta_pos (Vec3D actual_pos) {
   aux.set_x(aux.x()+1.0);
   delta = calc_delta(actual_pos.x(), brn.x());
    
-  f01 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  f01 = field.force(brn)*delta+field.force(aux)*(1-delta);
   brn.set_y(brn.y()+1.0);
   aux.set_y(aux.y()+1.0);
-  f00 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  f00 = field.force(brn)*delta+field.force(aux)*(1-delta);
   brn.set_z(brn.z()+1.0); 
   aux.set_z(aux.z()+1.0);
-  f10 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  f10 = field.force(brn)*delta+field.force(aux)*(1-delta);
   brn.set_y(brn.y()-1.0);
   aux.set_y(aux.y()-1.0);
-  f11 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  f11 = field.force(brn)*delta+field.force(aux)*(1-delta);
   
   delta = calc_delta(actual_pos.y(), brn.y());
   f1 = f01*(1-delta)+f11*delta;
@@ -98,7 +98,7 @@ Vec3D calc_delta_pos (Vec3D actual_pos) {
 
   delta = calc_delta(actual_pos.z(), brn.z());
   
-  return f1*(1-delta)+f0*delta;
+  return f1*delta+f0*(1-delta);
 }
 
 static void dummy (Object& cone) {}
