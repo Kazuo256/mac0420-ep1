@@ -17,6 +17,8 @@ class ForceField {
       forces_[z][y][x] = f;
     }
     Vec3D force (int x, int y, int z) const {
+      Vec3D zero;
+      if (x <= 0 || y <= 0 || z <= 0) return zero;
       return forces_[z][y][x];
     }
     int width () const { return width_; }
