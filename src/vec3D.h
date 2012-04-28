@@ -33,6 +33,7 @@ class Vec3D {
     Vec3D operator * (double rhs) const;
     Vec3D operator / (double rhs) const;
     double length () const;
+    double min () const;
     double angle_to (const Vec3D& rhs) const;
     Vec3D normalized () const;
     void dump() const;

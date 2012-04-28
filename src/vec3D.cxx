@@ -12,6 +12,14 @@ double Vec3D::length () const {
   return sqrt(x_*x_ + y_*y_ + z_*z_);
 }
 
+double Vec3D::min () const {
+  if (x_ < y_)
+    if (x_ < z_) return x_;
+    else return z_;
+  else if (y_ < z_) return y_;
+  else return z_;
+}
+
 double Vec3D::angle_to (const Vec3D& rhs) const {
   if (*this == rhs) return 0.0;
   else return acos(normalized()*rhs.normalized())*180.0/PI;
