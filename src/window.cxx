@@ -36,6 +36,7 @@ static void init_opengl (Window& win) {
 void Window::init (double w, double h, double d) {
   glutSetWindow(id_);
   glutDisplayFunc(display);
+  glutIdleFunc(idle);
   glutReshapeFunc(reshape);
   glutMouseFunc(mouse);
   glutMotionFunc(motion);
@@ -46,14 +47,6 @@ void Window::init (double w, double h, double d) {
   init_opengl(*this);
   camera_pos_ = Vec3D(width_/2.0, -height_/2.0, depth_);
   camera_target_ = Vec3D(width_/2.0, -height_/2.0, -depth_/2.0);
-}
-
-void Window::update_objects () {
-  vector<Object::Ptr>::iterator it;
-  int i = 0;
-
-  //for (it = objects_.begin(); it < objects_.end(); it++, i++);
-    
 }
 
 void Window::add_object(const Object::Ptr& obj) {
@@ -182,6 +175,14 @@ void Window::display () {
   }
   // Swap buffer to display result.
   glutSwapBuffers();
+}
+
+void Window::idle () {
+  Ptr win = current_window();
+  vector<Object::Ptr>::iterator it;
+
+  for (it = win->objects_.begin(); it != win->objects_.end(); ++it) (*it)->update();
+  glutPostRedisplay(); 
 }
 
 } // namespace ep1

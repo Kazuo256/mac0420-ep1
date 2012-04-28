@@ -56,6 +56,13 @@ static void draw_sphere () {
   gluSphere( gluNewQuadric(), dists.min()/2.0, 10, 10);  
 }
 
+static void dummy (Object& cone) {}
+
+static void update_sphere (Object& sphere) {
+  Vec3D add(0.01, 0.01, 0.01);
+  sphere.add_in_position(add);
+}
+
 static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& numbers) {
   int x, y, z;
  
@@ -65,7 +72,11 @@ static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& n
         Vec3D position(dist.x()*x, -1.0*dist.y()*y, -1.0*dist.z()*z);
         Vec3D size(1.0, 1.0, info_cube[x][y][z].length()*glyph_size/max_vec.length());
         Vec3D rotation = Vec3D::dir(info_cube[x][y][z]); 
-        win->add_object(Object::create(Object::Renderer(draw_cone), position, size, rotation));
+        win->add_object(Object::create(Object::Renderer(draw_cone), 
+                                       Object::Updater(dummy), 
+                                       position, 
+                                       size, 
+                                       rotation));
       }
 } 
 
@@ -77,7 +88,12 @@ static void add_sphere (const Window::Ptr& win, const Vec3D& dist, const Vec3D& 
       for (z = 0; z < numbers.z(); z++) {
         Vec3D position(dist.x()*x, -1.0*dist.y()*y, -1.0*dist.z()*z);
         Vec3D size(1, 1, 1);
-        win->add_object(Object::create(Object::Renderer(draw_sphere), position, size, size));
+        Vec3D rotation;
+        win->add_object(Object::create(Object::Renderer(draw_sphere), 
+                                       Object::Updater(update_sphere),  
+                                       position, 
+                                       size, 
+                                       rotation));
       }
 }
 
@@ -96,10 +112,9 @@ void init (int argc, char **argv) {
     info_cube = cube(infos[0].z(), matrix(infos[0].y(), vector<Vec3D>(infos[0].x())));
     CreateCube(infos);
     win->init(infos[0].x(), infos[0].y(), infos[0].z());
-    win->add_object(Object::create(Object::Renderer(draw)));
+    win->add_object(Object::create(Object::Renderer(draw), Object::Updater(dummy)));
     add_cones(win, infos[1], infos[0]);
     add_sphere(win, infos[1], infos[0]);
-    win->update_objects();
   }
 }
 

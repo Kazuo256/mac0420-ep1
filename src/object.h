@@ -28,6 +28,8 @@ class Object {
     /// Update this object.
     /** Must be called whithin a glut display callback. */
     void update ();
+    /// Add a vector in the position of the object.
+    void add_in_position (Vec3D add);
     /// Creates a new renderable object and returns it as a smart pointer.
     /** This guarantees that the user will never have to worry about freeing
      ** its memory.
@@ -38,10 +40,11 @@ class Object {
      ** @return Object::Ptr Reference-counting smart pointer to the new
      **                     object. */
     static Ptr create (const Renderer& renderer,
+                       const Updater& updater,                     
                        const Vec3D& position = Vec3D(),
                        const Vec3D& size = Vec3D(1.0, 1.0, 1.0),
                        const Vec3D& rotation = Vec3D()) {
-      return Ptr(new Object(renderer, position, size, rotation));
+      return Ptr(new Object(renderer, updater, position, size, rotation));
     }
   private:
     /// This object's rendering function.
@@ -60,10 +63,12 @@ class Object {
      ** @param size The object's size in the 3 axis.
      ** @param rotation The object's rotation in yaw-pitch-roll format. */
     explicit Object (const Renderer& renderer,
+                     const Updater updater,
                      const Vec3D& position = Vec3D(),
                      const Vec3D& size = Vec3D(1.0, 1.0, 1.0),
                      const Vec3D& rotation = Vec3D()) :
       renderer_(renderer),
+      updater_(updater),
       position_(position),
       size_(size),
       rotation_(rotation) {}
