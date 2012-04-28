@@ -125,15 +125,18 @@ void Window::mouse (int btn, int state, int x, int y) {
 
 void Window::motion (int x, int y) {
   Ptr win = current_window();
-  Vec3D movement = 
-    Vec3D::X()*(x - win->mouse_pos_.first) +
-    Vec3D::Y()*-(y - win->mouse_pos_.second);
+  Vec3D movement(
+    x - win->mouse_pos_.first,
+    -(y - win->mouse_pos_.second)
+  );
   if (win->buttons_[0]) {
     win->camera_pos_ += movement*0.1;
     win->camera_target_ += movement*0.1;
   }
   else if (win->buttons_[2]) {
-    win->camera_pos_ += -Vec3D::Z()*movement.y()*0.1;
+    Vec3D diff = win->camera_pos_ - win->camera_target_;
+    win->camera_pos_ =
+      win->camera_target_ + diff*(1.0/pow(2.0, movement.y()*0.1));
   }
   win->mouse_pos_ = std::make_pair(x, y);
   glutPostRedisplay();
