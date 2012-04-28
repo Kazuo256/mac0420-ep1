@@ -9,6 +9,7 @@
 #include <tr1/memory>
 
 #include "object.h"
+#include "camera.h"
 
 namespace ep1 {
 
@@ -16,46 +17,39 @@ namespace ep1 {
 class Window {
   public:
     /// Reference-counting smart pointer for window objects.
-    typedef std::tr1::shared_ptr<Window> Ptr;
+    typedef std::tr1::shared_ptr<Window>  Ptr;
     /// Destructor.
     ~Window () {}
     /// Initializes the window.
     /** Even if created, a window is only displayed if it has been initialized
      ** before. */
     void init (double w, double h, double d);
+    /// Gets the window's resolution ratio.
+    double ratio () const { return 1.0*width_/height_; }
+    /// Sets this window as the current one, if needed.
+    void set_current ();
     /// Adds an object to be drawn in the window.
     /** @param obj The object to de added. */
     void add_object (const Object::Ptr& obj);
-    /// Activates orthgonal projection.
-    void set_ortho ();
-    /// Activates perspective projection.
-    void set_perspective ();
-    /// Toggles between orthogonal and perspective projection.
-    void toggle_projection ();
     /// Creates a new window object.
     /** @param caption - The window's caption. */
-    static Ptr create (const std::string& caption) {
-      Ptr created(new Window(caption));
+    static Ptr create (const std::string& caption,
+                       int width = 500, int height = 500) {
+      Ptr created(new Window(caption, width, height));
       windows_[created->id_] = created;
       return created;
     }
   private:
     /// Glut window's id.
     int                       id_;
-    /// Space width.
-    double                    width_;
-    /// Space height.
-    double                    height_;
-    /// Space depth.
-    double                    depth_;
+    /// Viewport width.
+    int                       width_;
+    /// Viewport height.
+    int                       height_;
+    /// The window's camera into the scene.
+    Camera                    camera_;
     /// Objects to be drawn.
     std::vector<Object::Ptr>  objects_;
-    /// Camera position.
-    ep1::Vec3D                camera_pos_;
-    /// Camera target.
-    ep1::Vec3D                camera_target_;
-    /// Camera perspective projection flag.
-    bool                      perspective_;
     /// Indicates which mouse buttons are currently pressed.
     bool                      buttons_[3];
     /// Last mouse position detected.
@@ -64,9 +58,7 @@ class Window {
     static std::tr1::unordered_map<int, Ptr> windows_;
     /// Constructor.
     /** @param caption - The window's caption. */
-    explicit Window (const std::string& caption);
-    /// Sets this window as the current one, if needed.
-    void set_current ();
+    explicit Window (const std::string& caption, int width, int height);
     /// Retrieves the current window.
     static Ptr current_window();
     /// Display callback function for all windows.

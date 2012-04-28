@@ -14,19 +14,18 @@ using std::tr1::unordered_map;
 
 unordered_map<int, Window::Ptr> Window::windows_;
 
-Window::Window (const std::string& caption) :
-  perspective_(false),
-  mouse_pos_(0, 0) {
+Window::Window (const std::string& caption, int width, int height) :
+  width_ (width), height_(height), mouse_pos_(0, 0) {
   id_ = glutCreateWindow(caption.c_str());
   buttons_[0] = buttons_[1] = buttons_[2] = false;
 }
 
-static void init_opengl (Window& win) {
+static void init_opengl (Camera& camera, double ratio) {
   int i;
   Vec3D b;
   
   glEnable(GL_DEPTH_TEST);
-  win.set_ortho();
+  camera.set_ortho(ratio);
 
   glMatrixMode(GL_MODELVIEW);
   glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -41,46 +40,13 @@ void Window::init (double w, double h, double d) {
   glutMouseFunc(mouse);
   glutMotionFunc(motion);
   glutKeyboardFunc(keyboard);
-  width_ = w;
-  height_ = h;
-  depth_ = d;
-  init_opengl(*this);
-  camera_pos_ = Vec3D(width_/2.0, -height_/2.0, depth_);
-  camera_target_ = Vec3D(width_/2.0, -height_/2.0, -depth_/2.0);
+  camera_.set_view(w, h, d);
+  init_opengl(camera_, ratio());
+  camera_.enframe(Vec3D(w/2.0, -h/2.0, -d/2.0));
 }
 
 void Window::add_object(const Object::Ptr& obj) {
   objects_.push_back(obj);
-}
-
-void Window::set_ortho () {
-  perspective_ = false;
-  set_current();
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  double max_dimension = std::max(std::max(width_, height_), depth_);
-  glOrtho(
-    -0.75*max_dimension, 0.75*max_dimension,
-    -0.75*max_dimension, 0.75*max_dimension,
-    -2.0*max_dimension, 10.0*max_dimension
-  );
-}
-
-void Window::set_perspective () {
-  perspective_ = true;
-  set_current();
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  gluPerspective(60.0, 1.0, depth_*0.1, depth_*10.0);
-  glMatrixMode(GL_MODELVIEW);
-}
-
-void Window::toggle_projection () {
-  if (perspective_)
-    set_ortho();
-  else
-    set_perspective();
-  glutPostRedisplay();
 }
 
 void Window::set_current () {
@@ -130,15 +96,10 @@ void Window::motion (int x, int y) {
     x - win->mouse_pos_.first,
     -(y - win->mouse_pos_.second)
   );
-  if (win->buttons_[0]) {
-    win->camera_pos_ += movement*0.1;
-    win->camera_target_ += movement*0.1;
-  }
-  else if (win->buttons_[2]) {
-    Vec3D diff = win->camera_pos_ - win->camera_target_;
-    win->camera_pos_ =
-      win->camera_target_ + diff*(1.0/pow(2.0, movement.y()*0.1));
-  }
+  if (win->buttons_[0])
+    win->camera_.move(movement*0.1);
+  else if (win->buttons_[2])
+    win->camera_.closein(movement.y()*0.1);
   win->mouse_pos_ = std::make_pair(x, y);
   glutPostRedisplay();
 }
@@ -147,7 +108,7 @@ void Window::keyboard (unsigned char key, int x, int y) {
   Ptr win = current_window();
   switch (key) {
     case '\t':
-      win->toggle_projection();
+      win->camera_.toggle_projection(win->ratio());
       break;
     default: break;
   }
@@ -160,12 +121,12 @@ void Window::display () {
   glMatrixMode(GL_MODELVIEW);   
   glLoadIdentity();
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  // Position the camera.
-  //glTranslated(0.0, 0.0, -2.0);
-  gluLookAt(win->camera_pos_.x(), win->camera_pos_.y(), win->camera_pos_.z(),
-            win->camera_target_.x(), win->camera_target_.y(),
-            win->camera_target_.z(),
-            0.0, 1.0, 0.0);
+  // Use the camera.
+  win->camera_.use();
+  //gluLookAt(win->camera_pos_.x(), win->camera_pos_.y(), win->camera_pos_.z(),
+  //          win->camera_target_.x(), win->camera_target_.y(),
+  //          win->camera_target_.z(),
+  //          0.0, 1.0, 0.0);
   // Render all objects.
   vector<Object::Ptr>::iterator it;
   for (it = win->objects_.begin(); it != win->objects_.end(); ++it) {
