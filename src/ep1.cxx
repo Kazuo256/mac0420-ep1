@@ -52,13 +52,7 @@ static void draw () {
 
 static void draw_cone () {
   glColor3d(1.0, 0.50, 0.50);
-  glBegin(GL_TRIANGLES);
-    glVertex3d(0.0, 0.25, 0.0);
-    glVertex3d(0.0, -0.25, 0.0);
-    glVertex3d(0.0, 0.0, dists.max());
-  glEnd();
-  //glutSolidCone(0.25, dists.max(), 10, 10);
-  //gluCylinder( gluNewQuadric(), 0.25, 0.0, 1.0, 10, 10);  
+  gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 10, 10);  
 }
 
 static void draw_sphere () {
