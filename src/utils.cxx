@@ -11,8 +11,8 @@ std::vector<ep1::Vec3D>
   
   FILE *pfile;
   std::vector<ep1::Vec3D> infos;
-  double X, Y, Z;
-  int nX, nY, nZ, distX, distY, distZ, count;
+  double X, Y, Z, distX, distY, distZ;
+  int nX, nY, nZ, count;
   char buffer[BUFFER_SIZE];
   
   pfile = fopen(file_name.c_str(), "r");
@@ -23,7 +23,7 @@ std::vector<ep1::Vec3D>
   infos.push_back(Vec3D(nX, nY, nZ));
 
   fgets(buffer, BUFFER_SIZE, pfile);
-  sscanf(buffer, "%d %d %d", &distX, &distY, &distZ);
+  sscanf(buffer, "%lf %lf %lf", &distX, &distY, &distZ);
   infos.push_back(Vec3D(distX, distY, distZ));
 
   for (count = 0; count < nX*nY*nZ; count++) {
