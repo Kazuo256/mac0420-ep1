@@ -67,7 +67,7 @@ Vec3D transform (Vec3D position) {
 double calc_delta (double actual_pos, double vertex) {
   double delta;
 
-  delta = actual_pos - vertex;
+  delta = abs(vertex - actual_pos);
   
   return delta;
 }
@@ -78,18 +78,18 @@ Vec3D calc_delta_pos (Vec3D actual_pos) {
 
   brn = actual_pos.vec_floor();
   aux = brn;
-  aux.set_x(aux.x()+1);
+  aux.set_x(aux.x()+1.0);
   delta = calc_delta(actual_pos.x(), brn.x());
    
   f01 = field.force(brn)*(1-delta)+field.force(aux)*delta;
-  brn.set_y(brn.y()+1);
-  aux.set_y(aux.y()+1);
+  brn.set_y(brn.y()+1.0);
+  aux.set_y(aux.y()+1.0);
   f00 = field.force(brn)*(1-delta)+field.force(aux)*delta;
-  brn.set_z(brn.z()+1); 
-  aux.set_z(aux.z()+1);
+  brn.set_z(brn.z()+1.0); 
+  aux.set_z(aux.z()+1.0);
   f10 = field.force(brn)*(1-delta)+field.force(aux)*delta;
-  brn.set_y(brn.y()-1);
-  aux.set_y(aux.y()-1);
+  brn.set_y(brn.y()-1.0);
+  aux.set_y(aux.y()-1.0);
   f11 = field.force(brn)*(1-delta)+field.force(aux)*delta;
   
   delta = calc_delta(actual_pos.y(), brn.y());
@@ -97,7 +97,7 @@ Vec3D calc_delta_pos (Vec3D actual_pos) {
   f0 = f10*(1-delta)+f00*delta;
 
   delta = calc_delta(actual_pos.z(), brn.z());
-
+  
   return f1*(1-delta)+f0*delta;
 }
 
@@ -107,6 +107,7 @@ static void update_sphere (Object& sphere) {
   Vec3D delta_pos, pos;
   pos = transform(sphere.get_position());
   delta_pos = calc_delta_pos(pos);
+  delta_pos = delta_pos*WIN_REFRESH*MILI;
   sphere.add_in_position(delta_pos);
 }
 
