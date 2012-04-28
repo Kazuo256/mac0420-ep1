@@ -48,6 +48,14 @@ void Window::init (double w, double h, double d) {
   camera_target_ = Vec3D(width_/2.0, -height_/2.0, -depth_/2.0);
 }
 
+void Window::update_objects () {
+  vector<Object::Ptr>::iterator it;
+  int i = 0;
+
+  //for (it = objects_.begin(); it < objects_.end(); it++, i++);
+    
+}
+
 void Window::add_object(const Object::Ptr& obj) {
   objects_.push_back(obj);
 }

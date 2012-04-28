@@ -23,6 +23,8 @@ class Window {
     /** Even if created, a window is only displayed if it has been initialized
      ** before. */
     void init (double w, double h, double d);
+    /// Starts the objects update.
+    void update_objects ();
     /// Adds an object to be drawn in the window.
     /** @param obj The object to de added. */
     void add_object (const Object::Ptr& obj);

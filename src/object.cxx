@@ -24,5 +24,9 @@ void Object::render () const {
   renderer_();
 }
 
+void Object::update () {
+  updater_(*this);
+}
+
 }
 

@@ -99,6 +99,7 @@ void init (int argc, char **argv) {
     win->add_object(Object::create(Object::Renderer(draw)));
     add_cones(win, infos[1], infos[0]);
     add_sphere(win, infos[1], infos[0]);
+    win->update_objects();
   }
 }
 

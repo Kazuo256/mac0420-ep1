@@ -16,11 +16,18 @@ class Object {
     /** It can store either pointer to functions or callable objects that
      ** satisfy the given signature. */
     typedef std::tr1::function<void (void)> Renderer;
+    /// Type used to store the update function of the object.
+    /** It can store either pointer to functions or callable objects that
+     ** satisfy the given signature. */
+    typedef std::tr1::function<void (Object&)> Updater;
     /// Reference-counting smart pointer for renderable objects.
     typedef std::tr1::shared_ptr<Object>    Ptr;
     /// Renders this object.
     /** Must be called whithin a glut display callback. */
     void render () const;
+    /// Update this object.
+    /** Must be called whithin a glut display callback. */
+    void update ();
     /// Creates a new renderable object and returns it as a smart pointer.
     /** This guarantees that the user will never have to worry about freeing
      ** its memory.
@@ -39,6 +46,8 @@ class Object {
   private:
     /// This object's rendering function.
     Renderer  renderer_;
+    /// This object's rendering function.
+    Updater   updater_;
     /// The object's position.
     Vec3D     position_;
     /// The objects size in the 3 axis.
