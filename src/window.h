@@ -10,6 +10,9 @@
 
 #include "object.h"
 
+#define WIN_REFRESH 1
+#define MILI e-3
+
 namespace ep1 {
 
 /// Represents a graphic window.
@@ -72,7 +75,7 @@ class Window {
     /// Display callback function for all windows.
     static void display ();
     /// Idle callback function for all windows.
-    static void idle ();
+    static void idle (int value);
     /// Reshape callback function for all windows.
     static void reshape (int w, int h);
     /// Mouse callback function for all windows.
