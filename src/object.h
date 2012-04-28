@@ -30,6 +30,8 @@ class Object {
     void update ();
     /// Add a vector in the position of the object.
     void add_in_position (Vec3D add);
+    /// Return the position vector.
+    Vec3D get_position () const { return position_; }
     /// Creates a new renderable object and returns it as a smart pointer.
     /** This guarantees that the user will never have to worry about freeing
      ** its memory.

@@ -59,19 +59,63 @@ static void draw_sphere () {
   gluSphere( gluNewQuadric(), dists.min()/2.0, 10, 10);  
 }
 
+Vec3D transform (Vec3D position) {
+  Vec3D ret(position.x(), -position.y(), -position.z()); 
+  return ret;
+} 
+
+double calc_delta (double actual_pos, double vertex) {
+  double delta;
+
+  delta = actual_pos - vertex;
+  
+  return delta;
+}
+
+Vec3D calc_delta_pos (Vec3D actual_pos) {
+  Vec3D brn, f00, f01, f10, f11, f0, f1, aux; // brt = bottom_right_near 
+  double delta;
+
+  brn = actual_pos.vec_floor();
+  aux = brn;
+  aux.set_x(aux.x()+1);
+  delta = calc_delta(actual_pos.x(), brn.x());
+   
+  f01 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  brn.set_y(brn.y()+1);
+  aux.set_y(aux.y()+1);
+  f00 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  brn.set_z(brn.z()+1); 
+  aux.set_z(aux.z()+1);
+  f10 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  brn.set_y(brn.y()-1);
+  aux.set_y(aux.y()-1);
+  f11 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  
+  delta = calc_delta(actual_pos.y(), brn.y());
+  f1 = f01*(1-delta)+f11*delta;
+  f0 = f10*(1-delta)+f00*delta;
+
+  delta = calc_delta(actual_pos.z(), brn.z());
+
+  return f1*(1-delta)+f0*delta;
+}
+
 static void dummy (Object& cone) {}
 
 static void update_sphere (Object& sphere) {
-  Vec3D add(0.01, 0.01, 0.01);
-  sphere.add_in_position(add);
+  Vec3D delta_pos, pos;
+  pos = transform(sphere.get_position());
+  delta_pos = calc_delta_pos(pos);
+  sphere.add_in_position(delta_pos);
 }
 
 static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& numbers) {
   int x, y, z;
  
-  for (x = 0; x < numbers.x(); x++ )
+  for (z = 0; z < numbers.z(); z++ )
     for (y = 0; y < numbers.y(); y++)
-      for (z = 0; z < numbers.z(); z++) {
+      for (x = 0; x < numbers.x(); x++) {
         Vec3D position(dist.x()*x, -1.0*dist.y()*y, -1.0*dist.z()*z);
         Vec3D size(1.0, 1.0, field.force(x,y,z).length()*glyph_size/max_vec.length());
         Vec3D rotation = Vec3D::dir(field.force(x,y,z)); 
@@ -86,9 +130,9 @@ static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& n
 static void add_sphere (const Window::Ptr& win, const Vec3D& dist, const Vec3D& numbers) {
   int x, y, z;
  
-  for (x = 0; x < numbers.x(); x++ )
+  for (z = 0; z < numbers.z(); z++ )
     for (y = 0; y < numbers.y(); y++)
-      for (z = 0; z < numbers.z(); z++) {
+      for (x = 0; x < numbers.x(); x++) {
         Vec3D position(dist.x()*x, -1.0*dist.y()*y, -1.0*dist.z()*z);
         Vec3D size(1, 1, 1);
         Vec3D rotation;
