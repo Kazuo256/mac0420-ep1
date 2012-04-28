@@ -11,7 +11,7 @@
 #include "object.h"
 
 #define WIN_REFRESH 1
-#define MILI e-3
+#define MILI 1e-3
 
 namespace ep1 {
 
@@ -75,7 +75,7 @@ class Window {
     /// Display callback function for all windows.
     static void display ();
     /// Idle callback function for all windows.
-    static void idle (int value);
+    static void timer_func (int value);
     /// Reshape callback function for all windows.
     static void reshape (int w, int h);
     /// Mouse callback function for all windows.

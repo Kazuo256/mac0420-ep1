@@ -62,7 +62,8 @@ static void draw_sphere () {
 static void dummy (Object& cone) {}
 
 static void update_sphere (Object& sphere) {
-  Vec3D add(0.01, 0.01, 0.01);
+  Vec3D add(0.25, 0.25, 0.25);
+  add*(MILI*WIN_REFRESH);
   sphere.add_in_position(add);
 }
 

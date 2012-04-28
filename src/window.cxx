@@ -36,7 +36,7 @@ static void init_opengl (Window& win) {
 void Window::init (double w, double h, double d) {
   glutSetWindow(id_);
   glutDisplayFunc(display);
-  glutTimerFunc(WIN_REFRESH, idle, 1);
+  glutTimerFunc(WIN_REFRESH, timer_func, 1);
   glutReshapeFunc(reshape);
   glutMouseFunc(mouse);
   glutMotionFunc(motion);
@@ -177,11 +177,12 @@ void Window::display () {
   glutSwapBuffers();
 }
 
-void Window::idle (int value) {
+void Window::timer_func (int value) {
   Ptr win = current_window();
   vector<Object::Ptr>::iterator it;
 
   for (it = win->objects_.begin(); it != win->objects_.end(); ++it) (*it)->update();
+  glutTimerFunc(WIN_REFRESH, timer_func, 1);
   glutPostRedisplay(); 
 }
 
