@@ -2,6 +2,8 @@
 #include <cstdio>
 #include <cmath>
 
+#include <algorithm>
+
 #include "vec3D.h"
 
 #define PI 3.1415926535898
@@ -18,6 +20,10 @@ double Vec3D::min () const {
     else return z_;
   else if (y_ < z_) return y_;
   else return z_;
+}
+
+double Vec3D::max () const {
+  return std::max(x_, std::max(y_, z_));
 }
 
 Vec3D Vec3D::vec_floor () {
