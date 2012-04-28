@@ -59,12 +59,26 @@ static void draw_sphere () {
   gluSphere( gluNewQuadric(), dists.min()/2.0, 10, 10);  
 }
 
+Vec3D transform (Vec3D position) {
+  Vec3D ret(position.x(), field.height() - position.y(), field.depth() - position.z()); 
+  return ret;
+} 
+
+Vec3D calc_delta_pos (Vec3D actual_pos) {
+  Vec3D brn, tlf; // brt = bottom_right_near, tln = top_left_far 
+  brn = actual_pos.vec_floor();
+  tlf = actual_pos.vec_ceil();
+  
+  return actual_pos;
+}
+
 static void dummy (Object& cone) {}
 
 static void update_sphere (Object& sphere) {
-  Vec3D add(0.25, 0.25, 0.25);
-  add*(MILI*WIN_REFRESH);
-  sphere.add_in_position(add);
+  Vec3D delta_pos, pos;
+  pos = transform(sphere.get_position());
+  delta_pos = calc_delta_pos(pos);
+  sphere.add_in_position(delta_pos);
 }
 
 static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& numbers) {

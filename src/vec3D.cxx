@@ -20,6 +20,24 @@ double Vec3D::min () const {
   else return z_;
 }
 
+Vec3D Vec3D::vec_floor () {
+  Vec3D ret = (*this);
+  ret.x_ = floor(ret.x_);
+  ret.y_ = floor(ret.y_);
+  ret.z_ = floor(ret.z_);
+
+  return ret;
+} 
+
+Vec3D Vec3D::vec_ceil () {
+  Vec3D ret = (*this);
+  ret.x_ = ceil(ret.x_);
+  ret.y_ = ceil(ret.y_);
+  ret.z_ = ceil(ret.z_);
+
+  return ret;
+}
+
 double Vec3D::angle_to (const Vec3D& rhs) const {
   if (*this == rhs) return 0.0;
   else return acos(normalized()*rhs.normalized())*180.0/PI;

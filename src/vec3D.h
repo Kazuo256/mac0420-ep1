@@ -34,6 +34,8 @@ class Vec3D {
     Vec3D operator / (double rhs) const;
     double length () const;
     double min () const;
+    Vec3D vec_floor ();
+    Vec3D vec_ceil ();
     double angle_to (const Vec3D& rhs) const;
     Vec3D normalized () const;
     void dump() const;
