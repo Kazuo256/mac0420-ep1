@@ -1,7 +1,8 @@
 
+#include <cmath>
+
 #include "getglut.h"
 #include "window.h"
-#include <cmath>
 #include "utils.h"
 #include "forcefield.h"
 
@@ -51,7 +52,7 @@ static void draw () {
 
 static void draw_cone () {
   glColor3d(1.0, 0.50, 0.50);
-  gluCylinder( gluNewQuadric(), 0.25, 0.0, 1.0, 10, 10);  
+  gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 10, 10);  
 }
 
 static void draw_sphere () {

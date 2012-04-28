@@ -22,6 +22,7 @@ class Object {
     typedef std::tr1::function<void (Object&)> Updater;
     /// Reference-counting smart pointer for renderable objects.
     typedef std::tr1::shared_ptr<Object>    Ptr;
+    Vec3D size () const { return size_; }
     /// Renders this object.
     /** Must be called whithin a glut display callback. */
     void render () const;

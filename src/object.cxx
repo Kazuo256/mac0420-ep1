@@ -23,8 +23,8 @@ void Object::add_in_position (Vec3D add) {
 
 void Object::render () const {
   glTranslated(position_.x(), position_.y(), position_.z());
-  glScaled(size_.x(), size_.y(), size_.z());
   rotate_to_dir(rotation_);
+  glScaled(size_.x(), size_.y(), size_.z());
   renderer_();
 }
 

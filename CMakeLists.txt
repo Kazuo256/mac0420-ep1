@@ -21,6 +21,7 @@ add_executable (ep1
   src/main.cxx
   src/ep1.cxx
   src/window.cxx
+  src/camera.cxx
   src/forcefield.cxx
   src/object.cxx
   src/vec3D.cxx
