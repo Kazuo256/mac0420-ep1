@@ -42,7 +42,7 @@ void Window::init (double w, double h, double d) {
   glutKeyboardFunc(keyboard);
   camera_.set_view(w, h, d);
   init_opengl(camera_, ratio());
-  camera_.enframe(Vec3D(w/2.0, -h/2.0, -d/2.0));
+  camera_.enframe(Vec3D(w/2.0, -h/2.0, d));
 }
 
 void Window::add_object(const Object::Ptr& obj) {
