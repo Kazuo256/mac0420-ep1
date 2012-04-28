@@ -3,6 +3,7 @@
 #include "window.h"
 #include <cmath>
 #include "utils.h"
+#include "forcefield.h"
 
 namespace ep1 {
 
