@@ -12,9 +12,10 @@ using std::vector;
 typedef vector< vector< vector< Vec3D > > > cube;
 typedef vector< vector< Vec3D > > matrix;
 
-static cube info_cube;
-static Vec3D max_vec, min_vec, dists;
-static double glyph_size;
+//static cube info_cube;
+static ForceField field;
+static Vec3D      max_vec, min_vec, dists;
+static double     glyph_size;
 
 void CreateCube (vector<ep1::Vec3D> infos) {
   int x, y, z, nX, nY, nZ, actual_pos;
@@ -37,7 +38,8 @@ void CreateCube (vector<ep1::Vec3D> infos) {
         else if (infos[actual_pos].length() < min_vec.length())
           min_vec = infos[actual_pos];
  
-        info_cube[z][y][x] = infos[actual_pos];
+        //info_cube[z][y][x] = infos[actual_pos];
+        field.set_force(x, y, z, infos[actual_pos]);
 
       }
 }
@@ -64,8 +66,10 @@ static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& n
     for (y = 0; y < numbers.y(); y++)
       for (z = 0; z < numbers.z(); z++) {
         Vec3D position(dist.x()*x, -1.0*dist.y()*y, -1.0*dist.z()*z);
-        Vec3D size(1.0, 1.0, info_cube[x][y][z].length()*glyph_size/max_vec.length());
-        Vec3D rotation = Vec3D::dir(info_cube[x][y][z]); 
+        //Vec3D size(1.0, 1.0, info_cube[x][y][z].length()*glyph_size/max_vec.length());
+        //Vec3D rotation = Vec3D::dir(info_cube[x][y][z]); 
+        Vec3D size(1.0, 1.0, field.force(x,y,z).length()*glyph_size/max_vec.length());
+        Vec3D rotation = Vec3D::dir(field.force(x,y,z)); 
         win->add_object(Object::create(Object::Renderer(draw_cone), position, size, rotation));
       }
 } 
@@ -94,7 +98,8 @@ void init (int argc, char **argv) {
   if (argc < 2) printf("NOME DO ARQUIVO DEUSES DO CAOS\n");
   else {
     infos = utils::LoadForceFieldInfo(argv[1]);
-    info_cube = cube(infos[0].z(), matrix(infos[0].y(), vector<Vec3D>(infos[0].x())));
+    //info_cube = cube(infos[0].z(), matrix(infos[0].y(), vector<Vec3D>(infos[0].x())));
+    field = ForceField(infos[0].x(), infos[0].y(), infos[0].z());
     CreateCube(infos);
     win->init(infos[0].x(), infos[0].y(), infos[0].z());
     win->add_object(Object::create(Object::Renderer(draw)));

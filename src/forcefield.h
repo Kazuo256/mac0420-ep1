@@ -10,7 +10,7 @@ namespace ep1 {
 
 class ForceField {
   public:
-    explicit ForceField (int width, int height, int depth) :
+    explicit ForceField (int width = 0, int height = 0, int depth = 0) :
       width_(width), height_(height), depth_(depth),
       forces_(depth, matrix(height, std::vector<Vec3D>(width, Vec3D()))) {}
     void set_force (int x, int y, int z, const Vec3D& f) {
