@@ -27,8 +27,10 @@ void CreateCube (vector<ep1::Vec3D> infos) {
   dists = infos[1];
   max_vec = infos[2];
   min_vec = infos[2];
-  glyph_size = infos[1].min();
-  //glyph_size = sqrt(infos[1]*infos[1]);
+  // O enunciado diz para usar o comprimento, mas isso mesmo assim permite
+  // que os vetores se aglutinem. Uma alternativa é usar o mínimo:
+  // glyph_size = infos[1].min();
+  glyph_size = infos[1].length();
   for (z = 0; z < nZ; z++)
     for (y = 0; y < nY; y++) 
       for (x = 0; x < nX; x++) {
