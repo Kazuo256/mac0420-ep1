@@ -78,7 +78,7 @@ double calc_delta (double actual_pos, double vertex) {
 }
 
 Vec3D trilinear_interpolation (Vec3D actual_pos) {
-  Vec3D brn, f00, f01, f10, f11, f0, f1, aux; // brt = bottom_right_near 
+  Vec3D brn, f00, f01, f10, f11, f0, f1, aux; // brn = bottom_right_near 
   double delta;
 
   brn = actual_pos.vec_floor();

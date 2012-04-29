@@ -46,6 +46,15 @@ Vec3D Vec3D::vec_ceil () {
 
 double Vec3D::angle_to (const Vec3D& rhs) const {
   if (*this == rhs) return 0.0;
+  /*
+  Vec3D proj = rhs*((*this)*rhs.normalized()),
+        dist = *this - proj;
+  double angle = atan2(
+    dist.length(),
+    proj.length()
+  );
+  return angle;
+  */
   else return acos(normalized()*rhs.normalized())*180.0/PI;
 }
 
