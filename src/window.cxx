@@ -127,7 +127,8 @@ void Window::keyboard (unsigned char key, int x, int y) {
       glutTimerFunc(WIN_REFRESH, timer_func, 1);
       break;
     case 'e':
-      win->draw_cone_ = 1;
+      win->draw_cone_++;
+      win->draw_cone_ %= 2;
       break;
     default: break;
   }
@@ -150,7 +151,8 @@ void Window::display () {
   vector<Object::Ptr>::iterator it;
   for (it = win->objects_.begin(); it != win->objects_.end(); ++it) {
     glPushMatrix();
-    (*it)->render();
+    if ((*it)->get_type() == 0 && win->draw_cone_ == 0); 
+    else (*it)->render();
     glPopMatrix();
   }
   // Swap buffer to display result.
