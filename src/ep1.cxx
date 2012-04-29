@@ -194,7 +194,10 @@ void init (int argc, char **argv) {
       ratio = 1;
     }
   }
-  if (argc < 2) printf("NOME DO ARQUIVO DEUSES DO CAOS\n");
+  if (argc < 2) {
+    printf("O programa recebe o nome de um arquivo como entrada padrão.\n");
+    exit(0);
+  }
   else {
     infos = utils::LoadForceFieldInfo(argv[1]);
     //info_cube = cube(infos[0].z(), matrix(infos[0].y(), vector<Vec3D>(infos[0].x())));
