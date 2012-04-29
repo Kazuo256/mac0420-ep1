@@ -55,7 +55,7 @@ static void draw_sphere () {
   gluSphere( gluNewQuadric(), dists.min()/2.0, 10, 10);  
 }
 
-Vec3D transform (Vec3D position) {
+Vec3D transform_to_field (Vec3D position) {
   Vec3D ret(position.x(), -position.y(), -position.z()); 
   return ret;
 } 
@@ -68,7 +68,7 @@ double calc_delta (double actual_pos, double vertex) {
   return delta;
 }
 
-Vec3D calc_delta_pos (Vec3D actual_pos) {
+Vec3D trilinear_interpolation (Vec3D actual_pos) {
   Vec3D brn, f00, f01, f10, f11, f0, f1, aux; // brt = bottom_right_near 
   double delta;
 
@@ -77,20 +77,27 @@ Vec3D calc_delta_pos (Vec3D actual_pos) {
   aux.set_x(aux.x()+1.0);
   delta = calc_delta(actual_pos.x(), brn.x());
    
-  f01 = field.force(brn)*delta+field.force(aux)*(1-delta);
+  f01 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  
   brn.set_y(brn.y()+1.0);
   aux.set_y(aux.y()+1.0);
-  f00 = field.force(brn)*delta+field.force(aux)*(1-delta);
+  
+  f00 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  
   brn.set_z(brn.z()+1.0); 
   aux.set_z(aux.z()+1.0);
-  f10 = field.force(brn)*delta+field.force(aux)*(1-delta);
+  
+  f10 = field.force(brn)*(1-delta)+field.force(aux)*delta;
+  
   brn.set_y(brn.y()-1.0);
   aux.set_y(aux.y()-1.0);
-  f11 = field.force(brn)*delta+field.force(aux)*(1-delta);
+  
+  f11 = field.force(brn)*(1-delta)+field.force(aux)*delta;
   
   delta = calc_delta(actual_pos.y(), brn.y());
+  
   f1 = f01*(1-delta)+f11*delta;
-  f0 = f10*(1-delta)+f00*delta;
+  f0 = f10*delta+f00*(1-delta);
 
   delta = calc_delta(actual_pos.z(), brn.z());
   
@@ -101,9 +108,9 @@ static void dummy (Object& cone) {}
 
 static void update_sphere (Object& sphere) {
   Vec3D delta_pos, pos;
-  pos = transform(sphere.get_position());
-  delta_pos = calc_delta_pos(pos);
-  delta_pos = delta_pos*WIN_REFRESH*MILI;
+  pos = transform_to_field(sphere.get_position());
+  delta_pos = trilinear_interpolation(pos);
+  delta_pos = delta_pos*WIN_REFRESH*MILI*10;
   sphere.add_in_position(delta_pos);
 }
 
