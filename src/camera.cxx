@@ -9,7 +9,6 @@
 namespace ep1 {
 
 void Camera::enframe (const Vec3D& target) {
-  double max_side = std::max(view_.x(), view_.y());
   pos_ = Vec3D(
     target.x(), target.y(),
     target.z() + 2.0*view_.z()

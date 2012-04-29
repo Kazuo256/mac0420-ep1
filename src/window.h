@@ -29,6 +29,8 @@ class Window {
     void init (double w, double h, double d);
     /// Gets the window's resolution ratio.
     double ratio () const { return 1.0*width_/height_; }
+    /// Gets a reference to the window's camera.
+    Camera& camera() { return camera_; }
     /// Sets this window as the current one, if needed.
     void set_current ();
     /// Adds an object to be drawn in the window.
