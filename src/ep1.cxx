@@ -27,7 +27,8 @@ void CreateCube (vector<ep1::Vec3D> infos) {
   dists = infos[1];
   max_vec = infos[2];
   min_vec = infos[2];
-  glyph_size = sqrt(infos[1]*infos[1]);
+  glyph_size = infos[1].min();
+  //glyph_size = sqrt(infos[1]*infos[1]);
   for (z = 0; z < nZ; z++)
     for (y = 0; y < nY; y++) 
       for (x = 0; x < nX; x++) {
@@ -52,9 +53,9 @@ void CreateCube (vector<ep1::Vec3D> infos) {
 
 static void draw_cone () {
   glPushMatrix();
-  glTranslated(0.0, 0.0, -dists.min()/2.0);
+  glTranslated(0.0, 0.0, -.5);
   glColor4d(1.0, 0.00, 0.00, 0.3);
-  gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 6, 1);  
+  gluCylinder( gluNewQuadric(), 0.25, 0.0, 1.0, 6, 1);  
   glPopMatrix();
 }
 
