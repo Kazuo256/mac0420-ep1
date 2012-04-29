@@ -24,6 +24,7 @@ class Camera {
     void set_ortho (double ratio);
     void set_perspective (double ratio);
     void toggle_projection (double ratio);
+    void adjust (double ratio);
     void use () const;
   private:
     Vec3D           view_;

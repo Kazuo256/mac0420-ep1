@@ -62,15 +62,19 @@ Window::Ptr Window::current_window () {
 }
 
 void Window::reshape(int w, int h) {
-  int x = 0, y = 0;
-  if (w > h) {
-    x = (w - h) / 2;
-    w = h;
-  } else if (w < h) {
-    y = (h - w) / 2; 
-    h = w;
-  }
-  glViewport((GLint)x, (GLint)y, (GLint)w, (GLint)h); 
+  //int x = 0, y = 0;
+  Ptr win = current_window();
+  //if (w > h) {
+  //  x = (w - h) / 2;
+  //  w = h;
+  //} else if (w < h) {
+  //  y = (h - w) / 2; 
+  //  h = w;
+  //}
+  win->width_ = w;
+  win->height_ = h;
+  win->camera_.adjust(win->ratio());
+  glViewport((GLint)0, (GLint)0, (GLint)w, (GLint)h); 
   glutPostRedisplay();
 }
 

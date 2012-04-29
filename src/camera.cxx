@@ -25,13 +25,19 @@ void Camera::set_ortho (double ratio) {
   perspective_ = false;
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  double max_dimension =
-    std::max(std::max(view_.x(), view_.y()), view_.z());
-  glOrtho(
-    -0.75*max_dimension, 0.75*max_dimension,
-    -0.75*max_dimension, 0.75*max_dimension,
-    -2.0*max_dimension, 10.0*max_dimension
-  );
+  double max_dimension = std::max(view_.x(), view_.y());
+  if (ratio >= 1.0)
+    glOrtho(
+      -ratio*0.75*max_dimension, ratio*0.75*max_dimension,
+      -0.75*max_dimension, 0.75*max_dimension,
+      -2.0*view_.z(), 10.0*view_.z()
+    );
+  else
+    glOrtho(
+      -0.75*max_dimension, 0.75*max_dimension,
+      -0.75*max_dimension/ratio, 0.75*max_dimension/ratio,
+      -2.0*view_.z(), 10.0*view_.z()
+    );
 }
 
 void Camera::set_perspective (double ratio) {
@@ -51,6 +57,13 @@ void Camera::toggle_projection (double ratio) {
   else
     set_perspective(ratio);
   glutPostRedisplay();
+}
+
+void Camera::adjust (double ratio) {
+  if (perspective_)
+    set_perspective(ratio);
+  else
+    set_ortho(ratio);
 }
 
 void Camera::use () const {
