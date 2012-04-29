@@ -30,6 +30,9 @@ static void init_opengl (Camera& camera, double ratio) {
   glMatrixMode(GL_MODELVIEW);
   glClearColor(0.0, 0.0, 0.0, 1.0);
   glLineWidth(2.0);
+
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void Window::init (double w, double h, double d) {

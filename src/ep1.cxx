@@ -45,18 +45,13 @@ void CreateCube (vector<ep1::Vec3D> infos) {
       }
 }
 
-static void draw () {
-  glColor3d(1.0, 1.0, 1.0);
-  glutWireCube(.5);
-}
-
 static void draw_cone () {
-  glColor3d(1.0, 0.50, 0.50);
-  gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 10, 10);  
+  glColor4d(1.0, 0.50, 0.50, 0.30);
+  gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 5, 1);  
 }
 
 static void draw_sphere () {
-  glColor3d(1.0, 1.00, 1.00);
+  glColor4d(1.0, 1.00, 1.00, 1.0);
   gluSphere( gluNewQuadric(), dists.min()/2.0, 10, 10);  
 }
 
@@ -152,7 +147,7 @@ void init (int argc, char **argv) {
     
   Window::Ptr win;
   glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_ALPHA);
   glutInitWindowSize(500, 500);
   win = Window::create("MAC0420 - EP1");
   if (argc < 2) printf("NOME DO ARQUIVO DEUSES DO CAOS\n");
@@ -167,7 +162,6 @@ void init (int argc, char **argv) {
       -(infos[0].y()-1)*infos[1].y()/2.0,
       -(infos[0].z()-1)*infos[1].z()/2.0
     ));
-    win->add_object(Object::create(Object::Renderer(draw), Object::Updater(dummy)));
     add_cones(win, infos[1], infos[0]);
     add_sphere(win, infos[1], infos[0]);
   }
