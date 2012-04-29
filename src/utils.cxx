@@ -16,6 +16,11 @@ std::vector<ep1::Vec3D>
   char buffer[BUFFER_SIZE];
   
   pfile = fopen(file_name.c_str(), "r");
+  if (pfile == NULL) {
+    printf("Arquivo não encontrado. Finalizando programa.\n");
+    exit(0);
+  }
+
   infos = std::vector<ep1::Vec3D>();
   
   fgets(buffer, BUFFER_SIZE, pfile);
