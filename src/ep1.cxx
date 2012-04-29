@@ -113,6 +113,19 @@ Vec3D trilinear_interpolation (Vec3D actual_pos) {
   return f1*delta+f0*(1-delta);
 }
 
+void calc_new_delta (Vec3D& delta, Vec3D pos) {
+  Vec3D final_pos;
+
+  final_pos = delta+pos;
+  if (final_pos.x() >= (field.width()-1)*dists.x() || final_pos.x() < 0.0) 
+    delta.set_x(0.0);
+  if (final_pos.y() >= (field.height()-1)*dists.y() || final_pos.y() < 0.0) 
+    delta.set_y(0.0);
+  if (final_pos.z() >= (field.depth()-1)*dists.z() || final_pos.z() < 0.0) 
+    delta.set_z(0.0);
+
+}
+
 static void dummy (Object& cone) {}
 
 static void update_sphere (Object& sphere) {
@@ -120,6 +133,7 @@ static void update_sphere (Object& sphere) {
   pos_field = transform_to_field(sphere.get_position());
   delta_pos = trilinear_interpolation(pos_field);
   delta_pos = delta_pos*(WIN_REFRESH*MILI*10);
+  calc_new_delta(delta_pos, sphere.get_position());
   sphere.add_in_position(delta_pos);
 }
 

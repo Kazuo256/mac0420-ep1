@@ -18,6 +18,8 @@ Window::Window (const std::string& caption, int width, int height) :
   width_ (width), height_(height), mouse_pos_(0, 0) {
   id_ = glutCreateWindow(caption.c_str());
   buttons_[0] = buttons_[1] = buttons_[2] = false;
+  stop_ = 0;
+  draw_cone_ = 1;
 }
 
 static void init_opengl (Camera& camera, double ratio) {
@@ -123,6 +125,9 @@ void Window::keyboard (unsigned char key, int x, int y) {
     case 'w':
       win->stop_ = 0;
       glutTimerFunc(WIN_REFRESH, timer_func, 1);
+      break;
+    case 'e':
+      win->draw_cone_ = 1;
       break;
     default: break;
   }
