@@ -28,6 +28,10 @@ void Object::render () const {
   renderer_();
 }
 
+int Object::get_type () {
+  return type_;
+}
+
 void Object::update () {
   updater_(*this);
 }

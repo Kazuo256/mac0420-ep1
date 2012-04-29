@@ -150,7 +150,8 @@ static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& n
                                        Object::Updater(dummy), 
                                        position, 
                                        size, 
-                                       rotation));
+                                       rotation,
+                                       0));
       }
 } 
 
@@ -167,7 +168,8 @@ static void add_sphere (const Window::Ptr& win, const Vec3D& dist, const Vec3D& 
                                        Object::Updater(update_sphere),  
                                        position, 
                                        size, 
-                                       rotation));
+                                       rotation,
+                                       1));
       }
 }
 
