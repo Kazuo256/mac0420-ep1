@@ -205,9 +205,9 @@ void init (int argc, char **argv) {
     CreateCube(infos);
     win->init(infos[0].x(), infos[0].y(), infos[0].z());
     win->camera().enframe(Vec3D(
-      infos[0].x()*infos[1].x()/2.0,
-      -infos[0].y()*infos[1].y()/2.0,
-      -infos[0].z()*infos[1].z()/2.0
+      (infos[0].x()-1)*infos[1].x()/2.0,
+      -(infos[0].y()-1)*infos[1].y()/2.0,
+      -(infos[0].z()-1)*infos[1].z()/2.0
     ));
     add_cones(win, infos[1], infos[0]);
     add_sphere(win, infos[1], infos[0]);

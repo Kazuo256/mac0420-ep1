@@ -15,10 +15,11 @@ using std::tr1::unordered_map;
 unordered_map<int, Window::Ptr> Window::windows_;
 
 Window::Window (const std::string& caption, int width, int height) :
-  width_ (width), height_(height), mouse_pos_(0, 0) {
+  width_ (width), height_(height),
+  mouse_pos_(0, 0),
+  stop_(1) {
   id_ = glutCreateWindow(caption.c_str());
   buttons_[0] = buttons_[1] = buttons_[2] = false;
-  stop_ = 0;
   draw_cone_ = 1;
 }
 
@@ -124,6 +125,10 @@ void Window::keyboard (unsigned char key, int x, int y) {
       break;
     case 'w':
       if (win->stop_ == 1) {
+  //gluLookAt(win->camera_pos_.x(), win->camera_pos_.y(), win->camera_pos_.z(),
+  //          win->camera_target_.x(), win->camera_target_.y(),
+  //          win->camera_target_.z(),
+  //          0.0, 1.0, 0.0);
         win->stop_ = 0;
         glutTimerFunc(WIN_REFRESH, timer_func, 1);
       }
