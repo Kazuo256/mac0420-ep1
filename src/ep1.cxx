@@ -107,9 +107,9 @@ Vec3D trilinear_interpolation (Vec3D actual_pos) {
 static void dummy (Object& cone) {}
 
 static void update_sphere (Object& sphere) {
-  Vec3D delta_pos, pos;
-  pos = transform_to_field(sphere.get_position());
-  delta_pos = trilinear_interpolation(pos);
+  Vec3D delta_pos, pos_field;
+  pos_field = transform_to_field(sphere.get_position());
+  delta_pos = trilinear_interpolation(pos_field);
   delta_pos = delta_pos*WIN_REFRESH*MILI*10;
   sphere.add_in_position(delta_pos);
 }
