@@ -46,8 +46,11 @@ void CreateCube (vector<ep1::Vec3D> infos) {
 }
 
 static void draw_cone () {
+  glPushMatrix();
+  glTranslated(0.0, 0.0, -dists.min()/2.0);
   glColor4d(1.0, 0.50, 0.50, 0.30);
   gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 5, 1);  
+  glPopMatrix();
 }
 
 static void draw_sphere () {
