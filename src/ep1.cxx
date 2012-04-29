@@ -46,13 +46,16 @@ void CreateCube (vector<ep1::Vec3D> infos) {
 }
 
 static void draw_cone () {
-  glColor4d(1.0, 0.50, 0.50, 0.30);
-  gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 5, 1);  
+  glPushMatrix();
+  glTranslated(0.0, 0.0, -dists.min()/2.0);
+  glColor4d(1.0, 0.00, 0.00, 0.3);
+  gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 6, 1);  
+  glPopMatrix();
 }
 
 static void draw_sphere () {
   glColor4d(1.0, 1.00, 1.00, 1.0);
-  gluSphere( gluNewQuadric(), dists.min()/2.0, 10, 10);  
+  gluSphere( gluNewQuadric(), dists.min()/2.0, 6, 6);  
 }
 
 Vec3D transform_to_field (Vec3D position) {
@@ -165,9 +168,9 @@ void init (int argc, char **argv) {
     CreateCube(infos);
     win->init(infos[0].x(), infos[0].y(), infos[0].z());
     win->camera().enframe(Vec3D(
-      (infos[0].x()-1)*infos[1].x()/2.0,
-      -(infos[0].y()-1)*infos[1].y()/2.0,
-      -(infos[0].z()-1)*infos[1].z()/2.0
+      infos[0].x()*infos[1].x()/2.0,
+      -infos[0].y()*infos[1].y()/2.0,
+      -infos[0].z()*infos[1].z()/2.0
     ));
     add_cones(win, infos[1], infos[0]);
     add_sphere(win, infos[1], infos[0]);
