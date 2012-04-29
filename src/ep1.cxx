@@ -40,7 +40,12 @@ void CreateCube (vector<ep1::Vec3D> infos) {
           min_vec = infos[actual_pos];
  
         //info_cube[z][y][x] = infos[actual_pos];
-        field.set_force(x, y, z, infos[actual_pos]);
+        Vec3D force(
+          infos[actual_pos].x(),
+          -infos[actual_pos].y(),
+          -infos[actual_pos].z()
+        );
+        field.set_force(x, y, z, force);
 
       }
 }
