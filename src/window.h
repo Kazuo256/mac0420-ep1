@@ -11,7 +11,7 @@
 #include "object.h"
 #include "camera.h"
 
-#define WIN_REFRESH 1
+#define WIN_REFRESH 16 /* += 60 fps */
 #define MILI 1e-3
 
 namespace ep1 {
