@@ -7,3 +7,5 @@ ep1
 
 .*.swp
 doc/latex
+generator.py
+campos/torus
