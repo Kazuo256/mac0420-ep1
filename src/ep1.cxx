@@ -48,14 +48,14 @@ void CreateCube (vector<ep1::Vec3D> infos) {
 static void draw_cone () {
   glPushMatrix();
   glTranslated(0.0, 0.0, -dists.min()/2.0);
-  glColor4d(1.0, 0.50, 0.50, 0.30);
-  gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 5, 1);  
+  glColor4d(1.0, 0.00, 0.00, 0.3);
+  gluCylinder( gluNewQuadric(), 0.25, 0.0, dists.min(), 6, 1);  
   glPopMatrix();
 }
 
 static void draw_sphere () {
   glColor4d(1.0, 1.00, 1.00, 1.0);
-  gluSphere( gluNewQuadric(), dists.min()/2.0, 10, 10);  
+  gluSphere( gluNewQuadric(), dists.min()/2.0, 6, 6);  
 }
 
 Vec3D transform_to_field (Vec3D position) {
