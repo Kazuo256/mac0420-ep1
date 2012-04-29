@@ -16,7 +16,7 @@ typedef vector< vector< Vec3D > > matrix;
 //static cube info_cube;
 static ForceField field;
 static Vec3D      max_vec, min_vec, dists;
-static double     glyph_size;
+static double     glyph_size, ratio;
 
 void CreateCube (vector<ep1::Vec3D> infos) {
   int x, y, z, nX, nY, nZ, actual_pos;
@@ -149,7 +149,7 @@ static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& n
         win->add_object(Object::create(Object::Renderer(draw_cone), 
                                        Object::Updater(dummy), 
                                        position, 
-                                       size, 
+                                       size*ratio, 
                                        rotation,
                                        0));
       }
@@ -167,7 +167,7 @@ static void add_sphere (const Window::Ptr& win, const Vec3D& dist, const Vec3D& 
         win->add_object(Object::create(Object::Renderer(draw_sphere), 
                                        Object::Updater(update_sphere),  
                                        position, 
-                                       size, 
+                                       size*ratio, 
                                        rotation,
                                        1));
       }
@@ -182,6 +182,14 @@ void init (int argc, char **argv) {
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_ALPHA);
   glutInitWindowSize(500, 500);
   win = Window::create("MAC0420 - EP1");
+  ratio = 1;
+  if (argc == 3) {
+    ratio = atof(argv[2]);
+    if (ratio == 0) {
+      printf("O programa recebe um ratio como terceiro parametro. Iniciando com ratio = 1.\n");
+      ratio = 1;
+    }
+  }
   if (argc < 2) printf("NOME DO ARQUIVO DEUSES DO CAOS\n");
   else {
     infos = utils::LoadForceFieldInfo(argv[1]);

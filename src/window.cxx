@@ -123,8 +123,10 @@ void Window::keyboard (unsigned char key, int x, int y) {
       win->stop_ = 1;
       break;
     case 'w':
-      win->stop_ = 0;
-      glutTimerFunc(WIN_REFRESH, timer_func, 1);
+      if (win->stop_ == 1) {
+        win->stop_ = 0;
+        glutTimerFunc(WIN_REFRESH, timer_func, 1);
+      }
       break;
     case 'e':
       win->draw_cone_++;
