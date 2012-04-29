@@ -42,6 +42,7 @@ class Window {
                        int width = 500, int height = 500) {
       Ptr created(new Window(caption, width, height));
       windows_[created->id_] = created;
+      created->stop_ = 0;
       return created;
     }
   private:
@@ -51,6 +52,8 @@ class Window {
     int                       width_;
     /// Viewport height.
     int                       height_;
+    /// Stop the timerfunc
+    int                       stop_;
     /// The window's camera into the scene.
     Camera                    camera_;
     /// Objects to be drawn.
