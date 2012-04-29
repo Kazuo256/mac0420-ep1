@@ -104,9 +104,9 @@ void Window::motion (int x, int y) {
     -(y - win->mouse_pos_.second)
   );
   if (win->buttons_[0])
-    win->camera_.move(movement*0.1);
+    win->camera_.move(movement);
   else if (win->buttons_[2])
-    win->camera_.closein(movement.y()*0.1);
+    win->camera_.zoom(movement.y()*0.1);
   win->mouse_pos_ = std::make_pair(x, y);
   glutPostRedisplay();
 }
