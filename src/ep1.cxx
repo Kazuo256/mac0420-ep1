@@ -53,7 +53,7 @@ void CreateCube (vector<ep1::Vec3D> infos) {
 
 static void draw_cone () {
   glPushMatrix();
-  //glTranslated(0.0, 0.0, -.5);
+  glTranslated(0.0, 0.0, -.5);
   glColor4d(0.0, 1.00, 0.00, 0.2);
   gluCylinder( gluNewQuadric(), 0.25, 0.0, 1.0, 6, 1);  
   glPopMatrix();
@@ -137,7 +137,8 @@ static void update_sphere (Object& sphere) {
   sphere.add_in_position(delta_pos);
 }
 
-static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& numbers) {
+static void add_cones (const Window::Ptr& win, const Vec3D& dist,
+                       const Vec3D& numbers) {
   int x, y, z;
  
   for (z = 0; z < numbers.z(); z++ )
@@ -145,7 +146,8 @@ static void add_cones (const Window::Ptr& win, const Vec3D& dist, const Vec3D& n
       for (x = 0; x < numbers.x(); x++) {
         Vec3D position(dist.x()*x, -1.0*dist.y()*y, -1.0*dist.z()*z);
         Vec3D size(1.0, 1.0, field.force(x,y,z).length()*glyph_size/max_vec.length());
-        Vec3D rotation = Vec3D::dir(field.force(x,y,z)); 
+        Vec3D rotation =
+          Vec3D::dir(transform_to_field(field.force(x,y,z))); 
         win->add_object(Object::create(Object::Renderer(draw_cone), 
                                        Object::Updater(dummy), 
                                        position, 

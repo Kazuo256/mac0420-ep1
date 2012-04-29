@@ -79,15 +79,19 @@ Vec3D ortho (const Vec3D& v, const Vec3D& up) {
   return result/v;
 }
 
+static double sign (double x) {
+  return 1.0 - 2.0*(x < 0.0);
+}
+
 Vec3D Vec3D::dir (const Vec3D& v, const Vec3D& up) {
   Vec3D v_dir, aux, y;
   double yaw, pitch, roll;
 
   aux = v;
   aux.set_y(0.0);
-  pitch = aux.angle_to(v);
+  pitch = aux.angle_to(v)*sign(v.y());
 
-  yaw = aux.angle_to(Vec3D::Z());
+  yaw = aux.angle_to(Vec3D::Z())*sign(aux.x());
 
   aux = ortho(v, up);
   y = ortho(v, Vec3D::Y());
