@@ -17,18 +17,16 @@ class ForceField {
       forces_[z][y][x] = f;
     }
     Vec3D force (int x, int y, int z) const {
-      Vec3D zero;
-      if (x < 0 || y < 0 || z < 0 || x >= width_ || y >= height_ || z >= depth_) return zero;
+      if (x < 0 || y < 0 || z < 0 || x >= width_ || y >= height_ || z >= depth_)
+        return Vec3D();
       return forces_[z][y][x];
     }
     Vec3D force (Vec3D ref) {
-      Vec3D zero;
       int x, y, z;
       x = (int)ref.x();
       y = (int)ref.y();
       z = (int)ref.z();
-      if (x < 0 || y < 0 || z < 0 || x >= width_ || y >= height_ || z >= depth_) return zero;
-      return forces_[z][y][x];
+      return force(x, y, z);
     }
     int width () const { return width_; }
     int height () const { return height_; }

@@ -105,8 +105,8 @@ Vec3D trilinear_interpolation (Vec3D actual_pos) {
   
   delta = calc_delta(actual_pos.y(), brn.y());
   
-  f1 = f01*(1-delta)+f11*delta;
-  f0 = f10*delta+f00*(1-delta);
+  f1 = f01*(1-delta)+f00*delta;
+  f0 = f10*delta+f11*(1-delta);
 
   delta = calc_delta(actual_pos.z(), brn.z());
   
@@ -117,11 +117,11 @@ void calc_new_delta (Vec3D& delta, Vec3D pos) {
   Vec3D final_pos;
 
   final_pos = delta+pos;
-  if (final_pos.x() >= (field.width()-1)*dists.x() || final_pos.x() < 0.0) 
+  if (final_pos.x() > field.width()*dists.x() || final_pos.x() < 0.0) 
     delta.set_x(0.0);
-  if (final_pos.y() >= (field.height()-1)*dists.y() || final_pos.y() < 0.0) 
+  if (-final_pos.y() > field.height()*dists.y() || -final_pos.y() < 0.0) 
     delta.set_y(0.0);
-  if (final_pos.z() >= (field.depth()-1)*dists.z() || final_pos.z() < 0.0) 
+  if (-final_pos.z() > field.depth()*dists.z() || -final_pos.z() < 0.0) 
     delta.set_z(0.0);
 
 }
@@ -160,7 +160,7 @@ static void add_sphere (const Window::Ptr& win, const Vec3D& dist, const Vec3D& 
   for (z = 0; z < numbers.z(); z++ )
     for (y = 0; y < numbers.y(); y++)
       for (x = 0; x < numbers.x(); x++) {
-        Vec3D position(dist.x()*x, -1.0*dist.y()*y, -1.0*dist.z()*z);
+        Vec3D position(dist.x()*x, -dist.y()*y, -dist.z()*z);
         Vec3D size(1, 1, 1);
         Vec3D rotation;
         win->add_object(Object::create(Object::Renderer(draw_sphere), 
