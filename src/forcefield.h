@@ -13,6 +13,7 @@ class ForceField {
     explicit ForceField (int width = 0, int height = 0, int depth = 0) :
       width_(width), height_(height), depth_(depth),
       forces_(depth, matrix(height, std::vector<Vec3D>(width, Vec3D()))) {}
+    void load (std::vector<Vec3D>::iterator it);
     void set_force (int x, int y, int z, const Vec3D& f) {
       forces_[z][y][x] = f;
     }
@@ -36,6 +37,7 @@ class ForceField {
     typedef std::vector< matrix >             cube;
     int   width_, height_, depth_;
     cube  forces_;
+    Vec3D max_force_, min_force_;
 };
 
 } // namespace ep1
