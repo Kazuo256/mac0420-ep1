@@ -34,7 +34,9 @@ class Object {
     /// Return the position vector.
     Vec3D get_position () const { return position_; }
     /// Return the object type.
-    int get_type ();
+    int get_type () const;
+    /// Dump object info.
+    void dump () const;
     /// Creates a new renderable object and returns it as a smart pointer.
     /** This guarantees that the user will never have to worry about freeing
      ** its memory.
@@ -49,12 +51,14 @@ class Object {
                        const Vec3D& position = Vec3D(),
                        const Vec3D& size = Vec3D(1.0, 1.0, 1.0),
                        const Vec3D& rotation = Vec3D(),
-                       const int type = 0) {
-      return Ptr(new Object(renderer, updater, position, size, rotation, type));
+                       const int type = 0,
+                       const unsigned id = 0) {
+      return Ptr(new Object(renderer, updater, position, size, rotation, type, id));
     }
   private:
     /// 0 = Cone, 1 = Sphere
     int       type_;
+    unsigned  id_;
     /// This object's rendering function.
     Renderer  renderer_;
     /// This object's rendering function.
@@ -75,13 +79,15 @@ class Object {
                      const Vec3D& position = Vec3D(),
                      const Vec3D& size = Vec3D(1.0, 1.0, 1.0),
                      const Vec3D& rotation = Vec3D(),
-                     const int type = 0) :
+                     const int type = 0,
+                     const unsigned id = 0) :
       renderer_(renderer),
       updater_(updater),
       position_(position),
       size_(size),
       rotation_(rotation),
-      type_(type) {}
+      type_(type),
+      id_(id) {}
 };
 
 } // namespace ep1

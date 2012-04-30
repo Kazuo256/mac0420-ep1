@@ -28,8 +28,13 @@ void Object::render () const {
   renderer_();
 }
 
-int Object::get_type () {
+int Object::get_type () const {
   return type_;
+}
+
+void Object::dump () const {
+  printf("Object #%u\n\tposition: ", id_);
+  position_.dump();
 }
 
 void Object::update () {

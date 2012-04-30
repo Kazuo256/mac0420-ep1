@@ -74,7 +74,7 @@ Vec3D transform_to_field (Vec3D position) {
 double calc_delta (double actual_pos, double vertex) {
   double delta;
 
-  delta = abs(vertex - actual_pos);
+  delta = fabs(vertex - actual_pos);
   
   return delta;
 }
@@ -119,11 +119,14 @@ void calc_new_delta (Vec3D& delta, Vec3D pos) {
   Vec3D final_pos;
 
   final_pos = delta+pos;
-  if (final_pos.x() > field.width()*dists.x() || final_pos.x() < 0.0) 
+  if (final_pos.x() > (field.width()-1)*dists.x() || final_pos.x() < 0.0)  {
+    //puts("getoverhere!");
+    //pos.dump();
     delta.set_x(0.0);
-  if (-final_pos.y() > field.height()*dists.y() || -final_pos.y() < 0.0) 
+  }
+  if (-final_pos.y() > (field.height()-1)*dists.y() || -final_pos.y() < 0.0) 
     delta.set_y(0.0);
-  if (-final_pos.z() > field.depth()*dists.z() || -final_pos.z() < 0.0) 
+  if (-final_pos.z() > (field.depth()-1)*dists.z() || -final_pos.z() < 0.0) 
     delta.set_z(0.0);
 
 }
@@ -173,7 +176,8 @@ static void add_sphere (const Window::Ptr& win, const Vec3D& dist, const Vec3D& 
                                        position, 
                                        size*ratio, 
                                        rotation,
-                                       1));
+                                       1,
+                                       1+z*numbers.y()*numbers.x()+y*numbers.x()+x));
       }
 }
 
