@@ -89,7 +89,7 @@ Vec3D Vec3D::dir (const Vec3D& v, const Vec3D& up) {
 
   aux = v;
   aux.set_y(0.0);
-  pitch = aux.angle_to(v)*sign(v.y());
+  pitch = aux.angle_to(v)*-sign(v.y());
 
   yaw = aux.angle_to(Vec3D::Z())*sign(aux.x());
 

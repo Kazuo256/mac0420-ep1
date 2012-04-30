@@ -151,8 +151,7 @@ static void add_cones (const Window::Ptr& win, const Vec3D& dist,
       for (x = 0; x < numbers.x(); x++) {
         Vec3D position(dist.x()*x, -1.0*dist.y()*y, -1.0*dist.z()*z);
         Vec3D size(1.0, 1.0, field.force(x,y,z).length()*glyph_size/max_vec.length());
-        Vec3D rotation =
-          Vec3D::dir(transform_to_field(field.force(x,y,z))); 
+        Vec3D rotation = Vec3D::dir(field.force(x,y,z)); 
         win->add_object(Object::create(Object::Renderer(draw_cone), 
                                        Object::Updater(dummy), 
                                        position, 
