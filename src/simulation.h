@@ -8,20 +8,27 @@
 #include "vec3D.h"
 #include "window.h"
 #include "forcefield.h"
+#include "object.h"
 
 namespace ep1 {
 
 class Simulation {
   public:
-    explicit Simulation (const Window::Ptr& win) :
-      win_(win) {}
+    explicit Simulation (const Window::Ptr& win, double ratio) :
+      win_(win), ratio_(ratio) {}
     void init (const std::string& info_file);
+    void update_particle (Object& particle);
   private:
-    Vec3D       size_, dists_;
-    Window::Ptr win_;
-    ForceField  field_;
+    double                    ratio_;
+    Vec3D                     size_,
+                              dists_;
+    Window::Ptr               win_;
+    ForceField                field_;
+    std::vector<Object::Ptr>  forces_,
+                              particles_;
     void add_forces ();
     void add_particles ();
+    void check_movement (Vec3D& move, const Vec3D& pos) const;
 };
 
 } // namespace ep1

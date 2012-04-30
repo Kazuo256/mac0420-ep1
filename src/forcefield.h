@@ -22,13 +22,16 @@ class ForceField {
         return Vec3D();
       return forces_[z][y][x];
     }
-    Vec3D force (Vec3D ref) {
+    Vec3D force (Vec3D ref) const {
       int x, y, z;
       x = (int)ref.x();
       y = (int)ref.y();
       z = (int)ref.z();
       return force(x, y, z);
     }
+    Vec3D interpolate (const Vec3D& pos) const;
+    Vec3D max_force () const { return max_force_; }
+    Vec3D min_force () const { return min_force_; }
     int width () const { return width_; }
     int height () const { return height_; }
     int depth () const { return depth_; }

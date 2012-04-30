@@ -38,8 +38,8 @@ class Vec3D {
     double length () const;
     double min () const;
     double max () const;
-    Vec3D vec_floor ();
-    Vec3D vec_ceil ();
+    Vec3D vec_floor () const;
+    Vec3D vec_ceil () const;
     double angle_to (const Vec3D& rhs) const;
     Vec3D normalized () const;
     void dump() const;

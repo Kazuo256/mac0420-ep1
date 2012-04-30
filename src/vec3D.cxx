@@ -26,7 +26,7 @@ double Vec3D::max () const {
   return std::max(x_, std::max(y_, z_));
 }
 
-Vec3D Vec3D::vec_floor () {
+Vec3D Vec3D::vec_floor () const {
   Vec3D ret = (*this);
   ret.x_ = floor(ret.x_);
   ret.y_ = floor(ret.y_);
@@ -35,7 +35,7 @@ Vec3D Vec3D::vec_floor () {
   return ret;
 } 
 
-Vec3D Vec3D::vec_ceil () {
+Vec3D Vec3D::vec_ceil () const {
   Vec3D ret = (*this);
   ret.x_ = ceil(ret.x_);
   ret.y_ = ceil(ret.y_);
