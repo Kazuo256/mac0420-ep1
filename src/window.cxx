@@ -12,6 +12,8 @@ namespace ep1 {
 using std::vector;
 using std::tr1::unordered_map;
 
+int                             Window::init_width_,
+                                Window::init_height_;
 unordered_map<int, Window::Ptr> Window::windows_;
 
 Window::Window (const std::string& caption, int width, int height) :
@@ -53,6 +55,12 @@ void Window::init (double w, double h, double d) {
 
 void Window::add_object(const Object::Ptr& obj) {
   objects_.push_back(obj);
+}
+
+void Window::init_size (int w, int h) {
+  init_width_ = w;
+  init_height_ = h;
+  glutInitWindowSize(w, h);
 }
 
 void Window::set_current () {

@@ -36,10 +36,12 @@ class Window {
     /// Adds an object to be drawn in the window.
     /** @param obj The object to de added. */
     void add_object (const Object::Ptr& obj);
+    /// Defines the initial window size.
+    static void init_size(int w, int h);
     /// Creates a new window object.
     /** @param caption - The window's caption. */
     static Ptr create (const std::string& caption,
-                       int width = 500, int height = 500) {
+                       int width = init_width_, int height = init_height_) {
       Ptr created(new Window(caption, width, height));
       windows_[created->id_] = created;
       return created;
@@ -63,6 +65,8 @@ class Window {
     bool                      buttons_[3];
     /// Last mouse position detected.
     std::pair<int,int>        mouse_pos_;
+    /// Initial window size.
+    static int                init_width_, init_height_;
     /// Reference base for all created windows.
     static std::tr1::unordered_map<int, Ptr> windows_;
     /// Constructor.
