@@ -184,24 +184,26 @@ void init (int argc, char **argv) {
   vector<Vec3D> infos;
   
     
-  Window::Ptr win;
   glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_ALPHA);
-  glutInitWindowSize(500, 500);
-  win = Window::create("MAC0420 - EP1");
   ratio = 1;
-  if (argc == 3) {
+  if (argc >= 3) {
     ratio = atof(argv[2]);
     if (ratio == 0) {
-      printf("O programa recebe um ratio como terceiro parametro. Iniciando com ratio = 1.\n");
+      puts("O programa recebe um ratio como terceiro parametro. Iniciando com "
+           "ratio = 1.");
       ratio = 1;
     }
   }
   if (argc < 2) {
-    printf("O programa recebe o nome de um arquivo como entrada padrão.\n");
-    exit(0);
+    puts("O programa recebe o nome de um arquivo do qual carregar as "
+         "informações da simulação.\n");
+    exit(EXIT_FAILURE);
   }
   else {
+    Window::Ptr win;
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_ALPHA);
+    Window::init_size(500, 500);
+    win = Window::create("MAC0420 - EP1");
     infos = utils::LoadForceFieldInfo(argv[1]);
     //info_cube = cube(infos[0].z(), matrix(infos[0].y(), vector<Vec3D>(infos[0].x())));
     field = ForceField(infos[0].x(), infos[0].y(), infos[0].z());
