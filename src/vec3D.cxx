@@ -31,7 +31,6 @@ Vec3D Vec3D::vec_floor () const {
   ret.x_ = floor(ret.x_);
   ret.y_ = floor(ret.y_);
   ret.z_ = floor(ret.z_);
-
   return ret;
 } 
 
@@ -40,21 +39,11 @@ Vec3D Vec3D::vec_ceil () const {
   ret.x_ = ceil(ret.x_);
   ret.y_ = ceil(ret.y_);
   ret.z_ = ceil(ret.z_);
-
   return ret;
 }
 
 double Vec3D::angle_to (const Vec3D& rhs) const {
   if (*this == rhs) return 0.0;
-  /*
-  Vec3D proj = rhs*((*this)*rhs.normalized()),
-        dist = *this - proj;
-  double angle = atan2(
-    dist.length(),
-    proj.length()
-  );
-  return angle;
-  */
   else return acos(normalized()*rhs.normalized())*180.0/PI;
 }
 
@@ -72,13 +61,14 @@ Vec3D Vec3D::ypr (double yaw, double pitch, double roll) {
   return Vec3D(pitch, yaw, roll);
 }
 
-Vec3D ortho (const Vec3D& v, const Vec3D& up) {
+/// Orthogonalizes the up vector.
+static Vec3D ortho (const Vec3D& v, const Vec3D& up) {
   Vec3D result;
-
   result = v/up;
   return result/v;
 }
 
+/// Gets a number's sign.
 static double sign (double x) {
   return 1.0 - 2.0*(x < 0.0);
 }

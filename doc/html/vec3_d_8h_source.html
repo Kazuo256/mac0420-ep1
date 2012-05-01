@@ -57,99 +57,123 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00008"></a>00008 
 <a name="l00009"></a><a class="code" href="classep1_1_1_vec3_d.html">00009</a> <span class="keyword">class </span><a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> {
 <a name="l00010"></a>00010   <span class="keyword">public</span>:
-<a name="l00011"></a>00011     <span class="keyword">explicit</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> (<span class="keywordtype">double</span> x = 0.0, <span class="keywordtype">double</span> y = 0.0, <span class="keywordtype">double</span> z = 0.0) :
-<a name="l00012"></a>00012       x_(x), y_(y), z_(z) {}
-<a name="l00013"></a>00013     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> val[3]) :
-<a name="l00014"></a>00014       x_(val[0]), y_(val[1]), z_(val[2]) {}
-<a name="l00015"></a>00015     <span class="keywordtype">double</span> x ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> x_; }
-<a name="l00016"></a>00016     <span class="keywordtype">double</span> y ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> y_; }
-<a name="l00017"></a>00017     <span class="keywordtype">double</span> z ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> z_; }
-<a name="l00018"></a>00018     <span class="keyword">const</span> <span class="keywordtype">double</span>* val ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> val_; }
-<a name="l00019"></a>00019     <span class="keywordtype">void</span> set_x (<span class="keywordtype">double</span> x) { x_ = x; }
-<a name="l00020"></a>00020     <span class="keywordtype">void</span> set_y (<span class="keywordtype">double</span> y) { y_ = y; }
-<a name="l00021"></a>00021     <span class="keywordtype">void</span> set_z (<span class="keywordtype">double</span> z) { z_ = z; }
-<a name="l00022"></a>00022     <span class="keywordtype">void</span> set_val (<span class="keyword">const</span> <span class="keywordtype">double</span> val[3]) {
-<a name="l00023"></a>00023       memcpy(val_, val, 3*<span class="keyword">sizeof</span>(<span class="keywordtype">double</span>));
-<a name="l00024"></a>00024     }
-<a name="l00025"></a>00025     <span class="keywordtype">void</span> <span class="keyword">set</span> (<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z) {
-<a name="l00026"></a>00026       x_ = x; y_ = y; z_ = z;
-<a name="l00027"></a>00027     }
-<a name="l00028"></a>00028     <span class="keywordtype">bool</span> operator == (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
-<a name="l00029"></a>00029     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> operator - () <span class="keyword">const</span>;
-<a name="l00030"></a>00030     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> operator + (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
-<a name="l00031"></a>00031     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; operator += (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs);
-<a name="l00032"></a>00032     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> operator - (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
-<a name="l00033"></a>00033     <span class="keywordtype">double</span> operator * (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
-<a name="l00035"></a>00035     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6">operator / </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
-<a name="l00036"></a>00036     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> operator * (<span class="keywordtype">double</span> rhs) <span class="keyword">const</span>;
-<a name="l00037"></a>00037     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6">operator / </a>(<span class="keywordtype">double</span> rhs) <span class="keyword">const</span>;
-<a name="l00038"></a>00038     <span class="keywordtype">double</span> length () <span class="keyword">const</span>;
-<a name="l00039"></a>00039     <span class="keywordtype">double</span> min () <span class="keyword">const</span>;
-<a name="l00040"></a>00040     <span class="keywordtype">double</span> max () <span class="keyword">const</span>;
-<a name="l00041"></a>00041     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> vec_floor () <span class="keyword">const</span>;
-<a name="l00042"></a>00042     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> vec_ceil () <span class="keyword">const</span>;
-<a name="l00043"></a>00043     <span class="keywordtype">double</span> angle_to (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
-<a name="l00044"></a>00044     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> normalized () <span class="keyword">const</span>;
-<a name="l00045"></a>00045     <span class="keywordtype">void</span> dump() <span class="keyword">const</span>;
-<a name="l00046"></a>00046     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> X () { <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(1.0, 0.0, 0.0); }
-<a name="l00047"></a>00047     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> Y () { <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(0.0, 1.0, 0.0); }
-<a name="l00048"></a>00048     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> Z () { <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(0.0, 0.0, 1.0); }
-<a name="l00049"></a>00049     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> ypr (<span class="keywordtype">double</span> yaw, <span class="keywordtype">double</span> pitch, <span class="keywordtype">double</span> roll);
-<a name="l00050"></a>00050     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> dir (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; v, <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; up = Vec3D::Y()); 
-<a name="l00051"></a>00051   <span class="keyword">private</span>:
-<a name="l00052"></a>00052     <span class="keyword">union </span>{
-<a name="l00053"></a>00053       <span class="keyword">struct </span>{ <span class="keywordtype">double</span> x_, y_, z_; };
-<a name="l00054"></a>00054       <span class="keyword">struct </span>{ <span class="keywordtype">double</span> val_[3]; };
-<a name="l00055"></a>00055     };
-<a name="l00056"></a>00056 };
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058 <span class="keyword">inline</span> <span class="keywordtype">bool</span> Vec3D::operator == (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs)<span class="keyword"> const </span>{
-<a name="l00059"></a>00059   <span class="keywordflow">return</span> x_ == rhs.x_ &amp;&amp;
-<a name="l00060"></a>00060          y_ == rhs.y_ &amp;&amp;
-<a name="l00061"></a>00061          z_ == rhs.z_;
-<a name="l00062"></a>00062 }
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 <span class="keyword">inline</span> Vec3D Vec3D::operator - ()<span class="keyword"> const </span>{
-<a name="l00065"></a>00065   <span class="keywordflow">return</span> Vec3D(-x_, -y_, -z_);
-<a name="l00066"></a>00066 }
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 <span class="keyword">inline</span> Vec3D Vec3D::operator + (<span class="keyword">const</span> Vec3D&amp; rhs)<span class="keyword"> const </span>{
-<a name="l00069"></a>00069   <span class="keywordflow">return</span> Vec3D(x_ + rhs.x_, y_ + rhs.y_, z_ + rhs.z_);
-<a name="l00070"></a>00070 }
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 <span class="keyword">inline</span> Vec3D&amp; Vec3D::operator += (<span class="keyword">const</span> Vec3D&amp; rhs) {
-<a name="l00073"></a>00073   x_ += rhs.x_;
-<a name="l00074"></a>00074   y_ += rhs.y_;
-<a name="l00075"></a>00075   z_ += rhs.z_;
-<a name="l00076"></a>00076   <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00077"></a>00077 }
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 <span class="keyword">inline</span> Vec3D Vec3D::operator - (<span class="keyword">const</span> Vec3D&amp; rhs)<span class="keyword"> const </span>{
-<a name="l00080"></a>00080   <span class="keywordflow">return</span> *<span class="keyword">this</span> + (-rhs);
-<a name="l00081"></a>00081 }
+<a name="l00012"></a>00012 
+<a name="l00015"></a><a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17">00015</a>     <span class="keyword">explicit</span> <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a> (<span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#a898252aaadb412a84f76993120b52fe4" title="Gets the x-coordinate of the vector.">x</a> = 0.0, <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#a5ff81e185b907308b97282af581c8131" title="Gets the y-coordinate of the vector.">y</a> = 0.0, <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#acf406ec94de1a3dcb7a9363fc4352aab" title="Gets the z-coordinate of the vector.">z</a> = 0.0) :
+<a name="l00016"></a>00016       x_(<a class="code" href="classep1_1_1_vec3_d.html#a898252aaadb412a84f76993120b52fe4" title="Gets the x-coordinate of the vector.">x</a>), y_(<a class="code" href="classep1_1_1_vec3_d.html#a5ff81e185b907308b97282af581c8131" title="Gets the y-coordinate of the vector.">y</a>), z_(<a class="code" href="classep1_1_1_vec3_d.html#acf406ec94de1a3dcb7a9363fc4352aab" title="Gets the z-coordinate of the vector.">z</a>) {}
+<a name="l00018"></a>00018 
+<a name="l00020"></a><a class="code" href="classep1_1_1_vec3_d.html#a6201cf50a0a8d3638d58f589c8d9dd72">00020</a>     <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#adc6acba176ec9f93abccc0e8ec24c334" title="Gets a read-only array of the vector&amp;#39;s coordinates.">val</a>[3]) :
+<a name="l00021"></a>00021       x_(val[0]), y_(val[1]), z_(val[2]) {}
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="classep1_1_1_vec3_d.html#a898252aaadb412a84f76993120b52fe4">00024</a>     <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#a898252aaadb412a84f76993120b52fe4" title="Gets the x-coordinate of the vector.">x</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> x_; }
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="classep1_1_1_vec3_d.html#a5ff81e185b907308b97282af581c8131">00027</a>     <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#a5ff81e185b907308b97282af581c8131" title="Gets the y-coordinate of the vector.">y</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> y_; }
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="classep1_1_1_vec3_d.html#acf406ec94de1a3dcb7a9363fc4352aab">00030</a>     <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#acf406ec94de1a3dcb7a9363fc4352aab" title="Gets the z-coordinate of the vector.">z</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> z_; }
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="classep1_1_1_vec3_d.html#adc6acba176ec9f93abccc0e8ec24c334">00033</a>     <span class="keyword">const</span> <span class="keywordtype">double</span>* <a class="code" href="classep1_1_1_vec3_d.html#adc6acba176ec9f93abccc0e8ec24c334" title="Gets a read-only array of the vector&amp;#39;s coordinates.">val</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> val_; }
+<a name="l00035"></a>00035 
+<a name="l00036"></a><a class="code" href="classep1_1_1_vec3_d.html#a67b242a3ab4daf14397b147593e897d6">00036</a>     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_vec3_d.html#a67b242a3ab4daf14397b147593e897d6" title="Sets the x-coordinate of the vector.">set_x</a> (<span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#a898252aaadb412a84f76993120b52fe4" title="Gets the x-coordinate of the vector.">x</a>) { x_ = x; }
+<a name="l00038"></a>00038 
+<a name="l00039"></a><a class="code" href="classep1_1_1_vec3_d.html#adce04ca5cd4f846b43ac585e2a734256">00039</a>     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_vec3_d.html#adce04ca5cd4f846b43ac585e2a734256" title="Sets the y-coordinate of the vector.">set_y</a> (<span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#a5ff81e185b907308b97282af581c8131" title="Gets the y-coordinate of the vector.">y</a>) { y_ = y; }
+<a name="l00041"></a>00041 
+<a name="l00042"></a><a class="code" href="classep1_1_1_vec3_d.html#a5ba83433d2e493fc67c401491cc2361a">00042</a>     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_vec3_d.html#a5ba83433d2e493fc67c401491cc2361a" title="Sets the z-coordinate of the vector.">set_z</a> (<span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#acf406ec94de1a3dcb7a9363fc4352aab" title="Gets the z-coordinate of the vector.">z</a>) { z_ = z; }
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="classep1_1_1_vec3_d.html#a8f9ddb49c6de70f75fcce553d6808c0a">00045</a>     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_vec3_d.html#a8f9ddb49c6de70f75fcce553d6808c0a" title="Sets all the vector&amp;#39;s coordinates.">set_val</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#adc6acba176ec9f93abccc0e8ec24c334" title="Gets a read-only array of the vector&amp;#39;s coordinates.">val</a>[3]) {
+<a name="l00046"></a>00046       memcpy(val_, val, 3*<span class="keyword">sizeof</span>(<span class="keywordtype">double</span>));
+<a name="l00047"></a>00047     }
+<a name="l00049"></a>00049 
+<a name="l00052"></a><a class="code" href="classep1_1_1_vec3_d.html#ada61ff1dbddf327281e89b9441d08d95">00052</a>     <span class="keywordtype">void</span> <span class="keyword">set</span> (<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z) {
+<a name="l00053"></a>00053       x_ = x; y_ = y; z_ = z;
+<a name="l00054"></a>00054     }
+<a name="l00056"></a>00056 
+<a name="l00058"></a>00058     <span class="keywordtype">bool</span> <a class="code" href="classep1_1_1_vec3_d.html#a1d61a3372f135c216449f8d600608b2c" title="Checks if two vectors are the same.">operator == </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
+<a name="l00060"></a>00060     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#aaa3381e412626790d0db3fe83d075057" title="Unary minus.">operator - </a>() <span class="keyword">const</span>;
+<a name="l00062"></a>00062     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#afbd692443af1a580c6d72e2e5dc4d2fc" title="Addition.">operator + </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
+<a name="l00064"></a>00064     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; <a class="code" href="classep1_1_1_vec3_d.html#acb3c7e3a936d12a9dec0542348f996ff" title="In-place addition.">operator += </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs);
+<a name="l00066"></a>00066     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#aaa3381e412626790d0db3fe83d075057" title="Unary minus.">operator - </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
+<a name="l00068"></a>00068     <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#afc0172ddc51e7a4d99f8dfa84f0905d7" title="Scalar product.">operator * </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
+<a name="l00070"></a>00070     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6" title="Vectorial product.">operator / </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
+<a name="l00072"></a>00072     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#afc0172ddc51e7a4d99f8dfa84f0905d7" title="Scalar product.">operator * </a>(<span class="keywordtype">double</span> rhs) <span class="keyword">const</span>;
+<a name="l00074"></a>00074     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6" title="Vectorial product.">operator / </a>(<span class="keywordtype">double</span> rhs) <span class="keyword">const</span>;
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077     <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#afae56bb21f147dae08abdd1a7821263f" title="Calculates the length of this vector.">length</a> () <span class="keyword">const</span>;
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080     <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#a1d896072486b806b084f54fb77bf6677" title="Calculates the biggest component of this vector.">min</a> () <span class="keyword">const</span>;
 <a name="l00082"></a>00082 
-<a name="l00083"></a>00083 <span class="keyword">inline</span> <span class="keywordtype">double</span> Vec3D::operator * (<span class="keyword">const</span> Vec3D&amp; rhs)<span class="keyword"> const </span>{
-<a name="l00084"></a>00084   <span class="keywordflow">return</span> x_*rhs.x_ + y_*rhs.y_ + z_*rhs.z_;
-<a name="l00085"></a>00085 }
-<a name="l00086"></a>00086 
-<a name="l00087"></a><a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6">00087</a> <span class="keyword">inline</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6">Vec3D::operator / </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs)<span class="keyword"> const </span>{
-<a name="l00088"></a>00088   <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(y_*rhs.z_ - z_*rhs.y_,
-<a name="l00089"></a>00089                z_*rhs.x_ - x_*rhs.z_,
-<a name="l00090"></a>00090                x_*rhs.y_ - y_*rhs.x_);
-<a name="l00091"></a>00091 }
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093 <span class="keyword">inline</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> Vec3D::operator * (<span class="keywordtype">double</span> rhs)<span class="keyword"> const </span>{
-<a name="l00094"></a>00094   <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(x_*rhs, y_*rhs, z_*rhs);
-<a name="l00095"></a>00095 }
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097 <span class="keyword">inline</span> Vec3D <a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6">Vec3D::operator / </a>(<span class="keywordtype">double</span> rhs)<span class="keyword"> const </span>{
-<a name="l00098"></a>00098   <span class="keywordflow">return</span> Vec3D(x_/rhs, y_/rhs, z_/rhs);
-<a name="l00099"></a>00099 }
+<a name="l00083"></a>00083     <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#af992acf7de98b63c3d203f276800eae9" title="Calculates the smallest component of this vector.">max</a> () <span class="keyword">const</span>;
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a825aa6bcc4dd8ad11e89c829a22de9d6" title="Generates a vector with the floor values of this vector.">vec_floor</a> () <span class="keyword">const</span>;
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a79e642c0b8d3ff5f184389aee04404b7" title="Generates a vector with the ceil values of this vector.">vec_ceil</a> () <span class="keyword">const</span>;
+<a name="l00091"></a>00091 
+<a name="l00093"></a>00093     <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#adb8f499d64c4711657422b6fee062752" title="Calculates the absolute angle between two vectors.">angle_to</a> (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) <span class="keyword">const</span>;
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#aa326989a9869db0cbcef0cc9ba49c87a" title="Makes a normalized version of this vector.">normalized</a> () <span class="keyword">const</span>;
+<a name="l00098"></a>00098     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_vec3_d.html#ab231c19f2936358c6f9764aefbc4d35a" title="Dumps vector&amp;#39;s information.">dump</a>() <span class="keyword">const</span>;
 <a name="l00100"></a>00100 
-<a name="l00101"></a>00101 } <span class="comment">// namespace ep1</span>
-<a name="l00102"></a>00102 
-<a name="l00103"></a>00103 <span class="preprocessor">#endif</span>
-<a name="l00104"></a>00104 <span class="preprocessor"></span>
+<a name="l00101"></a><a class="code" href="classep1_1_1_vec3_d.html#a99fac05b5e3876b8606ef9caa1d1fe54">00101</a>     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a99fac05b5e3876b8606ef9caa1d1fe54" title="X-axis canonical vector.">X</a> () { <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a>(1.0, 0.0, 0.0); }
+<a name="l00103"></a>00103 
+<a name="l00104"></a><a class="code" href="classep1_1_1_vec3_d.html#a8dcea04dbbb41438fa9eaa824a691b5d">00104</a>     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a8dcea04dbbb41438fa9eaa824a691b5d" title="Y-axis canonical vector.">Y</a> () { <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a>(0.0, 1.0, 0.0); }
+<a name="l00106"></a>00106 
+<a name="l00107"></a><a class="code" href="classep1_1_1_vec3_d.html#a39c067bdb0022cbc9aa2f1d087eff11b">00107</a>     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a39c067bdb0022cbc9aa2f1d087eff11b" title="Z-axis canonical vector.">Z</a> () { <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a>(0.0, 0.0, 1.0); }
+<a name="l00109"></a>00109 
+<a name="l00114"></a>00114     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#aeb8e7bce3103f4b35554bbfa0c9458e9" title="Makes a vector in the yaw-pitch-roll format.">ypr</a> (<span class="keywordtype">double</span> yaw, <span class="keywordtype">double</span> pitch, <span class="keywordtype">double</span> roll);
+<a name="l00116"></a>00116 
+<a name="l00122"></a>00122     <span class="keyword">static</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a151c21d24bda279230b33e82ffe06fc9" title="Makes a vector in the yaw-pitch-roll format from a directional vector.">dir</a> (<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; v, <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; up = <a class="code" href="classep1_1_1_vec3_d.html#a8dcea04dbbb41438fa9eaa824a691b5d" title="Y-axis canonical vector.">Vec3D::Y</a>()); 
+<a name="l00123"></a>00123   <span class="keyword">private</span>:
+<a name="l00124"></a>00124     <span class="keyword">union </span>{
+<a name="l00125"></a>00125       <span class="keyword">struct </span>{ <span class="keywordtype">double</span> x_, y_, z_; };
+<a name="l00126"></a>00126       <span class="keyword">struct </span>{ <span class="keywordtype">double</span> val_[3]; };
+<a name="l00127"></a>00127     };
+<a name="l00128"></a>00128 };
+<a name="l00129"></a>00129 
+<a name="l00130"></a><a class="code" href="classep1_1_1_vec3_d.html#a1d61a3372f135c216449f8d600608b2c">00130</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classep1_1_1_vec3_d.html#a1d61a3372f135c216449f8d600608b2c" title="Checks if two vectors are the same.">Vec3D::operator == </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs)<span class="keyword"> const </span>{
+<a name="l00131"></a>00131   <span class="keywordflow">return</span> x_ == rhs.x_ &amp;&amp;
+<a name="l00132"></a>00132          y_ == rhs.y_ &amp;&amp;
+<a name="l00133"></a>00133          z_ == rhs.z_;
+<a name="l00134"></a>00134 }
+<a name="l00135"></a>00135 
+<a name="l00136"></a><a class="code" href="classep1_1_1_vec3_d.html#aaa3381e412626790d0db3fe83d075057">00136</a> <span class="keyword">inline</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#aaa3381e412626790d0db3fe83d075057" title="Unary minus.">Vec3D::operator - </a>()<span class="keyword"> const </span>{
+<a name="l00137"></a>00137   <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a>(-x_, -y_, -z_);
+<a name="l00138"></a>00138 }
+<a name="l00139"></a>00139 
+<a name="l00140"></a><a class="code" href="classep1_1_1_vec3_d.html#afbd692443af1a580c6d72e2e5dc4d2fc">00140</a> <span class="keyword">inline</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#afbd692443af1a580c6d72e2e5dc4d2fc" title="Addition.">Vec3D::operator + </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs)<span class="keyword"> const </span>{
+<a name="l00141"></a>00141   <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a>(x_ + rhs.x_, y_ + rhs.y_, z_ + rhs.z_);
+<a name="l00142"></a>00142 }
+<a name="l00143"></a>00143 
+<a name="l00144"></a><a class="code" href="classep1_1_1_vec3_d.html#acb3c7e3a936d12a9dec0542348f996ff">00144</a> <span class="keyword">inline</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; <a class="code" href="classep1_1_1_vec3_d.html#acb3c7e3a936d12a9dec0542348f996ff" title="In-place addition.">Vec3D::operator += </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs) {
+<a name="l00145"></a>00145   x_ += rhs.x_;
+<a name="l00146"></a>00146   y_ += rhs.y_;
+<a name="l00147"></a>00147   z_ += rhs.z_;
+<a name="l00148"></a>00148   <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00149"></a>00149 }
+<a name="l00150"></a>00150 
+<a name="l00151"></a><a class="code" href="classep1_1_1_vec3_d.html#af3498688a652f5354a0a1c3126ff3077">00151</a> <span class="keyword">inline</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#aaa3381e412626790d0db3fe83d075057" title="Unary minus.">Vec3D::operator - </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs)<span class="keyword"> const </span>{
+<a name="l00152"></a>00152   <span class="keywordflow">return</span> *<span class="keyword">this</span> + (-rhs);
+<a name="l00153"></a>00153 }
+<a name="l00154"></a>00154 
+<a name="l00155"></a><a class="code" href="classep1_1_1_vec3_d.html#afc0172ddc51e7a4d99f8dfa84f0905d7">00155</a> <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classep1_1_1_vec3_d.html#afc0172ddc51e7a4d99f8dfa84f0905d7" title="Scalar product.">Vec3D::operator * </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs)<span class="keyword"> const </span>{
+<a name="l00156"></a>00156   <span class="keywordflow">return</span> x_*rhs.x_ + y_*rhs.y_ + z_*rhs.z_;
+<a name="l00157"></a>00157 }
+<a name="l00158"></a>00158 
+<a name="l00159"></a><a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6">00159</a> <span class="keyword">inline</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6" title="Vectorial product.">Vec3D::operator / </a>(<span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rhs)<span class="keyword"> const </span>{
+<a name="l00160"></a>00160   <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a>(y_*rhs.z_ - z_*rhs.y_,
+<a name="l00161"></a>00161                z_*rhs.x_ - x_*rhs.z_,
+<a name="l00162"></a>00162                x_*rhs.y_ - y_*rhs.x_);
+<a name="l00163"></a>00163 }
+<a name="l00164"></a>00164 
+<a name="l00165"></a><a class="code" href="classep1_1_1_vec3_d.html#a2d47c0402f0ea9fe8f5add70b472c2d4">00165</a> <span class="keyword">inline</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#afc0172ddc51e7a4d99f8dfa84f0905d7" title="Scalar product.">Vec3D::operator * </a>(<span class="keywordtype">double</span> rhs)<span class="keyword"> const </span>{
+<a name="l00166"></a>00166   <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a>(x_*rhs, y_*rhs, z_*rhs);
+<a name="l00167"></a>00167 }
+<a name="l00168"></a>00168 
+<a name="l00169"></a><a class="code" href="classep1_1_1_vec3_d.html#a26b72f13c7b231f47d0ec1e5a52e1265">00169</a> <span class="keyword">inline</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_vec3_d.html#a364e5ef2dfa8fc8c45c660bfdd4200f6" title="Vectorial product.">Vec3D::operator / </a>(<span class="keywordtype">double</span> rhs)<span class="keyword"> const </span>{
+<a name="l00170"></a>00170   <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_vec3_d.html#ad84faa7bd7e83465bd3ffb31df04cc17" title="Constructor.">Vec3D</a>(x_/rhs, y_/rhs, z_/rhs);
+<a name="l00171"></a>00171 }
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173 } <span class="comment">// namespace ep1</span>
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175 <span class="preprocessor">#endif</span>
+<a name="l00176"></a>00176 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -166,7 +190,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 19:23:51 for MAC0420-2012: EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 20:03:22 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
