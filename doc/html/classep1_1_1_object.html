@@ -83,8 +83,10 @@ typedef std::tr1::shared_ptr<br class="typebreak"/>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reference-counting smart pointer for renderable objects. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a213454b5f08258f180c1e687b3db8376">position</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the object's position transformation.  <a href="#a213454b5f08258f180c1e687b3db8376"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#ad7ab2ea09d29c604835119c1489d4e9a">size</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the size transformation of this object.  <a href="#ad7ab2ea09d29c604835119c1489d4e9a"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the object's size transformation.  <a href="#ad7ab2ea09d29c604835119c1489d4e9a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8791a4139478a0c692214cbb13a9bf7"></a><!-- doxytag: member="ep1::Object::toggle_visibility" ref="aa8791a4139478a0c692214cbb13a9bf7" args="()" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#aa8791a4139478a0c692214cbb13a9bf7">toggle_visibility</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Toggles object visibility. <br/></td></tr>
@@ -94,8 +96,6 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Updates this object.  <a href="#a3ba551cc2fcc35b636bf284deb1aa59d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a9dd4321725cdfbe82fefd5a66f1ef79f">add_to_position</a> (const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;add)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a vector to the position of the object.  <a href="#a9dd4321725cdfbe82fefd5a66f1ef79f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a213454b5f08258f180c1e687b3db8376">position</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the object's position transformation.  <a href="#a213454b5f08258f180c1e687b3db8376"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a39bbdde935e1e61fdd62c8ba523fc7d0">create</a> (const <a class="el" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503">Renderer</a> &amp;renderer, const <a class="el" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59">Updater</a> &amp;updater, const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;position=<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>(), const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;size=<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>(1.0, 1.0, 1.0), const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;rotation=<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>())</td></tr>
@@ -281,7 +281,7 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Gets the size transformation of this object. </p>
+<p>Gets the object's size transformation. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> The size transformation of this object. </dd></dl>
 
 </div>
@@ -325,7 +325,7 @@ Private Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 19:15:40 for MAC0420-2012: EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 19:16:52 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

@@ -22,7 +22,10 @@ class Object {
     typedef std::tr1::function<void (Object&)> Updater;
     /// Reference-counting smart pointer for renderable objects.
     typedef std::tr1::shared_ptr<Object>    Ptr;
-    /// Gets the size transformation of this object.
+    /// Gets the object's position transformation.
+    /** @return Vec3D The object's position transformation.*/
+    Vec3D position () const { return position_; }
+    /// Gets the object's size transformation.
     /** @return Vec3D The size transformation of this object. */
     Vec3D size () const { return size_; }
     /// Toggles object visibility.
@@ -40,9 +43,6 @@ class Object {
     void add_to_position (const Vec3D& add) {
       position_ += add;
     }
-    /// Gets the object's position transformation.
-    /** @return Vec3D The object's position transformation.*/
-    Vec3D position () const { return position_; }
     /// Creates a new renderable object and returns it as a smart pointer.
     /** This guarantees that the user will never have to worry about freeing
      ** its memory.
