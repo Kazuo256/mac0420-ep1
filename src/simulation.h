@@ -28,7 +28,9 @@ class Simulation {
       return Ptr(new Simulation(win, ratio));
     }
     /// Initializes the simulation from the given information file.
-    /** The information file must follow the specification found in
+    /** Even if created, a simulation only runs if it has been initialized
+     ** before.
+     ** The information file must follow the specification found in
      ** <b>EP1-2012.pdf</b>.
      ** @param info_file Path to the simulation information file.
      */

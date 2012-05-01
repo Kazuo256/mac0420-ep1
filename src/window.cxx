@@ -25,6 +25,7 @@ Window::Window (const std::string& caption, int width, int height) :
   buttons_[0] = buttons_[1] = buttons_[2] = false;
 }
 
+/// Initializes OpenGL stuff.
 static void init_opengl (Camera& camera, double ratio) {
   glEnable(GL_DEPTH_TEST);
   camera.set_ortho(ratio);

@@ -57,9 +57,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a>  </div>
+<a href="#pri-static-methods">Static Private Member Functions</a>  </div>
   <div class="headertitle">
 <h1>ep1::Window Class Reference</h1>  </div>
 </div>
@@ -84,23 +82,17 @@ typedef std::tr1::function<br class="typebreak"/>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Keyboard event handler. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac92414228ead425569f5ac4a6b723cd6"></a><!-- doxytag: member="ep1::Window::~Window" ref="ac92414228ead425569f5ac4a6b723cd6" args="()" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ac92414228ead425569f5ac4a6b723cd6">~Window</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ae5f3955a62c51bb49b199f3c01e0feb3">init</a> (double w, double h, double d)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initializes the window.  <a href="#ae5f3955a62c51bb49b199f3c01e0feb3"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad1bbb8d25c5eceb1dbe5d5c4eab780a"></a><!-- doxytag: member="ep1::Window::ratio" ref="aad1bbb8d25c5eceb1dbe5d5c4eab780a" args="() const " -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#aad1bbb8d25c5eceb1dbe5d5c4eab780a">ratio</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the window's resolution ratio. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37acb7e12826e77f7e8c495ddf94a72b"></a><!-- doxytag: member="ep1::Window::camera" ref="a37acb7e12826e77f7e8c495ddf94a72b" args="()" -->
-<a class="el" href="classep1_1_1_camera.html">Camera</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a37acb7e12826e77f7e8c495ddf94a72b">camera</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets a reference to the window's camera. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#aad1bbb8d25c5eceb1dbe5d5c4eab780a">ratio</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the window's resolution ratio.  <a href="#aad1bbb8d25c5eceb1dbe5d5c4eab780a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_camera.html">Camera</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a37acb7e12826e77f7e8c495ddf94a72b">camera</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets a reference to the window's camera.  <a href="#a37acb7e12826e77f7e8c495ddf94a72b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a539698aa3776fa15ec350bd3388aab9b"></a><!-- doxytag: member="ep1::Window::set_current" ref="a539698aa3776fa15ec350bd3388aab9b" args="()" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a539698aa3776fa15ec350bd3388aab9b">set_current</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets this window as the current one, if needed. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6a26cf39e73fd7cb4bc14de8d833856"></a><!-- doxytag: member="ep1::Window::register_keyevent" ref="ae6a26cf39e73fd7cb4bc14de8d833856" args="(unsigned char key, KeyEvent event)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ae6a26cf39e73fd7cb4bc14de8d833856">register_keyevent</a> (unsigned char key, <a class="el" href="classep1_1_1_window.html#a21c1a8c6b8bdf8f19bdd9e4d73032b58">KeyEvent</a> event)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds an event to a keyboard input event. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ae6a26cf39e73fd7cb4bc14de8d833856">register_keyevent</a> (unsigned char key, <a class="el" href="classep1_1_1_window.html#a21c1a8c6b8bdf8f19bdd9e4d73032b58">KeyEvent</a> event)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds an event to a keyboard input.  <a href="#ae6a26cf39e73fd7cb4bc14de8d833856"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ac7ab5549f606b88d29e07b4658fc0064">add_object</a> (const <a class="el" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0">Object::Ptr</a> &amp;obj)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds an object to be drawn in the window.  <a href="#ac7ab5549f606b88d29e07b4658fc0064"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
@@ -108,118 +100,32 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ad74bf5132830c31bfba0fefb49a922"></a><!-- doxytag: member="ep1::Window::init_size" ref="a3ad74bf5132830c31bfba0fefb49a922" args="(int w, int h)" -->
 static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a3ad74bf5132830c31bfba0fefb49a922">init_size</a> (int w, int h)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Defines the initial window size. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a5e2a268a3fd64044070040418c9850ed">create</a> (const std::string &amp;caption, int width=<a class="el" href="classep1_1_1_window.html#adba0a817818fca3f79009b635cc81b86">init_width_</a>, int height=init_height_)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new window object.  <a href="#a5e2a268a3fd64044070040418c9850ed"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#aa0edfab40b9691c36f03ee8bcf5ada77">create</a> (const std::string &amp;caption)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new window object.  <a href="#aa0edfab40b9691c36f03ee8bcf5ada77"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ae5af033b95bc41eccabd787d3e38970d">Window</a> (const std::string &amp;caption, int width, int height)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#ae5af033b95bc41eccabd787d3e38970d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5af033b95bc41eccabd787d3e38970d"></a><!-- doxytag: member="ep1::Window::Window" ref="ae5af033b95bc41eccabd787d3e38970d" args="(const std::string &amp;caption, int width, int height)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ae5af033b95bc41eccabd787d3e38970d">Window</a> (const std::string &amp;caption, int width, int height)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. See <a class="el" href="classep1_1_1_window.html#aa0edfab40b9691c36f03ee8bcf5ada77" title="Creates a new window object.">Window::create</a>. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31a72649a6173c87518783ed34e90e3b"></a><!-- doxytag: member="ep1::Window::current_window" ref="a31a72649a6173c87518783ed34e90e3b" args="()" -->
-static <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a31a72649a6173c87518783ed34e90e3b">current_window</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retrieves the current window. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adad8fa855975a759dda5c42d9f256451"></a><!-- doxytag: member="ep1::Window::display" ref="adad8fa855975a759dda5c42d9f256451" args="()" -->
-static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#adad8fa855975a759dda5c42d9f256451">display</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Display callback function for all windows. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe5ce0acb932c6dbc5de4704723dd8a9"></a><!-- doxytag: member="ep1::Window::timer_func" ref="abe5ce0acb932c6dbc5de4704723dd8a9" args="(int value)" -->
-static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#abe5ce0acb932c6dbc5de4704723dd8a9">timer_func</a> (int value)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Idle callback function for all windows. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac25d506c6d6be404e549e2e140d5ebaf"></a><!-- doxytag: member="ep1::Window::reshape" ref="ac25d506c6d6be404e549e2e140d5ebaf" args="(int w, int h)" -->
-static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ac25d506c6d6be404e549e2e140d5ebaf">reshape</a> (int w, int h)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reshape callback function for all windows. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b1eb6b4ae4d5d1dc813146a5d212ab3"></a><!-- doxytag: member="ep1::Window::mouse" ref="a2b1eb6b4ae4d5d1dc813146a5d212ab3" args="(int btn, int state, int x, int y)" -->
-static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a2b1eb6b4ae4d5d1dc813146a5d212ab3">mouse</a> (int btn, int state, int x, int y)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Mouse callback function for all windows. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc9b242df88eadef6c2b9648946c57bc"></a><!-- doxytag: member="ep1::Window::motion" ref="afc9b242df88eadef6c2b9648946c57bc" args="(int x, int y)" -->
-static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#afc9b242df88eadef6c2b9648946c57bc">motion</a> (int x, int y)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Mouse motion callback function for all windows. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0a459c67285cb2f3283001820acaa39"></a><!-- doxytag: member="ep1::Window::keyboard" ref="ad0a459c67285cb2f3283001820acaa39" args="(unsigned char key, int x, int y)" -->
-static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ad0a459c67285cb2f3283001820acaa39">keyboard</a> (unsigned char key, int x, int y)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Keyboard callsback function for all windows. <br/></td></tr>
-<tr><td colspan="2"><h2><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad879ade7b0eab3fe6d0506b2297f313c"></a><!-- doxytag: member="ep1::Window::id_" ref="ad879ade7b0eab3fe6d0506b2297f313c" args="" -->
-int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ad879ade7b0eab3fe6d0506b2297f313c">id_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Glut window's id. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a14c87e3f3137a194289786f7b97b42"></a><!-- doxytag: member="ep1::Window::width_" ref="a3a14c87e3f3137a194289786f7b97b42" args="" -->
-int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a3a14c87e3f3137a194289786f7b97b42">width_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Viewport width. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c80610eeae36b03e99e3cd869480bf3"></a><!-- doxytag: member="ep1::Window::height_" ref="a8c80610eeae36b03e99e3cd869480bf3" args="" -->
-int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a8c80610eeae36b03e99e3cd869480bf3">height_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Viewport height. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38e36e88385fa216427bbda3bba07289"></a><!-- doxytag: member="ep1::Window::stop_" ref="a38e36e88385fa216427bbda3bba07289" args="" -->
-int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a38e36e88385fa216427bbda3bba07289">stop_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Stop the timerfunc. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add8ec98f12cdd742c21c82759718ba83"></a><!-- doxytag: member="ep1::Window::camera_" ref="add8ec98f12cdd742c21c82759718ba83" args="" -->
-<a class="el" href="classep1_1_1_camera.html">Camera</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#add8ec98f12cdd742c21c82759718ba83">camera_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The window's camera into the scene. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a968c88ff370385f05bfc6e10eed9cce0"></a><!-- doxytag: member="ep1::Window::objects_" ref="a968c88ff370385f05bfc6e10eed9cce0" args="" -->
-std::vector&lt; <a class="el" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0">Object::Ptr</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a968c88ff370385f05bfc6e10eed9cce0">objects_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Objects to be drawn. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a066192f13f4067d9257c6cd34c54edb9"></a><!-- doxytag: member="ep1::Window::buttons_" ref="a066192f13f4067d9257c6cd34c54edb9" args="[3]" -->
-bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a066192f13f4067d9257c6cd34c54edb9">buttons_</a> [3]</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Indicates which mouse buttons are currently pressed. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f5627b94728d8774f468eb9cec93b27"></a><!-- doxytag: member="ep1::Window::mouse_pos_" ref="a5f5627b94728d8774f468eb9cec93b27" args="" -->
-std::pair&lt; int, int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a5f5627b94728d8774f468eb9cec93b27">mouse_pos_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Last mouse position detected. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a016ae63be8260417919c532519697c"></a><!-- doxytag: member="ep1::Window::key_events_" ref="a4a016ae63be8260417919c532519697c" args="" -->
-std::vector&lt; <a class="el" href="classep1_1_1_window.html#a21c1a8c6b8bdf8f19bdd9e4d73032b58">KeyEvent</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a4a016ae63be8260417919c532519697c">key_events_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Keyboard events. <br/></td></tr>
-<tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adba0a817818fca3f79009b635cc81b86"></a><!-- doxytag: member="ep1::Window::init_width_" ref="adba0a817818fca3f79009b635cc81b86" args="" -->
-static int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#adba0a817818fca3f79009b635cc81b86">init_width_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initial window size. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a271f1142122e3da20b6bbaa26a0effdb"></a><!-- doxytag: member="ep1::Window::windows_" ref="a271f1142122e3da20b6bbaa26a0effdb" args="" -->
-static std::tr1::unordered_map<br class="typebreak"/>
-&lt; int, <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Ptr</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a271f1142122e3da20b6bbaa26a0effdb">windows_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reference base for all created windows. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a31a72649a6173c87518783ed34e90e3b">current_window</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retrieves the current window.  <a href="#a31a72649a6173c87518783ed34e90e3b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#adad8fa855975a759dda5c42d9f256451">display</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Display callback function for all windows.  <a href="#adad8fa855975a759dda5c42d9f256451"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#abe5ce0acb932c6dbc5de4704723dd8a9">timer_func</a> (int value)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Idle callback function for all windows.  <a href="#abe5ce0acb932c6dbc5de4704723dd8a9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ac25d506c6d6be404e549e2e140d5ebaf">reshape</a> (int w, int h)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reshape callback function for all windows.  <a href="#ac25d506c6d6be404e549e2e140d5ebaf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a2b1eb6b4ae4d5d1dc813146a5d212ab3">mouse</a> (int btn, int state, int x, int y)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Mouse callback function for all windows.  <a href="#a2b1eb6b4ae4d5d1dc813146a5d212ab3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#afc9b242df88eadef6c2b9648946c57bc">motion</a> (int x, int y)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Mouse motion callback function for all windows.  <a href="#afc9b242df88eadef6c2b9648946c57bc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ad0a459c67285cb2f3283001820acaa39">keyboard</a> (unsigned char key, int x, int y)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Keyboard callsback function for all windows.  <a href="#ad0a459c67285cb2f3283001820acaa39"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Represents a graphic window. </p>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae5af033b95bc41eccabd787d3e38970d"></a><!-- doxytag: member="ep1::Window::Window" ref="ae5af033b95bc41eccabd787d3e38970d" args="(const std::string &amp;caption, int width, int height)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ep1::Window::Window </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>caption</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&nbsp;</td>
-          <td class="paramname"> <em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&nbsp;</td>
-          <td class="paramname"> <em>height</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [explicit, private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Constructor. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>caption</em>&nbsp;</td><td>- The window's caption. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="ac7ab5549f606b88d29e07b4658fc0064"></a><!-- doxytag: member="ep1::Window::add_object" ref="ac7ab5549f606b88d29e07b4658fc0064" args="(const Object::Ptr &amp;obj)" -->
 <div class="memitem">
@@ -240,14 +146,34 @@ static std::tr1::unordered_map<br class="typebreak"/>
 <p>Adds an object to be drawn in the window. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>obj</em>&nbsp;</td><td>The object to de added. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>obj</em>&nbsp;</td><td>The object to be added. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a5e2a268a3fd64044070040418c9850ed"></a><!-- doxytag: member="ep1::Window::create" ref="a5e2a268a3fd64044070040418c9850ed" args="(const std::string &amp;caption, int width=init_width_, int height=init_height_)" -->
+<a class="anchor" id="a37acb7e12826e77f7e8c495ddf94a72b"></a><!-- doxytag: member="ep1::Window::camera" ref="a37acb7e12826e77f7e8c495ddf94a72b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classep1_1_1_camera.html">Camera</a>&amp; ep1::Window::camera </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets a reference to the window's camera. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_camera.html">Camera</a>&amp; A reference to the window's camera. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa0edfab40b9691c36f03ee8bcf5ada77"></a><!-- doxytag: member="ep1::Window::create" ref="aa0edfab40b9691c36f03ee8bcf5ada77" args="(const std::string &amp;caption)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -255,24 +181,9 @@ static std::tr1::unordered_map<br class="typebreak"/>
           <td class="memname">static <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Ptr</a> ep1::Window::create </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>caption</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&nbsp;</td>
-          <td class="paramname"> <em>width</em> = <code><a class="el" href="classep1_1_1_window.html#adba0a817818fca3f79009b635cc81b86">init_width_</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&nbsp;</td>
-          <td class="paramname"> <em>height</em> = <code>init_height_</code></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [inline, static]</code></td>
+          <td class="paramname"> <em>caption</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, static]</code></td>
         </tr>
       </table>
 </div>
@@ -285,6 +196,46 @@ static std::tr1::unordered_map<br class="typebreak"/>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a31a72649a6173c87518783ed34e90e3b"></a><!-- doxytag: member="ep1::Window::current_window" ref="a31a72649a6173c87518783ed34e90e3b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Window::Ptr</a> ep1::Window::current_window </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retrieves the current window. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Window::Ptr</a> Smart-pointer to the current window. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adad8fa855975a759dda5c42d9f256451"></a><!-- doxytag: member="ep1::Window::display" ref="adad8fa855975a759dda5c42d9f256451" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Window::display </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Display callback function for all windows. </p>
+<p>Signature follows GLUT specifications. </p>
 
 </div>
 </div>
@@ -324,6 +275,221 @@ static std::tr1::unordered_map<br class="typebreak"/>
 
 </div>
 </div>
+<a class="anchor" id="ad0a459c67285cb2f3283001820acaa39"></a><!-- doxytag: member="ep1::Window::keyboard" ref="ad0a459c67285cb2f3283001820acaa39" args="(unsigned char key, int x, int y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Window::keyboard </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Keyboard callsback function for all windows. </p>
+<p>Signature follows GLUT specifications. </p>
+
+</div>
+</div>
+<a class="anchor" id="afc9b242df88eadef6c2b9648946c57bc"></a><!-- doxytag: member="ep1::Window::motion" ref="afc9b242df88eadef6c2b9648946c57bc" args="(int x, int y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Window::motion </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Mouse motion callback function for all windows. </p>
+<p>Signature follows GLUT specifications. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2b1eb6b4ae4d5d1dc813146a5d212ab3"></a><!-- doxytag: member="ep1::Window::mouse" ref="a2b1eb6b4ae4d5d1dc813146a5d212ab3" args="(int btn, int state, int x, int y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Window::mouse </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>btn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Mouse callback function for all windows. </p>
+<p>Signature follows GLUT specifications. </p>
+
+</div>
+</div>
+<a class="anchor" id="aad1bbb8d25c5eceb1dbe5d5c4eab780a"></a><!-- doxytag: member="ep1::Window::ratio" ref="aad1bbb8d25c5eceb1dbe5d5c4eab780a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ep1::Window::ratio </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the window's resolution ratio. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>double The window's resolution ratio. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae6a26cf39e73fd7cb4bc14de8d833856"></a><!-- doxytag: member="ep1::Window::register_keyevent" ref="ae6a26cf39e73fd7cb4bc14de8d833856" args="(unsigned char key, KeyEvent event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Window::register_keyevent </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classep1_1_1_window.html#a21c1a8c6b8bdf8f19bdd9e4d73032b58">Window::KeyEvent</a>&nbsp;</td>
+          <td class="paramname"> <em>event</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Adds an event to a keyboard input. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>key</em>&nbsp;</td><td>Character key associated to the given event. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>event</em>&nbsp;</td><td>The event that happens when the given key is pressed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac25d506c6d6be404e549e2e140d5ebaf"></a><!-- doxytag: member="ep1::Window::reshape" ref="ac25d506c6d6be404e549e2e140d5ebaf" args="(int w, int h)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Window::reshape </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>h</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reshape callback function for all windows. </p>
+<p>Signature follows GLUT specifications. </p>
+
+</div>
+</div>
+<a class="anchor" id="abe5ce0acb932c6dbc5de4704723dd8a9"></a><!-- doxytag: member="ep1::Window::timer_func" ref="abe5ce0acb932c6dbc5de4704723dd8a9" args="(int value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Window::timer_func </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>value</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Idle callback function for all windows. </p>
+<p>Signature follows GLUT specifications. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/<a class="el" href="window_8h_source.html">window.h</a></li>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/window.cxx</li>
@@ -343,7 +509,7 @@ static std::tr1::unordered_map<br class="typebreak"/>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 16:12:57 for MAC0420-2012: EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 16:24:55 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
