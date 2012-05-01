@@ -6,14 +6,14 @@ namespace ep1 {
 
 namespace utils { 
 
-std::vector<ep1::Vec3D> 
-  LoadForceFieldInfo (const std::string& file_name) {
-  
-  FILE *pfile;
-  std::vector<ep1::Vec3D> infos;
-  double X, Y, Z, distX, distY, distZ;
-  int nX, nY, nZ, count;
-  char buffer[BUFFER_SIZE];
+using std::vector;
+
+vector<ep1::Vec3D> LoadForceFieldInfo (const std::string& file_name) {
+  FILE                *pfile;
+  vector<ep1::Vec3D>  infos;
+  double              X, Y, Z, distX, distY, distZ;
+  int                 nX, nY, nZ, count;
+  char                buffer[BUFFER_SIZE];
   
   pfile = fopen(file_name.c_str(), "r");
   if (pfile == NULL) {
@@ -21,8 +21,6 @@ std::vector<ep1::Vec3D>
     exit(EXIT_FAILURE);
   }
 
-  infos = std::vector<ep1::Vec3D>();
-  
   if(!fgets(buffer, BUFFER_SIZE, pfile)) {
     puts("Input problem.");
     exit(EXIT_FAILURE);
