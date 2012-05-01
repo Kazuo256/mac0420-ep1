@@ -52,14 +52,316 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
 <h1>ep1::ForceField Class Reference</h1>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="ep1::ForceField" -->
+<p>Represents a force field.  
+<a href="#_details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="forcefield_8h_source.html">forcefield.h</a>&gt;</code></p>
+
 <p><a href="classep1_1_1_force_field-members.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#ab2b5d9008b15edd8a4c81f263cd7f3e8">ForceField</a> (int width=0, int height=0, int depth=0)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#ab2b5d9008b15edd8a4c81f263cd7f3e8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#aa8f4e5accc8f20048008b6d5900aaa76">load</a> (std::vector&lt; <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &gt;::iterator it)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Load the forces from the given stream of vectors.  <a href="#aa8f4e5accc8f20048008b6d5900aaa76"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#a9fb5b7a45dcaf66eec9a4d3c19e52418">force</a> (int x, int y, int z) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the force at the given position.  <a href="#a9fb5b7a45dcaf66eec9a4d3c19e52418"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#a6297b876c0e76fbf23ca31864f720e2f">force</a> (<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> ref) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the force at the given position, truncated to integral coordinates.  <a href="#a6297b876c0e76fbf23ca31864f720e2f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#acca2da7a6fc60377ebe240034d0cdec0">interpolate</a> (const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;pos) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the interpolated force at the given position.  <a href="#acca2da7a6fc60377ebe240034d0cdec0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#a6c05f782cc019b4e976eec707c644324">max_force</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the biggest force within the field.  <a href="#a6c05f782cc019b4e976eec707c644324"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#a3738d193dd152db293e8ab454a1a2959">min_force</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the smallest force within the field.  <a href="#a3738d193dd152db293e8ab454a1a2959"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#acbfaa6a9903f412201e2c42fbdfddaaa">width</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the field's width.  <a href="#acbfaa6a9903f412201e2c42fbdfddaaa"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#aed78781a9985bb5f45be44ec7c0d9ef0">height</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the field's height.  <a href="#aed78781a9985bb5f45be44ec7c0d9ef0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_force_field.html#a88ed89915112dd6c38ce696b44e9417c">depth</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the field's depth.  <a href="#a88ed89915112dd6c38ce696b44e9417c"></a><br/></td></tr>
 </table>
+<hr/><a name="_details"></a><h2>Detailed Description</h2>
+<p>Represents a force field. </p>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab2b5d9008b15edd8a4c81f263cd7f3e8"></a><!-- doxytag: member="ep1::ForceField::ForceField" ref="ab2b5d9008b15edd8a4c81f263cd7f3e8" args="(int width=0, int height=0, int depth=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ep1::ForceField::ForceField </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>width</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>height</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>depth</em> = <code>0</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline, explicit]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>The field width. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>The field height. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>depth</em>&nbsp;</td><td>The field depth. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a88ed89915112dd6c38ce696b44e9417c"></a><!-- doxytag: member="ep1::ForceField::depth" ref="a88ed89915112dd6c38ce696b44e9417c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ep1::ForceField::depth </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the field's depth. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>int The field's depth. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9fb5b7a45dcaf66eec9a4d3c19e52418"></a><!-- doxytag: member="ep1::ForceField::force" ref="a9fb5b7a45dcaf66eec9a4d3c19e52418" args="(int x, int y, int z) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> ep1::ForceField::force </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>z</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the force at the given position. </p>
+<p>Forces outside the field default to zero. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X-coordinate of the force. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y-coordinate of the force. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>z</em>&nbsp;</td><td>Z-coordinate of the force. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> Force at the given position. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6297b876c0e76fbf23ca31864f720e2f"></a><!-- doxytag: member="ep1::ForceField::force" ref="a6297b876c0e76fbf23ca31864f720e2f" args="(Vec3D ref) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> ep1::ForceField::force </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td>
+          <td class="paramname"> <em>ref</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the force at the given position, truncated to integral coordinates. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ref</em>&nbsp;</td><td>Position whose floor'd coordinates lead to the wanted force. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> Force at the given truncated position. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aed78781a9985bb5f45be44ec7c0d9ef0"></a><!-- doxytag: member="ep1::ForceField::height" ref="aed78781a9985bb5f45be44ec7c0d9ef0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ep1::ForceField::height </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the field's height. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>int The field's height. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acca2da7a6fc60377ebe240034d0cdec0"></a><!-- doxytag: member="ep1::ForceField::interpolate" ref="acca2da7a6fc60377ebe240034d0cdec0" args="(const Vec3D &amp;pos) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> ep1::ForceField::interpolate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>pos</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the interpolated force at the given position. </p>
+<p>Uses trilinear interpolation. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pos</em>&nbsp;</td><td>A position within the force field. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> The interpolated force at the given position. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa8f4e5accc8f20048008b6d5900aaa76"></a><!-- doxytag: member="ep1::ForceField::load" ref="aa8f4e5accc8f20048008b6d5900aaa76" args="(std::vector&lt; Vec3D &gt;::iterator it)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::ForceField::load </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &gt;::iterator&nbsp;</td>
+          <td class="paramname"> <em>it</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Load the forces from the given stream of vectors. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>it</em>&nbsp;</td><td>Iterator to a stream of force vectors. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6c05f782cc019b4e976eec707c644324"></a><!-- doxytag: member="ep1::ForceField::max_force" ref="a6c05f782cc019b4e976eec707c644324" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> ep1::ForceField::max_force </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the biggest force within the field. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> The biggest force within the field. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3738d193dd152db293e8ab454a1a2959"></a><!-- doxytag: member="ep1::ForceField::min_force" ref="a3738d193dd152db293e8ab454a1a2959" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> ep1::ForceField::min_force </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the smallest force within the field. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> The smallest force within the field. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acbfaa6a9903f412201e2c42fbdfddaaa"></a><!-- doxytag: member="ep1::ForceField::width" ref="acbfaa6a9903f412201e2c42fbdfddaaa" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ep1::ForceField::width </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the field's width. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>int The field's width. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/<a class="el" href="forcefield_8h_source.html">forcefield.h</a></li>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/forcefield.cxx</li>
@@ -79,7 +381,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 18:53:01 for MAC0420-2012: EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 19:05:03 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

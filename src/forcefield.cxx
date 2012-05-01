@@ -22,6 +22,7 @@ void ForceField::load (vector<Vec3D>::iterator it) {
       }
 }
 
+/// Calculates the absolute difference between two numbers.
 static double calc_delta (double pos, double vertex) {
   return fabs(vertex - pos);
 }
@@ -30,6 +31,7 @@ Vec3D ForceField::interpolate (const Vec3D& pos) const {
   Vec3D brn, f00, f01, f10, f11, f0, f1, aux; // brn = bottom_right_near 
   double delta;
 
+  // Trilinear interpolation algorithm.
   brn = pos.vec_floor();
   aux = brn;
   aux.set_x(aux.x()+1.0);
