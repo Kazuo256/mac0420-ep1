@@ -64,7 +64,7 @@ void Camera::adjust (double ratio) {
     set_ortho(ratio);
 }
 
-void Camera::use () const {
+void Camera::place () const {
   glTranslated(0.0, 0.0, -sphere_pos_.z());
   glRotated(-sphere_pos_.y(), 1.0, 0.0, 0.0);
   glRotated(sphere_pos_.x(), 0.0, 1.0, 0.0);

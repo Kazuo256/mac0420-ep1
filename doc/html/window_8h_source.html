@@ -83,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00046"></a>00046     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_window.html#a3ad74bf5132830c31bfba0fefb49a922" title="Defines the initial window size.">init_size</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);
 <a name="l00048"></a>00048 
 <a name="l00049"></a><a class="code" href="classep1_1_1_window.html#aa0edfab40b9691c36f03ee8bcf5ada77">00049</a>     <span class="keyword">static</span> <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Ptr</a> <a class="code" href="classep1_1_1_window.html#aa0edfab40b9691c36f03ee8bcf5ada77" title="Creates a new window object.">create</a> (<span class="keyword">const</span> std::string&amp; caption) {
-<a name="l00050"></a>00050       <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Ptr</a> created(<span class="keyword">new</span> <a class="code" href="classep1_1_1_window.html#ae5af033b95bc41eccabd787d3e38970d" title="Constructor. See Window::create.">Window</a>(caption));
+<a name="l00050"></a>00050       <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Ptr</a> created(<span class="keyword">new</span> <a class="code" href="classep1_1_1_window.html#aa8ccf650479057ced225dbadc1856568" title="Constructor. See Window::create.">Window</a>(caption));
 <a name="l00051"></a>00051       windows_[created-&gt;id_] = created;
 <a name="l00052"></a>00052       <span class="keywordflow">return</span> created;
 <a name="l00053"></a>00053     }
@@ -110,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00074"></a>00074     <span class="keyword">static</span> <span class="keywordtype">int</span>                init_width_, init_height_;
 <a name="l00075"></a>00075     <span class="comment">// Reference base for all created windows.</span>
 <a name="l00076"></a>00076     <span class="keyword">static</span> std::tr1::unordered_map&lt;int, Ptr&gt; windows_;
-<a name="l00078"></a>00078     <span class="keyword">explicit</span> <a class="code" href="classep1_1_1_window.html#ae5af033b95bc41eccabd787d3e38970d" title="Constructor. See Window::create.">Window</a> (<span class="keyword">const</span> std::string&amp; caption, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00078"></a>00078     <span class="keyword">explicit</span> <a class="code" href="classep1_1_1_window.html#aa8ccf650479057ced225dbadc1856568" title="Constructor. See Window::create.">Window</a> (<span class="keyword">const</span> std::string&amp; caption);
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081     <span class="keyword">static</span> <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Ptr</a> <a class="code" href="classep1_1_1_window.html#a31a72649a6173c87518783ed34e90e3b" title="Retrieves the current window.">current_window</a>();
 <a name="l00083"></a>00083 
@@ -147,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 16:24:55 for MAC0420-2012: EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 16:32:34 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

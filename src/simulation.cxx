@@ -15,7 +15,7 @@ using namespace std::tr1::placeholders;
 
 /// Used to throw away the (x,y) parameters.
 static void toggle_forces_keyevent (Simulation *simul, int x, int y) {
-  simul->toggle_forces();
+  simul->show_hide_forces();
 }
 
 void Simulation::init (const string& info_file) {
@@ -35,7 +35,7 @@ void Simulation::init (const string& info_file) {
   win_->register_keyevent('e', bind(toggle_forces_keyevent, this, _1, _2));
 }
 
-void Simulation::toggle_forces () {
+void Simulation::show_hide_forces () {
   vector<Object::Ptr>::iterator it;
   for (it = forces_.begin(); it != forces_.end(); ++it)
     (*it)->toggle_visibility();
@@ -70,6 +70,7 @@ void Simulation::add_forces () {
                                            size*ratio_, 
                                            rotation);
         forces_.push_back(force);
+        force->toggle_visibility();
         win_->add_object(force);
       }
 }

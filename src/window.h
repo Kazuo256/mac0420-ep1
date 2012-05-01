@@ -75,7 +75,7 @@ class Window {
     // Reference base for all created windows.
     static std::tr1::unordered_map<int, Ptr> windows_;
     /// Constructor. See Window::create.
-    explicit Window (const std::string& caption, int width, int height);
+    explicit Window (const std::string& caption);
     /// Retrieves the current window.
     /** @return Window::Ptr Smart-pointer to the current window. */
     static Ptr current_window();

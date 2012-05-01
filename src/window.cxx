@@ -16,8 +16,8 @@ int                             Window::init_width_,
                                 Window::init_height_;
 unordered_map<int, Window::Ptr> Window::windows_;
 
-Window::Window (const std::string& caption, int width, int height) :
-  width_ (width), height_(height),
+Window::Window (const std::string& caption) :
+  width_ (init_width_), height_(init_height_),
   stop_(1),
   mouse_pos_(0, 0),
   key_events_(256, KeyEvent()) {
@@ -46,7 +46,8 @@ void Window::init (double w, double h, double d) {
   camera_.set_view(w, h, d);
   init_opengl(camera_, ratio());
   camera_.enframe(Vec3D());
-  glutTimerFunc(WIN_REFRESH, timer_func, 1);
+  if (!stop_)
+    glutTimerFunc(WIN_REFRESH, timer_func, 1);
 }
 
 void Window::add_object(const Object::Ptr& obj) {
@@ -144,7 +145,7 @@ void Window::display () {
   glLoadIdentity();
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   // Use the camera.
-  win->camera_.use();
+  win->camera_.place();
   // Render all objects.
   vector<Object::Ptr>::iterator it;
   for (it = win->objects_.begin(); it != win->objects_.end(); ++it) {
