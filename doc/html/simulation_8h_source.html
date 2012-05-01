@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>MAC0420 - EP1: /home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/simulation.h Source File</title>
+<title>MAC0420-2012: EP1: /home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/simulation.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javaScript" src="search/search.js"></script>
@@ -63,33 +63,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00014"></a>00014 
 <a name="l00015"></a>00015 <span class="keyword">namespace </span>ep1 {
 <a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="classep1_1_1_simulation.html">00017</a> <span class="keyword">class </span><a class="code" href="classep1_1_1_simulation.html">Simulation</a> {
-<a name="l00018"></a>00018   <span class="keyword">public</span>:
-<a name="l00019"></a>00019     <span class="keyword">typedef</span> std::tr1::shared_ptr&lt;Simulation&gt; Ptr;
-<a name="l00020"></a>00020     <span class="keyword">static</span> Ptr create (<span class="keyword">const</span> <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Window::Ptr</a>&amp; win, <span class="keywordtype">double</span> ratio) {
-<a name="l00021"></a>00021       <span class="keywordflow">return</span> Ptr(<span class="keyword">new</span> <a class="code" href="classep1_1_1_simulation.html">Simulation</a>(win, ratio));
-<a name="l00022"></a>00022     }
-<a name="l00023"></a>00023     <span class="keywordtype">void</span> init (<span class="keyword">const</span> std::string&amp; info_file);
-<a name="l00024"></a>00024     <span class="keywordtype">void</span> update_particle (<a class="code" href="classep1_1_1_object.html" title="Represents a renderable object.">Object</a>&amp; particle);
-<a name="l00025"></a>00025   <span class="keyword">private</span>:
-<a name="l00026"></a>00026     <span class="keywordtype">double</span>                    ratio_;
-<a name="l00027"></a>00027     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>                     size_,
-<a name="l00028"></a>00028                               dists_;
-<a name="l00029"></a>00029     <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Window::Ptr</a>               win_;
-<a name="l00030"></a>00030     <a class="code" href="classep1_1_1_force_field.html">ForceField</a>                field_;
-<a name="l00031"></a>00031     std::vector&lt;Object::Ptr&gt;  forces_,
-<a name="l00032"></a>00032                               particles_;
-<a name="l00033"></a>00033     <span class="keyword">explicit</span> <a class="code" href="classep1_1_1_simulation.html">Simulation</a> (<span class="keyword">const</span> <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Window::Ptr</a>&amp; win, <span class="keywordtype">double</span> ratio) :
-<a name="l00034"></a>00034       ratio_(ratio), win_(win) {}
-<a name="l00035"></a>00035     <span class="keywordtype">void</span> add_forces ();
-<a name="l00036"></a>00036     <span class="keywordtype">void</span> add_particles ();
-<a name="l00037"></a>00037     <span class="keywordtype">void</span> check_movement (<a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; move, <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; pos) <span class="keyword">const</span>;
-<a name="l00038"></a>00038 };
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 } <span class="comment">// namespace ep1</span>
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="preprocessor">#endif</span>
-<a name="l00043"></a>00043 <span class="preprocessor"></span>
+<a name="l00018"></a><a class="code" href="classep1_1_1_simulation.html">00018</a> <span class="keyword">class </span><a class="code" href="classep1_1_1_simulation.html" title="Represents a particle simulation.">Simulation</a> {
+<a name="l00019"></a>00019   <span class="keyword">public</span>:
+<a name="l00021"></a><a class="code" href="classep1_1_1_simulation.html#addae657cad1980a53e0bee3e9c7b52b3">00021</a>     <span class="keyword">typedef</span> std::tr1::shared_ptr&lt;Simulation&gt; Ptr;
+<a name="l00023"></a>00023 
+<a name="l00027"></a><a class="code" href="classep1_1_1_simulation.html#a988482ab93a3c82213972461081a4eea">00027</a>     <span class="keyword">static</span> <a class="code" href="classep1_1_1_simulation.html#addae657cad1980a53e0bee3e9c7b52b3" title="Reference-counting smart pointer for simulation objects.">Ptr</a> <a class="code" href="classep1_1_1_simulation.html#a988482ab93a3c82213972461081a4eea" title="Creates a new Simulation object.">create</a> (<span class="keyword">const</span> <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Window::Ptr</a>&amp; win, <span class="keywordtype">double</span> ratio) {
+<a name="l00028"></a>00028       <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_simulation.html#addae657cad1980a53e0bee3e9c7b52b3" title="Reference-counting smart pointer for simulation objects.">Ptr</a>(<span class="keyword">new</span> <a class="code" href="classep1_1_1_simulation.html" title="Represents a particle simulation.">Simulation</a>(win, ratio));
+<a name="l00029"></a>00029     }
+<a name="l00031"></a>00031 
+<a name="l00035"></a>00035     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_simulation.html#af1f89583a8b35216605f331bf1db12b7" title="Initializes the simulation from the given information file.">init</a> (<span class="keyword">const</span> std::string&amp; info_file);
+<a name="l00036"></a>00036     <span class="keywordtype">void</span> toggle_forces ();
+<a name="l00037"></a>00037   <span class="keyword">private</span>:
+<a name="l00038"></a>00038     <span class="keywordtype">double</span>                    ratio_;
+<a name="l00039"></a>00039     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>                     size_,
+<a name="l00040"></a>00040                               dists_;
+<a name="l00041"></a>00041     <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Window::Ptr</a>               win_;
+<a name="l00042"></a>00042     <a class="code" href="classep1_1_1_force_field.html">ForceField</a>                field_;
+<a name="l00043"></a>00043     std::vector&lt;Object::Ptr&gt;  forces_,
+<a name="l00044"></a>00044                               particles_;
+<a name="l00045"></a>00045     <span class="keyword">explicit</span> <a class="code" href="classep1_1_1_simulation.html" title="Represents a particle simulation.">Simulation</a> (<span class="keyword">const</span> <a class="code" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396" title="Reference-counting smart pointer for window objects.">Window::Ptr</a>&amp; win, <span class="keywordtype">double</span> ratio) :
+<a name="l00046"></a>00046       ratio_(ratio), win_(win) {}
+<a name="l00047"></a>00047     <span class="keywordtype">void</span> add_forces ();
+<a name="l00048"></a>00048     <span class="keywordtype">void</span> add_particles ();
+<a name="l00049"></a>00049     <span class="keywordtype">void</span> update_particle (Object&amp; particle);
+<a name="l00050"></a>00050     <span class="keywordtype">void</span> check_movement (Vec3D&amp; move, <span class="keyword">const</span> Vec3D&amp; pos) <span class="keyword">const</span>;
+<a name="l00051"></a>00051 };
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 } <span class="comment">// namespace ep1</span>
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="preprocessor">#endif</span>
+<a name="l00056"></a>00056 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -97,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Typedefs</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 13:50:21 for MAC0420 - EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 15:57:43 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

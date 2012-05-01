@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>MAC0420 - EP1: ep1::Simulation Class Reference</title>
+<title>MAC0420-2012: EP1: ep1::Simulation Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javaScript" src="search/search.js"></script>
@@ -61,24 +61,95 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="ep1::Simulation" -->
+<p>Represents a particle simulation.  
+<a href="#_details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="simulation_8h_source.html">simulation.h</a>&gt;</code></p>
+
 <p><a href="classep1_1_1_simulation-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addae657cad1980a53e0bee3e9c7b52b3"></a><!-- doxytag: member="ep1::Simulation::Ptr" ref="addae657cad1980a53e0bee3e9c7b52b3" args="" -->
 typedef std::tr1::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="classep1_1_1_simulation.html">Simulation</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>Ptr</b></td></tr>
+&lt; <a class="el" href="classep1_1_1_simulation.html">Simulation</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#addae657cad1980a53e0bee3e9c7b52b3">Ptr</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reference-counting smart pointer for simulation objects. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1f89583a8b35216605f331bf1db12b7"></a><!-- doxytag: member="ep1::Simulation::init" ref="af1f89583a8b35216605f331bf1db12b7" args="(const std::string &amp;info_file)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>init</b> (const std::string &amp;info_file)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ef2d628d3c1270a245053c48a3370a2"></a><!-- doxytag: member="ep1::Simulation::update_particle" ref="a2ef2d628d3c1270a245053c48a3370a2" args="(Object &amp;particle)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>update_particle</b> (<a class="el" href="classep1_1_1_object.html">Object</a> &amp;particle)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#af1f89583a8b35216605f331bf1db12b7">init</a> (const std::string &amp;info_file)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initializes the simulation from the given information file.  <a href="#af1f89583a8b35216605f331bf1db12b7"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a988482ab93a3c82213972461081a4eea"></a><!-- doxytag: member="ep1::Simulation::create" ref="a988482ab93a3c82213972461081a4eea" args="(const Window::Ptr &amp;win, double ratio)" -->
-static Ptr&nbsp;</td><td class="memItemRight" valign="bottom"><b>create</b> (const <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Window::Ptr</a> &amp;win, double ratio)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classep1_1_1_simulation.html#addae657cad1980a53e0bee3e9c7b52b3">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#a988482ab93a3c82213972461081a4eea">create</a> (const <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Window::Ptr</a> &amp;win, double ratio)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new <a class="el" href="classep1_1_1_simulation.html" title="Represents a particle simulation.">Simulation</a> object.  <a href="#a988482ab93a3c82213972461081a4eea"></a><br/></td></tr>
 </table>
+<hr/><a name="_details"></a><h2>Detailed Description</h2>
+<p>Represents a particle simulation. </p>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a988482ab93a3c82213972461081a4eea"></a><!-- doxytag: member="ep1::Simulation::create" ref="a988482ab93a3c82213972461081a4eea" args="(const Window::Ptr &amp;win, double ratio)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classep1_1_1_simulation.html#addae657cad1980a53e0bee3e9c7b52b3">Ptr</a> ep1::Simulation::create </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Window::Ptr</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>ratio</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Creates a new <a class="el" href="classep1_1_1_simulation.html" title="Represents a particle simulation.">Simulation</a> object. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>win</em>&nbsp;</td><td>The window used to display the simulation. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ratio</em>&nbsp;</td><td>Size ratio used to render teh simulation elements. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_simulation.html#addae657cad1980a53e0bee3e9c7b52b3" title="Reference-counting smart pointer for simulation objects.">Simulation::Ptr</a> A smart-pointer to a simulation object. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af1f89583a8b35216605f331bf1db12b7"></a><!-- doxytag: member="ep1::Simulation::init" ref="af1f89583a8b35216605f331bf1db12b7" args="(const std::string &amp;info_file)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Simulation::init </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>info_file</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Initializes the simulation from the given information file. </p>
+<p>The information file must follow the specification found in <b>EP1-2012.pdf</b>. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>info_file</em>&nbsp;</td><td>Path to the simulation information file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/<a class="el" href="simulation_8h_source.html">simulation.h</a></li>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/simulation.cxx</li>
@@ -89,7 +160,7 @@ static Ptr&nbsp;</td><td class="memItemRight" valign="bottom"><b>create</b> (con
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Typedefs</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -98,7 +169,7 @@ static Ptr&nbsp;</td><td class="memItemRight" valign="bottom"><b>create</b> (con
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 13:50:22 for MAC0420 - EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 15:57:43 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

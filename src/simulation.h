@@ -14,12 +14,24 @@
 
 namespace ep1 {
 
+/// Represents a particle simulation.
 class Simulation {
   public:
+    /// Reference-counting smart pointer for simulation objects.
     typedef std::tr1::shared_ptr<Simulation> Ptr;
+    /// Creates a new Simulation object.
+    /** @param win    The window used to display the simulation.
+     ** @param ratio  Size ratio used to render teh simulation elements.
+     ** @return Simulation::Ptr A smart-pointer to a simulation object.
+     */
     static Ptr create (const Window::Ptr& win, double ratio) {
       return Ptr(new Simulation(win, ratio));
     }
+    /// Initializes the simulation from the given information file.
+    /** The information file must follow the specification found in
+     ** <b>EP1-2012.pdf</b>.
+     ** @param info_file Path to the simulation information file.
+     */
     void init (const std::string& info_file);
     void toggle_forces ();
   private:
