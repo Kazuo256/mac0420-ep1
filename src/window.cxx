@@ -74,16 +74,22 @@ Window::Ptr Window::current_window () {
 }
 
 void Window::reshape(int w, int h) {
+  // Get the current window.
   Ptr win = current_window();
+  // Update window resolution info.
   win->width_ = w;
   win->height_ = h;
+  // Adjust camera and viewport.
   win->camera_.adjust(win->ratio());
   glViewport((GLint)0, (GLint)0, (GLint)w, (GLint)h); 
+  // Display changes.
   glutPostRedisplay();
 }
 
 void Window::mouse (int btn, int state, int x, int y) {
+  // Get the current window. 
   Ptr win = current_window();
+  // Update mouse buttons' state.
   bool new_state = (state == GLUT_DOWN);
   switch (btn) {
     case GLUT_LEFT_BUTTON:
@@ -97,28 +103,39 @@ void Window::mouse (int btn, int state, int x, int y) {
       break;
     default: break;
   }
+  // Record last mouse active position.
   win->mouse_pos_ = std::make_pair(x, y);
+  // Display changes.
   glutPostRedisplay();
 }
 
 void Window::motion (int x, int y) {
+  // Get the current window.
   Ptr win = current_window();
+  // Calculate mouse motion.
   Vec3D movement(
     x - win->mouse_pos_.first,
     -(y - win->mouse_pos_.second)
   );
+  // Left button -> rotate camera.
   if (win->buttons_[0])
     win->camera_.move(movement);
+  // Right button -> zoom camera.
   else if (win->buttons_[2])
     win->camera_.zoom(movement.y()*0.1);
+  // Record last mouse active position.
   win->mouse_pos_ = std::make_pair(x, y);
+  // Display changes.
   glutPostRedisplay();
 }
 
 void Window::keyboard (unsigned char key, int x, int y) {
+  // Get the current window.
   Ptr win = current_window();
+  // Activate registered event.
   if (win->key_events_[key])
     win->key_events_[key] (x,y);
+  // Default events.
   switch (key) {
     case '\t':
       win->camera_.toggle_projection(win->ratio());
@@ -134,6 +151,7 @@ void Window::keyboard (unsigned char key, int x, int y) {
       break;
     default: break;
   }
+  // Display changes.
   glutPostRedisplay();
 }
 
@@ -144,7 +162,7 @@ void Window::display () {
   glMatrixMode(GL_MODELVIEW);   
   glLoadIdentity();
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  // Use the camera.
+  // Place the camera.
   win->camera_.place();
   // Render all objects.
   vector<Object::Ptr>::iterator it;
@@ -153,17 +171,21 @@ void Window::display () {
     (*it)->render();
     glPopMatrix();
   }
-  // Swap buffer to display result.
+  // Swap buffers to display result.
   glutSwapBuffers();
 }
 
 void Window::timer_func (int value) {
+  // Get the current window.
   Ptr win = current_window();
+  // Update all objects.
   vector<Object::Ptr>::iterator it;
   for (it = win->objects_.begin(); it != win->objects_.end(); ++it)
     (*it)->update();
+  // Prepare for next update, if needed.
   if (win->stop_ == 0)
     glutTimerFunc(WIN_REFRESH, timer_func, 1);
+  // Display changes.
   glutPostRedisplay(); 
 }
 
