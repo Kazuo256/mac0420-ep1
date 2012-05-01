@@ -9,6 +9,12 @@ namespace ep1 {
 
 using std::string;
 using std::vector;
+using std::tr1::bind;
+using namespace std::tr1::placeholders;
+
+static void toggle_forces_keyevent (Simulation *simul, int x, int y) {
+  simul->toggle_forces();
+}
 
 void Simulation::init (const string& info_file) {
   vector<Vec3D> infos = utils::LoadForceFieldInfo(info_file.c_str());
@@ -24,6 +30,14 @@ void Simulation::init (const string& info_file) {
   ));
   add_forces();
   add_particles();
+  Window::KeyEvent ev = bind(toggle_forces_keyevent, this, _1, _2);
+  win_->register_keyevent('e', ev);
+}
+
+void Simulation::toggle_forces () {
+  vector<Object::Ptr>::iterator it;
+  for (it = forces_.begin(); it != forces_.end(); ++it)
+    (*it)->toggle_visibility();
 }
 
 static void dummy (Object& cone) {}
@@ -47,12 +61,13 @@ void Simulation::add_forces () {
         Vec3D size(1.0, 1.0,
                    field_.force(x,y,z).length()*size_factor);
         Vec3D rotation = Vec3D::dir(field_.force(x,y,z)); 
-        win_->add_object(Object::create(Object::Renderer(cone),
-                                       Object::Updater(dummy), 
-                                       position, 
-                                       size*ratio_, 
-                                       rotation,
-                                       0));
+        Object::Ptr force = Object::create(Object::Renderer(cone),
+                                           Object::Updater(dummy), 
+                                           position, 
+                                           size*ratio_, 
+                                           rotation);
+        forces_.push_back(force);
+        win_->add_object(force);
       }
 }
 
@@ -108,16 +123,17 @@ void Simulation::add_particles () {
         Vec3D position(dists_.x()*x, -dists_.y()*y, -dists_.z()*z);
         Vec3D size(1.0, 1.0, 1.0);
         Vec3D rotation;
-        win_->add_object(Object::create(Object::Renderer(
-                                        std::tr1::bind(
-                                          sphere,
-                                          dists_.min()/2.0
-                                        )), 
-                                        make_updater(this),
-                                        position, 
-                                        size*ratio_, 
-                                        rotation,
-                                        1));
+        Object::Ptr particle = Object::create(Object::Renderer(
+                                              std::tr1::bind(
+                                                sphere,
+                                                dists_.min()/2.0
+                                              )), 
+                                              make_updater(this),
+                                              position, 
+                                              size*ratio_, 
+                                              rotation);
+        particles_.push_back(particle);
+        win_->add_object(particle);
       }
 }
 

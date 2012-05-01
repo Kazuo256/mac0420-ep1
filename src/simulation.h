@@ -21,6 +21,7 @@ class Simulation {
       return Ptr(new Simulation(win, ratio));
     }
     void init (const std::string& info_file);
+    void toggle_forces ();
     void update_particle (Object& particle);
   private:
     double                    ratio_;

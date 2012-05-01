@@ -19,7 +19,8 @@ unordered_map<int, Window::Ptr> Window::windows_;
 Window::Window (const std::string& caption, int width, int height) :
   width_ (width), height_(height),
   stop_(1),
-  mouse_pos_(0, 0) {
+  mouse_pos_(0, 0),
+  key_events_(256, KeyEvent()) {
   id_ = glutCreateWindow(caption.c_str());
   buttons_[0] = buttons_[1] = buttons_[2] = false;
   draw_cone_ = 1;
@@ -28,11 +29,9 @@ Window::Window (const std::string& caption, int width, int height) :
 static void init_opengl (Camera& camera, double ratio) {
   glEnable(GL_DEPTH_TEST);
   camera.set_ortho(ratio);
-
   glMatrixMode(GL_MODELVIEW);
   glClearColor(0.0, 0.0, 0.0, 1.0);
   glLineWidth(2.0);
-
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
@@ -65,20 +64,16 @@ void Window::set_current () {
     glutSetWindow(id_);
 }
 
+void Window::register_keyevent (unsigned char key, Window::KeyEvent event) {
+  key_events_[key] = event;
+}
+
 Window::Ptr Window::current_window () {
   return windows_[glutGetWindow()];
 }
 
 void Window::reshape(int w, int h) {
-  //int x = 0, y = 0;
   Ptr win = current_window();
-  //if (w > h) {
-  //  x = (w - h) / 2;
-  //  w = h;
-  //} else if (w < h) {
-  //  y = (h - w) / 2; 
-  //  h = w;
-  //}
   win->width_ = w;
   win->height_ = h;
   win->camera_.adjust(win->ratio());
@@ -121,6 +116,8 @@ void Window::motion (int x, int y) {
 
 void Window::keyboard (unsigned char key, int x, int y) {
   Ptr win = current_window();
+  if (win->key_events_[key])
+    win->key_events_[key] (x,y);
   switch (key) {
     case '\t':
       win->camera_.toggle_projection(win->ratio());
@@ -130,10 +127,6 @@ void Window::keyboard (unsigned char key, int x, int y) {
       break;
     case 'w':
       if (win->stop_ == 1) {
-  //gluLookAt(win->camera_pos_.x(), win->camera_pos_.y(), win->camera_pos_.z(),
-  //          win->camera_target_.x(), win->camera_target_.y(),
-  //          win->camera_target_.z(),
-  //          0.0, 1.0, 0.0);
         win->stop_ = 0;
         glutTimerFunc(WIN_REFRESH, timer_func, 1);
       }
@@ -155,16 +148,11 @@ void Window::display () {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   // Use the camera.
   win->camera_.use();
-  //gluLookAt(win->camera_pos_.x(), win->camera_pos_.y(), win->camera_pos_.z(),
-  //          win->camera_target_.x(), win->camera_target_.y(),
-  //          win->camera_target_.z(),
-  //          0.0, 1.0, 0.0);
   // Render all objects.
   vector<Object::Ptr>::iterator it;
   for (it = win->objects_.begin(); it != win->objects_.end(); ++it) {
     glPushMatrix();
-    if ((*it)->get_type() == 0 && win->draw_cone_ == 0); 
-    else (*it)->render();
+    (*it)->render();
     glPopMatrix();
   }
   // Swap buffer to display result.
@@ -174,9 +162,10 @@ void Window::display () {
 void Window::timer_func (int value) {
   Ptr win = current_window();
   vector<Object::Ptr>::iterator it;
-
-  for (it = win->objects_.begin(); it != win->objects_.end(); ++it) (*it)->update();
-  if (win->stop_ == 0) glutTimerFunc(WIN_REFRESH, timer_func, 1);
+  for (it = win->objects_.begin(); it != win->objects_.end(); ++it)
+    (*it)->update();
+  if (win->stop_ == 0)
+    glutTimerFunc(WIN_REFRESH, timer_func, 1);
   glutPostRedisplay(); 
 }
 

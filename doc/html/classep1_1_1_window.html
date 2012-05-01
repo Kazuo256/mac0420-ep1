@@ -79,14 +79,26 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac92414228ead425569f5ac4a6b723cd6"></a><!-- doxytag: member="ep1::Window::~Window" ref="ac92414228ead425569f5ac4a6b723cd6" args="()" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ac92414228ead425569f5ac4a6b723cd6">~Window</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a61cdc78b225a8501c675494129b261cc">init</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initializes the window.  <a href="#a61cdc78b225a8501c675494129b261cc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ae5f3955a62c51bb49b199f3c01e0feb3">init</a> (double w, double h, double d)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initializes the window.  <a href="#ae5f3955a62c51bb49b199f3c01e0feb3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad1bbb8d25c5eceb1dbe5d5c4eab780a"></a><!-- doxytag: member="ep1::Window::ratio" ref="aad1bbb8d25c5eceb1dbe5d5c4eab780a" args="() const " -->
+double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#aad1bbb8d25c5eceb1dbe5d5c4eab780a">ratio</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the window's resolution ratio. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37acb7e12826e77f7e8c495ddf94a72b"></a><!-- doxytag: member="ep1::Window::camera" ref="a37acb7e12826e77f7e8c495ddf94a72b" args="()" -->
+<a class="el" href="classep1_1_1_camera.html">Camera</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a37acb7e12826e77f7e8c495ddf94a72b">camera</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets a reference to the window's camera. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a539698aa3776fa15ec350bd3388aab9b"></a><!-- doxytag: member="ep1::Window::set_current" ref="a539698aa3776fa15ec350bd3388aab9b" args="()" -->
+void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a539698aa3776fa15ec350bd3388aab9b">set_current</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets this window as the current one, if needed. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#ac7ab5549f606b88d29e07b4658fc0064">add_object</a> (const <a class="el" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0">Object::Ptr</a> &amp;obj)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds an object to be drawn in the window.  <a href="#ac7ab5549f606b88d29e07b4658fc0064"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#aa0edfab40b9691c36f03ee8bcf5ada77">create</a> (const std::string &amp;caption)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new window object.  <a href="#aa0edfab40b9691c36f03ee8bcf5ada77"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ad74bf5132830c31bfba0fefb49a922"></a><!-- doxytag: member="ep1::Window::init_size" ref="a3ad74bf5132830c31bfba0fefb49a922" args="(int w, int h)" -->
+static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a3ad74bf5132830c31bfba0fefb49a922">init_size</a> (int w, int h)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Defines the initial window size. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_window.html#a5e2a268a3fd64044070040418c9850ed">create</a> (const std::string &amp;caption, int width=init_width_, int height=init_height_)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new window object.  <a href="#a5e2a268a3fd64044070040418c9850ed"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Represents a graphic window. </p>
@@ -117,7 +129,7 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa0edfab40b9691c36f03ee8bcf5ada77"></a><!-- doxytag: member="ep1::Window::create" ref="aa0edfab40b9691c36f03ee8bcf5ada77" args="(const std::string &amp;caption)" -->
+<a class="anchor" id="a5e2a268a3fd64044070040418c9850ed"></a><!-- doxytag: member="ep1::Window::create" ref="a5e2a268a3fd64044070040418c9850ed" args="(const std::string &amp;caption, int width=init_width_, int height=init_height_)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -125,9 +137,24 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">static <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Ptr</a> ep1::Window::create </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>caption</em></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline, static]</code></td>
+          <td class="paramname"> <em>caption</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>width</em> = <code>init_width_</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>height</em> = <code>init_height_</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline, static]</code></td>
         </tr>
       </table>
 </div>
@@ -143,16 +170,32 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a61cdc78b225a8501c675494129b261cc"></a><!-- doxytag: member="ep1::Window::init" ref="a61cdc78b225a8501c675494129b261cc" args="()" -->
+<a class="anchor" id="ae5f3955a62c51bb49b199f3c01e0feb3"></a><!-- doxytag: member="ep1::Window::init" ref="ae5f3955a62c51bb49b199f3c01e0feb3" args="(double w, double h, double d)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void ep1::Window::init </td>
           <td>(</td>
-          <td class="paramname"></td>
-          <td>&nbsp;)&nbsp;</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>d</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
         </tr>
       </table>
 </div>
@@ -182,7 +225,7 @@ Static Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 19 2012 07:18:47 for MAC0420 - EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 13:50:22 for MAC0420 - EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

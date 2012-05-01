@@ -23,6 +23,10 @@ class Object {
     /// Reference-counting smart pointer for renderable objects.
     typedef std::tr1::shared_ptr<Object>    Ptr;
     Vec3D size () const { return size_; }
+    /// Toggles object visibility.
+    void toggle_visibility () {
+      visible_ = !visible_;
+    }
     /// Renders this object.
     /** Must be called whithin a glut display callback. */
     void render () const;
@@ -33,8 +37,6 @@ class Object {
     void add_in_position (Vec3D add);
     /// Return the position vector.
     Vec3D get_position () const { return position_; }
-    /// Return the object type.
-    int get_type () const;
     /// Dump object info.
     void dump () const;
     /// Creates a new renderable object and returns it as a smart pointer.
@@ -50,15 +52,12 @@ class Object {
                        const Updater& updater,                     
                        const Vec3D& position = Vec3D(),
                        const Vec3D& size = Vec3D(1.0, 1.0, 1.0),
-                       const Vec3D& rotation = Vec3D(),
-                       const int type = 0,
-                       const unsigned id = 0) {
-      return Ptr(new Object(renderer, updater, position, size, rotation, type, id));
+                       const Vec3D& rotation = Vec3D()) {
+      return Ptr(new Object(renderer, updater, position, size, rotation));
     }
   private:
-    /// 0 = Cone, 1 = Sphere
-    int       type_;
-    unsigned  id_;
+    /// Visibility flag.
+    bool      visible_;
     /// This object's rendering function.
     Renderer  renderer_;
     /// This object's rendering function.
@@ -78,11 +77,8 @@ class Object {
                      const Updater updater,
                      const Vec3D& position = Vec3D(),
                      const Vec3D& size = Vec3D(1.0, 1.0, 1.0),
-                     const Vec3D& rotation = Vec3D(),
-                     const int type = 0,
-                     const unsigned id = 0) :
-      type_(type),
-      id_(id),
+                     const Vec3D& rotation = Vec3D()) :
+      visible_(true),
       renderer_(renderer),
       updater_(updater),
       position_(position),

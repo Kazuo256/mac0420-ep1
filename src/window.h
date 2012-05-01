@@ -20,7 +20,9 @@ namespace ep1 {
 class Window {
   public:
     /// Reference-counting smart pointer for window objects.
-    typedef std::tr1::shared_ptr<Window>  Ptr;
+    typedef std::tr1::shared_ptr<Window>        Ptr;
+    /// Keyboard event handler.
+    typedef std::tr1::function<void (int, int)> KeyEvent;
     /// Destructor.
     ~Window () {}
     /// Initializes the window.
@@ -33,6 +35,8 @@ class Window {
     Camera& camera() { return camera_; }
     /// Sets this window as the current one, if needed.
     void set_current ();
+    /// Adds an event to a keyboard input event.
+    void register_keyevent (unsigned char key, KeyEvent event);
     /// Adds an object to be drawn in the window.
     /** @param obj The object to de added. */
     void add_object (const Object::Ptr& obj);
@@ -65,6 +69,8 @@ class Window {
     bool                      buttons_[3];
     /// Last mouse position detected.
     std::pair<int,int>        mouse_pos_;
+    /// Keyboard events.
+    std::vector<KeyEvent>     key_events_;
     /// Initial window size.
     static int                init_width_, init_height_;
     /// Reference base for all created windows.

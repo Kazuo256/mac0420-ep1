@@ -62,36 +62,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00014"></a>00014   <span class="keyword">public</span>:
 <a name="l00016"></a>00016 
 <a name="l00018"></a><a class="code" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503">00018</a>     <span class="keyword">typedef</span> std::tr1::function&lt;void (void)&gt; Renderer;
-<a name="l00020"></a><a class="code" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0">00020</a>     <span class="keyword">typedef</span> std::tr1::shared_ptr&lt;Object&gt;    Ptr;
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_object.html#a435f54e504e01595adef206f056d1c65" title="Renders this object.">render</a> () <span class="keyword">const</span>;
-<a name="l00025"></a>00025 
-<a name="l00033"></a><a class="code" href="classep1_1_1_object.html#a1e6c6e0cc79c0db968a74721df1ca208">00033</a>     <span class="keyword">static</span> <a class="code" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0" title="Reference-counting smart pointer for renderable objects.">Ptr</a> <a class="code" href="classep1_1_1_object.html#a1e6c6e0cc79c0db968a74721df1ca208" title="Creates a new renderable object and returns it as a smart pointer.">create</a> (<span class="keyword">const</span> <a class="code" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503" title="Type used to store the rendering function of the object.">Renderer</a>&amp; renderer,
-<a name="l00034"></a>00034                        <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; position = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(),
-<a name="l00035"></a>00035                        <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; size = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(1.0, 1.0, 1.0),
-<a name="l00036"></a>00036                        <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rotation = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>()) {
-<a name="l00037"></a>00037       <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0" title="Reference-counting smart pointer for renderable objects.">Ptr</a>(<span class="keyword">new</span> <a class="code" href="classep1_1_1_object.html" title="Represents a renderable object.">Object</a>(renderer, position, size, rotation));
-<a name="l00038"></a>00038     }
-<a name="l00039"></a>00039   <span class="keyword">private</span>:
-<a name="l00041"></a>00041     <a class="code" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503" title="Type used to store the rendering function of the object.">Renderer</a>  renderer_;
-<a name="l00043"></a>00043     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>     position_;
-<a name="l00045"></a>00045     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>     size_;
-<a name="l00047"></a>00047     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>     rotation_;
-<a name="l00049"></a>00049 
-<a name="l00053"></a>00053     <span class="keyword">explicit</span> <a class="code" href="classep1_1_1_object.html" title="Represents a renderable object.">Object</a> (<span class="keyword">const</span> <a class="code" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503" title="Type used to store the rendering function of the object.">Renderer</a>&amp; renderer,
-<a name="l00054"></a>00054                      <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; position = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(),
-<a name="l00055"></a>00055                      <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; size = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(1.0, 1.0, 1.0),
-<a name="l00056"></a>00056                      <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rotation = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>()) :
-<a name="l00057"></a>00057       renderer_(renderer),
-<a name="l00058"></a>00058       position_(position),
-<a name="l00059"></a>00059       size_(size),
-<a name="l00060"></a>00060       rotation_(rotation) {}
-<a name="l00061"></a>00061 };
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063 } <span class="comment">// namespace ep1</span>
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 <span class="preprocessor">#endif</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span>
+<a name="l00020"></a>00020 
+<a name="l00022"></a><a class="code" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59">00022</a>     <span class="keyword">typedef</span> std::tr1::function&lt;void (Object&amp;)&gt; Updater;
+<a name="l00024"></a><a class="code" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0">00024</a>     <span class="keyword">typedef</span> std::tr1::shared_ptr&lt;Object&gt;    Ptr;
+<a name="l00025"></a>00025     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> size ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> size_; }
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_object.html#a435f54e504e01595adef206f056d1c65" title="Renders this object.">render</a> () <span class="keyword">const</span>;
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_object.html#a3ba551cc2fcc35b636bf284deb1aa59d" title="Update this object.">update</a> ();
+<a name="l00033"></a>00033     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_object.html#ae6b95e17ec3f417a13aba00645656b77" title="Add a vector in the position of the object.">add_in_position</a> (<a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> add);
+<a name="l00035"></a><a class="code" href="classep1_1_1_object.html#a6521fff796f6f7fec36d86b57f6ed9ec">00035</a>     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a> <a class="code" href="classep1_1_1_object.html#a6521fff796f6f7fec36d86b57f6ed9ec" title="Return the position vector.">get_position</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> position_; }
+<a name="l00037"></a>00037     <span class="keywordtype">int</span> <a class="code" href="classep1_1_1_object.html#a57e4368971fd2f9a92e0972dfad1061f" title="Return the object type.">get_type</a> () <span class="keyword">const</span>;
+<a name="l00039"></a>00039     <span class="keywordtype">void</span> <a class="code" href="classep1_1_1_object.html#a443dffba1b2df0387e8fd39c2d09951d" title="Dump object info.">dump</a> () <span class="keyword">const</span>;
+<a name="l00041"></a>00041 
+<a name="l00049"></a><a class="code" href="classep1_1_1_object.html#a76fb164d09111e3cc42c1e9a3528d92e">00049</a>     <span class="keyword">static</span> <a class="code" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0" title="Reference-counting smart pointer for renderable objects.">Ptr</a> <a class="code" href="classep1_1_1_object.html#a76fb164d09111e3cc42c1e9a3528d92e" title="Creates a new renderable object and returns it as a smart pointer.">create</a> (<span class="keyword">const</span> <a class="code" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503" title="Type used to store the rendering function of the object.">Renderer</a>&amp; renderer,
+<a name="l00050"></a>00050                        <span class="keyword">const</span> <a class="code" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59" title="Type used to store the update function of the object.">Updater</a>&amp; updater,                     
+<a name="l00051"></a>00051                        <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; position = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(),
+<a name="l00052"></a>00052                        <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; size = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(1.0, 1.0, 1.0),
+<a name="l00053"></a>00053                        <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rotation = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(),
+<a name="l00054"></a>00054                        <span class="keyword">const</span> <span class="keywordtype">int</span> type = 0,
+<a name="l00055"></a>00055                        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">id</span> = 0) {
+<a name="l00056"></a>00056       <span class="keywordflow">return</span> <a class="code" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0" title="Reference-counting smart pointer for renderable objects.">Ptr</a>(<span class="keyword">new</span> <a class="code" href="classep1_1_1_object.html" title="Represents a renderable object.">Object</a>(renderer, updater, position, size, rotation, type, <span class="keywordtype">id</span>));
+<a name="l00057"></a>00057     }
+<a name="l00058"></a>00058   <span class="keyword">private</span>:
+<a name="l00060"></a>00060     <span class="keywordtype">int</span>       type_;
+<a name="l00061"></a>00061     <span class="keywordtype">unsigned</span>  id_;
+<a name="l00063"></a>00063     <a class="code" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503" title="Type used to store the rendering function of the object.">Renderer</a>  renderer_;
+<a name="l00065"></a>00065     <a class="code" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59" title="Type used to store the update function of the object.">Updater</a>   updater_;
+<a name="l00067"></a>00067     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>     position_;
+<a name="l00069"></a>00069     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>     size_;
+<a name="l00071"></a>00071     <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>     rotation_;
+<a name="l00073"></a>00073 
+<a name="l00077"></a>00077     <span class="keyword">explicit</span> <a class="code" href="classep1_1_1_object.html" title="Represents a renderable object.">Object</a> (<span class="keyword">const</span> <a class="code" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503" title="Type used to store the rendering function of the object.">Renderer</a>&amp; renderer,
+<a name="l00078"></a>00078                      <span class="keyword">const</span> <a class="code" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59" title="Type used to store the update function of the object.">Updater</a> updater,
+<a name="l00079"></a>00079                      <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; position = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(),
+<a name="l00080"></a>00080                      <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; size = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(1.0, 1.0, 1.0),
+<a name="l00081"></a>00081                      <span class="keyword">const</span> <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>&amp; rotation = <a class="code" href="classep1_1_1_vec3_d.html">Vec3D</a>(),
+<a name="l00082"></a>00082                      <span class="keyword">const</span> <span class="keywordtype">int</span> type = 0,
+<a name="l00083"></a>00083                      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">id</span> = 0) :
+<a name="l00084"></a>00084       type_(type),
+<a name="l00085"></a>00085       id_(id),
+<a name="l00086"></a>00086       renderer_(renderer),
+<a name="l00087"></a>00087       updater_(updater),
+<a name="l00088"></a>00088       position_(position),
+<a name="l00089"></a>00089       size_(size),
+<a name="l00090"></a>00090       rotation_(rotation) {}
+<a name="l00091"></a>00091 };
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 } <span class="comment">// namespace ep1</span>
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 <span class="preprocessor">#endif</span>
+<a name="l00096"></a>00096 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -108,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 19 2012 07:18:47 for MAC0420 - EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 13:50:21 for MAC0420 - EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
