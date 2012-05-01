@@ -55,13 +55,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a>  </div>
   <div class="headertitle">
 <h1>ep1::Simulation Class Reference</h1>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="ep1::Simulation" -->
-<p>Represents a particle simulation.  
+<p>Represents a particle simulation environment.  
 <a href="#_details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="simulation_8h_source.html">simulation.h</a>&gt;</code></p>
@@ -78,14 +79,69 @@ typedef std::tr1::shared_ptr<br class="typebreak"/>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#af1f89583a8b35216605f331bf1db12b7">init</a> (const std::string &amp;info_file)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initializes the simulation from the given information file.  <a href="#af1f89583a8b35216605f331bf1db12b7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49bbc8a7d615f43b7ddf4b57469cd278"></a><!-- doxytag: member="ep1::Simulation::show_hide_forces" ref="a49bbc8a7d615f43b7ddf4b57469cd278" args="()" -->
+void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#a49bbc8a7d615f43b7ddf4b57469cd278">show_hide_forces</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Toggles forces display visibility. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classep1_1_1_simulation.html#addae657cad1980a53e0bee3e9c7b52b3">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#a988482ab93a3c82213972461081a4eea">create</a> (const <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Window::Ptr</a> &amp;win, double ratio)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new <a class="el" href="classep1_1_1_simulation.html" title="Represents a particle simulation.">Simulation</a> object.  <a href="#a988482ab93a3c82213972461081a4eea"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new <a class="el" href="classep1_1_1_simulation.html" title="Represents a particle simulation environment.">Simulation</a> object.  <a href="#a988482ab93a3c82213972461081a4eea"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bc907e255fcd78aa2824efeae54bece"></a><!-- doxytag: member="ep1::Simulation::Simulation" ref="a2bc907e255fcd78aa2824efeae54bece" args="(const Window::Ptr &amp;win, double ratio)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#a2bc907e255fcd78aa2824efeae54bece">Simulation</a> (const <a class="el" href="classep1_1_1_window.html#a6c9529d62b26241c3e800c4ac2fb0396">Window::Ptr</a> &amp;win, double ratio)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. See <a class="el" href="classep1_1_1_simulation.html#a988482ab93a3c82213972461081a4eea" title="Creates a new Simulation object.">Simulation::create</a>. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c44388c8b53bc11e7cb8ee89e53ae41"></a><!-- doxytag: member="ep1::Simulation::add_forces" ref="a3c44388c8b53bc11e7cb8ee89e53ae41" args="()" -->
+void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#a3c44388c8b53bc11e7cb8ee89e53ae41">add_forces</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds all forces to the simulation's force field. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc51222f673c774eb81ce5bc59c54e7e"></a><!-- doxytag: member="ep1::Simulation::add_particles" ref="abc51222f673c774eb81ce5bc59c54e7e" args="()" -->
+void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#abc51222f673c774eb81ce5bc59c54e7e">add_particles</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds all particles to the simulation. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#a2ef2d628d3c1270a245053c48a3370a2">update_particle</a> (<a class="el" href="classep1_1_1_object.html">Object</a> &amp;particle)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Updates a particle object.  <a href="#a2ef2d628d3c1270a245053c48a3370a2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_simulation.html#ae481c8923e8cf986a7ffc186c4b0cf3a">check_movement</a> (<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;move, const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;pos) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Checks a given movement at a given position.  <a href="#ae481c8923e8cf986a7ffc186c4b0cf3a"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<p>Represents a particle simulation. </p>
+<p>Represents a particle simulation environment. </p>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ae481c8923e8cf986a7ffc186c4b0cf3a"></a><!-- doxytag: member="ep1::Simulation::check_movement" ref="ae481c8923e8cf986a7ffc186c4b0cf3a" args="(Vec3D &amp;move, const Vec3D &amp;pos) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Simulation::check_movement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>move</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>pos</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Checks a given movement at a given position. </p>
+<p>If the movement would move something beyond the simulation bounds, the necessary modifications are made to ensure that such a thing does not happen. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>move</em>&nbsp;</td><td>A reference to the movement vector. Its value may be changed to avoid trespassing boundaries. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pos</em>&nbsp;</td><td>The position at which the movement happens. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a988482ab93a3c82213972461081a4eea"></a><!-- doxytag: member="ep1::Simulation::create" ref="a988482ab93a3c82213972461081a4eea" args="(const Window::Ptr &amp;win, double ratio)" -->
 <div class="memitem">
 <div class="memproto">
@@ -111,7 +167,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Creates a new <a class="el" href="classep1_1_1_simulation.html" title="Represents a particle simulation.">Simulation</a> object. </p>
+<p>Creates a new <a class="el" href="classep1_1_1_simulation.html" title="Represents a particle simulation environment.">Simulation</a> object. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>win</em>&nbsp;</td><td>The window used to display the simulation. </td></tr>
@@ -150,6 +206,33 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2ef2d628d3c1270a245053c48a3370a2"></a><!-- doxytag: member="ep1::Simulation::update_particle" ref="a2ef2d628d3c1270a245053c48a3370a2" args="(Object &amp;particle)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Simulation::update_particle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classep1_1_1_object.html">Object</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>particle</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Updates a particle object. </p>
+<p>Calculates the force field speed at its position and applies the movement, making sure the particle stays within the simulation bounds. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>particle</em>&nbsp;</td><td>The particle object being updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/<a class="el" href="simulation_8h_source.html">simulation.h</a></li>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/simulation.cxx</li>
@@ -169,7 +252,7 @@ Static Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 15:57:43 for MAC0420-2012: EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 16:12:57 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

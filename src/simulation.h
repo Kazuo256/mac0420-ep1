@@ -14,7 +14,7 @@
 
 namespace ep1 {
 
-/// Represents a particle simulation.
+/// Represents a particle simulation environment.
 class Simulation {
   public:
     /// Reference-counting smart pointer for simulation objects.
@@ -33,7 +33,8 @@ class Simulation {
      ** @param info_file Path to the simulation information file.
      */
     void init (const std::string& info_file);
-    void toggle_forces ();
+    /// Toggles forces display visibility.
+    void show_hide_forces ();
   private:
     double                    ratio_;
     Vec3D                     size_,
@@ -42,11 +43,27 @@ class Simulation {
     ForceField                field_;
     std::vector<Object::Ptr>  forces_,
                               particles_;
+    /// Constructor. See Simulation::create.
     explicit Simulation (const Window::Ptr& win, double ratio) :
       ratio_(ratio), win_(win) {}
+    /// Adds all forces to the simulation's force field.
     void add_forces ();
+    /// Adds all particles to the simulation.
     void add_particles ();
+    /// Updates a particle object.
+    /** Calculates the force field speed at its position and applies the
+     ** movement, making sure the particle stays within the simulation bounds.
+     ** @param particle The particle object being updated.
+     */
     void update_particle (Object& particle);
+    /// Checks a given movement at a given position.
+    /** If the movement would move something beyond the simulation bounds, the
+     ** necessary modifications are made to ensure that such a thing does not
+     ** happen.
+     ** @param move A reference to the movement vector. Its value may be
+                    changed to avoid trespassing boundaries.
+     ** @param pos  The position at which the movement happens.
+     */
     void check_movement (Vec3D& move, const Vec3D& pos) const;
 };
 

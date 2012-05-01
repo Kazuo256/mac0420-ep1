@@ -41,8 +41,10 @@ void Simulation::toggle_forces () {
     (*it)->toggle_visibility();
 }
 
+/// Dummy update.
 static void dummy (Object& cone) {}
 
+/// Draws a cone.
 static void cone () {
   glPushMatrix();
   glTranslated(0.0, 0.0, -.5);
@@ -72,6 +74,9 @@ void Simulation::add_forces () {
       }
 }
 
+/// Transforms from global coordinates to the force field's coordinates.
+/** Actually, it also does the opposite.
+ */
 static Vec3D transform_to_field (Vec3D position) {
   Vec3D ret(position.x(), -position.y(), -position.z()); 
   return ret;
@@ -99,6 +104,7 @@ void Simulation::update_particle (Object& particle) {
   particle.add_in_position(delta_pos);
 }
 
+/// Draws a sphere with the given radius.
 static void sphere (double radius) {
   glColor4d(1.0, 0.00, 0.00, 0.7);
   gluSphere( gluNewQuadric(), radius, 6, 6);  
