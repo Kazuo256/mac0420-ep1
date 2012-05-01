@@ -98,11 +98,11 @@ void Simulation::check_movement (Vec3D& move, const Vec3D& pos) const {
 
 void Simulation::update_particle (Object& particle) {
   Vec3D delta_pos, pos_field;
-  pos_field = transform_to_field(particle.get_position());
+  pos_field = transform_to_field(particle.position());
   delta_pos = field_.interpolate(pos_field);
   delta_pos = delta_pos*(WIN_REFRESH*MILI*10);
-  check_movement(delta_pos, particle.get_position());
-  particle.add_in_position(delta_pos);
+  check_movement(delta_pos, particle.position());
+  particle.add_to_position(delta_pos);
 }
 
 /// Draws a sphere with the given radius.

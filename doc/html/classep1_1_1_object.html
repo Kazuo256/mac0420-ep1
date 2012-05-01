@@ -56,8 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a>  </div>
+<a href="#pri-methods">Private Member Functions</a>  </div>
   <div class="headertitle">
 <h1>ep1::Object Class Reference</h1>  </div>
 </div>
@@ -84,50 +83,28 @@ typedef std::tr1::shared_ptr<br class="typebreak"/>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reference-counting smart pointer for renderable objects. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#ad7ab2ea09d29c604835119c1489d4e9a">size</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the size transformation of this object.  <a href="#ad7ab2ea09d29c604835119c1489d4e9a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8791a4139478a0c692214cbb13a9bf7"></a><!-- doxytag: member="ep1::Object::toggle_visibility" ref="aa8791a4139478a0c692214cbb13a9bf7" args="()" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#aa8791a4139478a0c692214cbb13a9bf7">toggle_visibility</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Toggles object visibility. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a435f54e504e01595adef206f056d1c65">render</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Renders this object.  <a href="#a435f54e504e01595adef206f056d1c65"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a3ba551cc2fcc35b636bf284deb1aa59d">update</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Update this object.  <a href="#a3ba551cc2fcc35b636bf284deb1aa59d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6b95e17ec3f417a13aba00645656b77"></a><!-- doxytag: member="ep1::Object::add_in_position" ref="ae6b95e17ec3f417a13aba00645656b77" args="(Vec3D add)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#ae6b95e17ec3f417a13aba00645656b77">add_in_position</a> (<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> add)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a vector in the position of the object. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6521fff796f6f7fec36d86b57f6ed9ec"></a><!-- doxytag: member="ep1::Object::get_position" ref="a6521fff796f6f7fec36d86b57f6ed9ec" args="() const " -->
-<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a6521fff796f6f7fec36d86b57f6ed9ec">get_position</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return the position vector. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a443dffba1b2df0387e8fd39c2d09951d"></a><!-- doxytag: member="ep1::Object::dump" ref="a443dffba1b2df0387e8fd39c2d09951d" args="() const " -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a443dffba1b2df0387e8fd39c2d09951d">dump</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dump object info. <br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Updates this object.  <a href="#a3ba551cc2fcc35b636bf284deb1aa59d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a9dd4321725cdfbe82fefd5a66f1ef79f">add_to_position</a> (const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;add)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a vector to the position of the object.  <a href="#a9dd4321725cdfbe82fefd5a66f1ef79f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a213454b5f08258f180c1e687b3db8376">position</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the object's position transformation.  <a href="#a213454b5f08258f180c1e687b3db8376"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classep1_1_1_object.html#af26cb844bb121e9fd1055a0dd2b758e0">Ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a39bbdde935e1e61fdd62c8ba523fc7d0">create</a> (const <a class="el" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503">Renderer</a> &amp;renderer, const <a class="el" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59">Updater</a> &amp;updater, const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;position=<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>(), const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;size=<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>(1.0, 1.0, 1.0), const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;rotation=<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>())</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new renderable object and returns it as a smart pointer.  <a href="#a39bbdde935e1e61fdd62c8ba523fc7d0"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a048af27cabcbfd0835dbc2356a82e6c9">Object</a> (const <a class="el" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503">Renderer</a> &amp;renderer, const <a class="el" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59">Updater</a> updater, const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;position=<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>(), const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;size=<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>(1.0, 1.0, 1.0), const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;rotation=<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>())</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#a048af27cabcbfd0835dbc2356a82e6c9"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3080c2c4b18b5b6a5888c89263d1c909"></a><!-- doxytag: member="ep1::Object::visible_" ref="a3080c2c4b18b5b6a5888c89263d1c909" args="" -->
-bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a3080c2c4b18b5b6a5888c89263d1c909">visible_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Visibility flag. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23913edc9e265f077153b27da2374341"></a><!-- doxytag: member="ep1::Object::renderer_" ref="a23913edc9e265f077153b27da2374341" args="" -->
-<a class="el" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503">Renderer</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a23913edc9e265f077153b27da2374341">renderer_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This object's rendering function. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43b8e71f0988aafe99476d13b4b6fea4"></a><!-- doxytag: member="ep1::Object::updater_" ref="a43b8e71f0988aafe99476d13b4b6fea4" args="" -->
-<a class="el" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59">Updater</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a43b8e71f0988aafe99476d13b4b6fea4">updater_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This object's rendering function. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2419f274a48f127b108d651947ff3b13"></a><!-- doxytag: member="ep1::Object::position_" ref="a2419f274a48f127b108d651947ff3b13" args="" -->
-<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a2419f274a48f127b108d651947ff3b13">position_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The object's position. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c4e8acd89be56d345feb3fbffb76fc7"></a><!-- doxytag: member="ep1::Object::size_" ref="a4c4e8acd89be56d345feb3fbffb76fc7" args="" -->
-<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a4c4e8acd89be56d345feb3fbffb76fc7">size_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The objects size in the 3 axis. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b2c3b474ba63819b3d4bd95a978179f"></a><!-- doxytag: member="ep1::Object::rotation_" ref="a5b2c3b474ba63819b3d4bd95a978179f" args="" -->
-<a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#a5b2c3b474ba63819b3d4bd95a978179f">rotation_</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The objects rotation in the yaw-pitch-roll format. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa47aff4e0f4a53ca0db8ace052e3ce83"></a><!-- doxytag: member="ep1::Object::Object" ref="aa47aff4e0f4a53ca0db8ace052e3ce83" args="(const Renderer &amp;renderer, const Updater updater, const Vec3D &amp;position, const Vec3D &amp;size, const Vec3D &amp;rotation)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_object.html#aa47aff4e0f4a53ca0db8ace052e3ce83">Object</a> (const <a class="el" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503">Renderer</a> &amp;renderer, const <a class="el" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59">Updater</a> updater, const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;position, const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;size, const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;rotation)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. See <a class="el" href="classep1_1_1_object.html#a39bbdde935e1e61fdd62c8ba523fc7d0" title="Creates a new renderable object and returns it as a smart pointer.">Object::create</a>. <br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Represents a renderable object. </p>
@@ -164,64 +141,33 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a048af27cabcbfd0835dbc2356a82e6c9"></a><!-- doxytag: member="ep1::Object::Object" ref="a048af27cabcbfd0835dbc2356a82e6c9" args="(const Renderer &amp;renderer, const Updater updater, const Vec3D &amp;position=Vec3D(), const Vec3D &amp;size=Vec3D(1.0, 1.0, 1.0), const Vec3D &amp;rotation=Vec3D())" -->
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a9dd4321725cdfbe82fefd5a66f1ef79f"></a><!-- doxytag: member="ep1::Object::add_to_position" ref="a9dd4321725cdfbe82fefd5a66f1ef79f" args="(const Vec3D &amp;add)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ep1::Object::Object </td>
+          <td class="memname">void ep1::Object::add_to_position </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classep1_1_1_object.html#a0176b5db66ab60788011ac648a77e503">Renderer</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>renderer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classep1_1_1_object.html#ad361f038535c0fb9f895ffdd3153ad59">Updater</a>&nbsp;</td>
-          <td class="paramname"> <em>updater</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>position</em> = <code><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>()</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>size</em> = <code><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>(1.0,&nbsp;1.0,&nbsp;1.0)</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>rotation</em> = <code><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a>()</code></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [inline, explicit, private]</code></td>
+          <td class="paramname"> <em>add</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Constructor. </p>
+<p>Adds a vector to the position of the object. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>renderer</em>&nbsp;</td><td>The object's rendering function. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>position</em>&nbsp;</td><td>The object's position. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>size</em>&nbsp;</td><td>The object's size in the 3 axis. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>rotation</em>&nbsp;</td><td>The object's rotation in yaw-pitch-roll format. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>add</em>&nbsp;</td><td>Vectorial addition to the object's position. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a39bbdde935e1e61fdd62c8ba523fc7d0"></a><!-- doxytag: member="ep1::Object::create" ref="a39bbdde935e1e61fdd62c8ba523fc7d0" args="(const Renderer &amp;renderer, const Updater &amp;updater, const Vec3D &amp;position=Vec3D(), const Vec3D &amp;size=Vec3D(1.0, 1.0, 1.0), const Vec3D &amp;rotation=Vec3D())" -->
 <div class="memitem">
 <div class="memproto">
@@ -280,6 +226,26 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="a213454b5f08258f180c1e687b3db8376"></a><!-- doxytag: member="ep1::Object::position" ref="a213454b5f08258f180c1e687b3db8376" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> ep1::Object::position </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the object's position transformation. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> The object's position transformation. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a435f54e504e01595adef206f056d1c65"></a><!-- doxytag: member="ep1::Object::render" ref="a435f54e504e01595adef206f056d1c65" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -300,6 +266,26 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="ad7ab2ea09d29c604835119c1489d4e9a"></a><!-- doxytag: member="ep1::Object::size" ref="ad7ab2ea09d29c604835119c1489d4e9a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> ep1::Object::size </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the size transformation of this object. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> The size transformation of this object. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a3ba551cc2fcc35b636bf284deb1aa59d"></a><!-- doxytag: member="ep1::Object::update" ref="a3ba551cc2fcc35b636bf284deb1aa59d" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -315,8 +301,8 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 <div class="memdoc">
 
-<p>Update this object. </p>
-<p>Must be called whithin a glut display callback. </p>
+<p>Updates this object. </p>
+<p>Must be called whithin a glut timed callback. </p>
 
 </div>
 </div>
@@ -330,7 +316,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Typedefs</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -339,7 +325,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 19:05:03 for MAC0420-2012: EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 19:15:40 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
