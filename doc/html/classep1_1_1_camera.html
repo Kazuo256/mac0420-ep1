@@ -52,14 +52,301 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
 <h1>ep1::Camera Class Reference</h1>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="ep1::Camera" -->
+<p>Represents the 3D camera.  
+<a href="#_details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="camera_8h_source.html">camera.h</a>&gt;</code></p>
+
 <p><a href="classep1_1_1_camera-members.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21b7e2c9cb93d95cea0aaadaef7c1808"></a><!-- doxytag: member="ep1::Camera::Camera" ref="a21b7e2c9cb93d95cea0aaadaef7c1808" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#a21b7e2c9cb93d95cea0aaadaef7c1808">Camera</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#ada48f01fa9569402a51f26817a035a51">set_target</a> (const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;target)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the new camera's target.  <a href="#ada48f01fa9569402a51f26817a035a51"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#a0f35e8b0f65759d2ad7f5cfc2d3f21b1">move</a> (const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;delta)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves the camera around the target.  <a href="#a0f35e8b0f65759d2ad7f5cfc2d3f21b1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#a92115d05e352df71c9b80c2e348dfa3e">set_view</a> (double width, double height, double depth)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the camera's view volume.  <a href="#a92115d05e352df71c9b80c2e348dfa3e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#a77a5a4039c41ba0c713e3226ac9e4800">enframe</a> (const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;target)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Enframes the camera to the given target.  <a href="#a77a5a4039c41ba0c713e3226ac9e4800"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#a4e11e60434741917ba62458f38ab736d">zoom</a> (double delta)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zooms the camera by the given variation.  <a href="#a4e11e60434741917ba62458f38ab736d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#af185c4154487fafc742fe595657662dd">set_ortho</a> (double ratio)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets an orthogonal projection with the given ratio.  <a href="#af185c4154487fafc742fe595657662dd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#a48f36a13c4da92c0ce8db4d2c232d80d">set_perspective</a> (double ratio)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets an perspective projection with the given ratio.  <a href="#a48f36a13c4da92c0ce8db4d2c232d80d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#aee6a787f46f23e1bcd27fc2403a0314d">toggle_projection</a> (double ratio)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Toggles between projections, using the given ratio.  <a href="#aee6a787f46f23e1bcd27fc2403a0314d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#a54a1c63d21351d495b3b816bb1742953">adjust</a> (double ratio)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adjusts camera aspect ratio.  <a href="#a54a1c63d21351d495b3b816bb1742953"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a989d4e72a8cecd178c5eefb58ee48b59"></a><!-- doxytag: member="ep1::Camera::place" ref="a989d4e72a8cecd178c5eefb58ee48b59" args="() const " -->
+void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classep1_1_1_camera.html#a989d4e72a8cecd178c5eefb58ee48b59">place</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Places the camera in the 3D scene. <br/></td></tr>
 </table>
+<hr/><a name="_details"></a><h2>Detailed Description</h2>
+<p>Represents the 3D camera. </p>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a54a1c63d21351d495b3b816bb1742953"></a><!-- doxytag: member="ep1::Camera::adjust" ref="a54a1c63d21351d495b3b816bb1742953" args="(double ratio)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Camera::adjust </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>ratio</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Adjusts camera aspect ratio. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ratio</em>&nbsp;</td><td>The new camera's aspect ratio. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a77a5a4039c41ba0c713e3226ac9e4800"></a><!-- doxytag: member="ep1::Camera::enframe" ref="a77a5a4039c41ba0c713e3226ac9e4800" args="(const Vec3D &amp;target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Camera::enframe </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>target</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Enframes the camera to the given target. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>target</em>&nbsp;</td><td>The reference target to enframe the camera. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0f35e8b0f65759d2ad7f5cfc2d3f21b1"></a><!-- doxytag: member="ep1::Camera::move" ref="a0f35e8b0f65759d2ad7f5cfc2d3f21b1" args="(const Vec3D &amp;delta)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Camera::move </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>delta</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Moves the camera around the target. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>delta</em>&nbsp;</td><td><a class="el" href="classep1_1_1_camera.html" title="Represents the 3D camera.">Camera</a> movement in sphere coordinates. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af185c4154487fafc742fe595657662dd"></a><!-- doxytag: member="ep1::Camera::set_ortho" ref="af185c4154487fafc742fe595657662dd" args="(double ratio)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Camera::set_ortho </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>ratio</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets an orthogonal projection with the given ratio. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ratio</em>&nbsp;</td><td>Orthogonal projection aspect ratio. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a48f36a13c4da92c0ce8db4d2c232d80d"></a><!-- doxytag: member="ep1::Camera::set_perspective" ref="a48f36a13c4da92c0ce8db4d2c232d80d" args="(double ratio)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Camera::set_perspective </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>ratio</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets an perspective projection with the given ratio. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ratio</em>&nbsp;</td><td>Perspective projection aspect ratio. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ada48f01fa9569402a51f26817a035a51"></a><!-- doxytag: member="ep1::Camera::set_target" ref="ada48f01fa9569402a51f26817a035a51" args="(const Vec3D &amp;target)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Camera::set_target </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classep1_1_1_vec3_d.html">Vec3D</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>target</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets the new camera's target. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>target</em>&nbsp;</td><td>The new target. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a92115d05e352df71c9b80c2e348dfa3e"></a><!-- doxytag: member="ep1::Camera::set_view" ref="a92115d05e352df71c9b80c2e348dfa3e" args="(double width, double height, double depth)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Camera::set_view </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>depth</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets the camera's view volume. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>Volume's width. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>Volume's height. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>depth</em>&nbsp;</td><td>Volume's depth. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aee6a787f46f23e1bcd27fc2403a0314d"></a><!-- doxytag: member="ep1::Camera::toggle_projection" ref="aee6a787f46f23e1bcd27fc2403a0314d" args="(double ratio)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Camera::toggle_projection </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>ratio</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Toggles between projections, using the given ratio. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ratio</em>&nbsp;</td><td>The new projection aspect ratio. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4e11e60434741917ba62458f38ab736d"></a><!-- doxytag: member="ep1::Camera::zoom" ref="a4e11e60434741917ba62458f38ab736d" args="(double delta)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ep1::Camera::zoom </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>delta</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zooms the camera by the given variation. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>delta</em>&nbsp;</td><td>The zoom variation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/<a class="el" href="camera_8h_source.html">camera.h</a></li>
 <li>/home/kazuo/Workspaces/usp/2012.1/MAC0420/ep1/src/camera.cxx</li>
@@ -79,7 +366,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 16:32:34 for MAC0420-2012: EP1 by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 1 2012 18:47:32 for MAC0420-2012: EP1 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
