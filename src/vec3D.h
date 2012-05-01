@@ -50,10 +50,8 @@ class Vec3D {
     static Vec3D dir (const Vec3D& v, const Vec3D& up = Vec3D::Y()); 
   private:
     union {
-      struct {
-        double x_, y_, z_;
-      };
-      double val_[3];
+      struct { double x_, y_, z_; };
+      struct { double val_[3]; };
     };
 };
 
