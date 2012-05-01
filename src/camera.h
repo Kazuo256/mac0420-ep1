@@ -9,8 +9,8 @@ namespace ep1 {
 class Camera {
   public:
     Camera () :
-      perspective_(false),
-      sphere_pos_(0.0, 0.0, 1.0)  {}
+      sphere_pos_(0.0, 0.0, 1.0),
+      perspective_(false) {}
     void set_target (const Vec3D& target) { target_ = target; }
     void move (const Vec3D& delta) {
       sphere_pos_ += Vec3D::X()*delta.x() + Vec3D::Y()*delta.y();

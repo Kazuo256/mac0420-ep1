@@ -65,7 +65,7 @@ Vec3D Vec3D::normalized () const {
 }
 
 void Vec3D::dump () const {
-  printf("<%lf, %lf, %lf>\n", x_, y_, z_);
+  printf("<%f, %f, %f>\n", x_, y_, z_);
 }
 
 Vec3D Vec3D::ypr (double yaw, double pitch, double roll) {

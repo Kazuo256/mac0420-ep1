@@ -18,17 +18,14 @@ unordered_map<int, Window::Ptr> Window::windows_;
 
 Window::Window (const std::string& caption, int width, int height) :
   width_ (width), height_(height),
-  mouse_pos_(0, 0),
-  stop_(1) {
+  stop_(1),
+  mouse_pos_(0, 0) {
   id_ = glutCreateWindow(caption.c_str());
   buttons_[0] = buttons_[1] = buttons_[2] = false;
   draw_cone_ = 1;
 }
 
 static void init_opengl (Camera& camera, double ratio) {
-  int i;
-  Vec3D b;
-  
   glEnable(GL_DEPTH_TEST);
   camera.set_ortho(ratio);
 

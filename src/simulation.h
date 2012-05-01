@@ -31,7 +31,7 @@ class Simulation {
     std::vector<Object::Ptr>  forces_,
                               particles_;
     explicit Simulation (const Window::Ptr& win, double ratio) :
-      win_(win), ratio_(ratio) {}
+      ratio_(ratio), win_(win) {}
     void add_forces ();
     void add_particles ();
     void check_movement (Vec3D& move, const Vec3D& pos) const;

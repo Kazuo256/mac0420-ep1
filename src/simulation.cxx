@@ -88,10 +88,6 @@ static void sphere (double radius) {
   gluSphere( gluNewQuadric(), radius, 6, 6);  
 }
 
-static void updater (Simulation *sim, Object& particle) {
-  sim->update_particle(particle);
-}
-
 struct particle_updater {
   Simulation* sim_;
   particle_updater(Simulation *sim) : sim_(sim) {}

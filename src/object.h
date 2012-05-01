@@ -81,13 +81,13 @@ class Object {
                      const Vec3D& rotation = Vec3D(),
                      const int type = 0,
                      const unsigned id = 0) :
+      type_(type),
+      id_(id),
       renderer_(renderer),
       updater_(updater),
       position_(position),
       size_(size),
-      rotation_(rotation),
-      type_(type),
-      id_(id) {}
+      rotation_(rotation) {}
 };
 
 } // namespace ep1

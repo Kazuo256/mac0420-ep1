@@ -30,5 +30,5 @@ add_executable (ep1
   src/utils.cxx
 )
 target_link_libraries (ep1 ${OPENGL_LIBRARIES} ${GLUT_glut_LIBRARY})
-set_target_properties (ep1 PROPERTIES COMPILE_FLAGS "-ansi -pedantic -Wall -O2")
+set_target_properties (ep1 PROPERTIES COMPILE_FLAGS "-pedantic -Wall -O2")
 
