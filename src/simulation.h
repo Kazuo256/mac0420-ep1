@@ -22,8 +22,7 @@ class Simulation {
     /// Creates a new Simulation object.
     /** @param win    The window used to display the simulation.
      ** @param ratio  Size ratio used to render teh simulation elements.
-     ** @return Simulation::Ptr A smart-pointer to a simulation object.
-     */
+     ** @return Simulation::Ptr A smart-pointer to a simulation object. */
     static Ptr create (const Window::Ptr& win, double ratio) {
       return Ptr(new Simulation(win, ratio));
     }
@@ -32,8 +31,7 @@ class Simulation {
      ** before.
      ** The information file must follow the specification found in
      ** <b>EP1-2012.pdf</b>.
-     ** @param info_file Path to the simulation information file.
-     */
+     ** @param info_file Path to the simulation information file. */
     void init (const std::string& info_file);
     /// Toggles forces display visibility.
     void show_hide_forces ();
@@ -55,8 +53,7 @@ class Simulation {
     /// Updates a particle object.
     /** Calculates the force field speed at its position and applies the
      ** movement, making sure the particle stays within the simulation bounds.
-     ** @param particle The particle object being updated.
-     */
+     ** @param particle The particle object being updated. */
     void update_particle (Object& particle);
     /// Checks a given movement at a given position.
     /** If the movement would move something beyond the simulation bounds, the
@@ -64,8 +61,7 @@ class Simulation {
      ** happen.
      ** @param move A reference to the movement vector. Its value may be
                     changed to avoid trespassing boundaries.
-     ** @param pos  The position at which the movement happens.
-     */
+     ** @param pos  The position at which the movement happens. */
     void check_movement (Vec3D& move, const Vec3D& pos) const;
 };
 
