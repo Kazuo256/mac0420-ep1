@@ -106,7 +106,7 @@ static Object::Updater make_updater (Simulation* sim) {
 
 void Simulation::add_particles () {
   int x, y, z;
-  for (z = 0; z < field_.depth(); z++ )
+  for (z = 0; z < field_.depth(); z++)
     for (y = 0; y < field_.height(); y++)
       for (x = 0; x < field_.width(); x++) {
         Vec3D position(dists_.x()*x, -dists_.y()*y, -dists_.z()*z);

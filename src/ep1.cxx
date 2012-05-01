@@ -2,6 +2,7 @@
 #include <cmath>
 
 #include "getglut.h"
+#include "simulation.h"
 #include "window.h"
 #include "utils.h"
 #include "forcefield.h"
@@ -180,6 +181,8 @@ static void add_sphere (const Window::Ptr& win, const Vec3D& dist, const Vec3D& 
       }
 }
 
+Simulation::Ptr simul;
+
 void init (int argc, char **argv) {
   vector<Vec3D> infos;
   
@@ -203,6 +206,9 @@ void init (int argc, char **argv) {
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_ALPHA);
     Window::init_size(500, 500);
     Window::Ptr win = Window::create("MAC0420 - EP1");
+    simul = Simulation::create(win, ratio);
+    simul->init(argv[1]);
+    /*
     infos = utils::LoadForceFieldInfo(argv[1]);
     field = ForceField(infos[0].x(), infos[0].y(), infos[0].z());
     CreateCube(infos);
@@ -214,6 +220,7 @@ void init (int argc, char **argv) {
     ));
     add_cones(win, infos[1], infos[0]);
     add_sphere(win, infos[1], infos[0]);
+    */
   }
 }
 

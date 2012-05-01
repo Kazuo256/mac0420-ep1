@@ -1,6 +1,7 @@
 
 cmake_minimum_required (VERSION 2.8)
 
+project (ep1 CXX C)
 include_directories (src)
 
 find_package(OpenGL REQUIRED)
@@ -29,5 +30,5 @@ add_executable (ep1
   src/utils.cxx
 )
 target_link_libraries (ep1 ${OPENGL_LIBRARIES} ${GLUT_glut_LIBRARY})
-set_target_properties (ep1 PROPERTIES COMPILE_FLAGS -ansi -pedantic -Wall)
+set_target_properties (ep1 PROPERTIES COMPILE_FLAGS "-ansi -pedantic -Wall -O2")
 

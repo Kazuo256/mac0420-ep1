@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+#include <tr1/memory>
+
 #include "vec3D.h"
 #include "window.h"
 #include "forcefield.h"
@@ -14,8 +16,10 @@ namespace ep1 {
 
 class Simulation {
   public:
-    explicit Simulation (const Window::Ptr& win, double ratio) :
-      win_(win), ratio_(ratio) {}
+    typedef std::tr1::shared_ptr<Simulation> Ptr;
+    static Ptr create (const Window::Ptr& win, double ratio) {
+      return Ptr(new Simulation(win, ratio));
+    }
     void init (const std::string& info_file);
     void update_particle (Object& particle);
   private:
@@ -26,6 +30,8 @@ class Simulation {
     ForceField                field_;
     std::vector<Object::Ptr>  forces_,
                               particles_;
+    explicit Simulation (const Window::Ptr& win, double ratio) :
+      win_(win), ratio_(ratio) {}
     void add_forces ();
     void add_particles ();
     void check_movement (Vec3D& move, const Vec3D& pos) const;
