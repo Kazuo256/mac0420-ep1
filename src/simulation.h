@@ -22,7 +22,6 @@ class Simulation {
     }
     void init (const std::string& info_file);
     void toggle_forces ();
-    void update_particle (Object& particle);
   private:
     double                    ratio_;
     Vec3D                     size_,
@@ -35,6 +34,7 @@ class Simulation {
       ratio_(ratio), win_(win) {}
     void add_forces ();
     void add_particles ();
+    void update_particle (Object& particle);
     void check_movement (Vec3D& move, const Vec3D& pos) const;
 };
 

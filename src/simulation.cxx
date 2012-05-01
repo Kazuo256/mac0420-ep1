@@ -10,8 +10,10 @@ namespace ep1 {
 using std::string;
 using std::vector;
 using std::tr1::bind;
+using std::tr1::mem_fn;
 using namespace std::tr1::placeholders;
 
+/// Used to throw away the (x,y) parameters.
 static void toggle_forces_keyevent (Simulation *simul, int x, int y) {
   simul->toggle_forces();
 }
@@ -30,8 +32,7 @@ void Simulation::init (const string& info_file) {
   ));
   add_forces();
   add_particles();
-  Window::KeyEvent ev = bind(toggle_forces_keyevent, this, _1, _2);
-  win_->register_keyevent('e', ev);
+  win_->register_keyevent('e', bind(toggle_forces_keyevent, this, _1, _2));
 }
 
 void Simulation::toggle_forces () {
@@ -103,18 +104,6 @@ static void sphere (double radius) {
   gluSphere( gluNewQuadric(), radius, 6, 6);  
 }
 
-struct particle_updater {
-  Simulation* sim_;
-  particle_updater(Simulation *sim) : sim_(sim) {}
-  void operator () (Object& particle) {
-    sim_->update_particle(particle);
-  }
-};
-
-static Object::Updater make_updater (Simulation* sim) {
-  return Object::Updater(particle_updater(sim));
-}
-
 void Simulation::add_particles () {
   int x, y, z;
   for (z = 0; z < field_.depth(); z++)
@@ -124,11 +113,8 @@ void Simulation::add_particles () {
         Vec3D size(1.0, 1.0, 1.0);
         Vec3D rotation;
         Object::Ptr particle = Object::create(Object::Renderer(
-                                              std::tr1::bind(
-                                                sphere,
-                                                dists_.min()/2.0
-                                              )), 
-                                              make_updater(this),
+                                              bind(sphere, dists_.min()/2.0)),
+                                              bind(&Simulation::update_particle, this, _1),
                                               position, 
                                               size*ratio_, 
                                               rotation);

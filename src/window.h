@@ -59,8 +59,6 @@ class Window {
     int                       height_;
     /// Stop the timerfunc
     int                       stop_;
-    /// Draw cones
-    int                       draw_cone_;
     /// The window's camera into the scene.
     Camera                    camera_;
     /// Objects to be drawn.
