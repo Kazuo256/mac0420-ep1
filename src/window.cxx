@@ -141,13 +141,8 @@ void Window::keyboard (unsigned char key, int x, int y) {
       win->camera_.toggle_projection(win->ratio());
       break;
     case 'q':
-      win->stop_ = 1;
-      break;
-    case 'w':
-      if (win->stop_ == 1) {
-        win->stop_ = 0;
-        glutTimerFunc(WIN_REFRESH, timer_func, 1);
-      }
+      win->stop_ = !win->stop_;
+      if (win->stop_ == 0)  glutTimerFunc(WIN_REFRESH, timer_func, 1);
       break;
     default: break;
   }
