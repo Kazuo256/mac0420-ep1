@@ -22,8 +22,10 @@ compilar sem problemas. O EP compila perfeitamente na Rede Linux, por exemplo.
 distribuição. Mas qualquer coisa é só pegar no site oficial: www.cmake.org.
   MAS caso você não queira usar o CMake ou esteja tendo problemas com ele (o
 que é pouco provável), fizemos um Makefile que faz o serviço, embora ele não
-faça todas as verificações legais do CMake. É só copiar TODO o conteúdo da pasta
-build/ para a mesma pasta desse LEIAME.txt e usar o comando:
+dê tanta garantia de funcionar, portanto deve-se dar preferência ao uso do
+CMake.
+  Para usar o Makefile alternativo é só copiar TODO o conteúdo da pasta build/
+para a mesma pasta desse LEIAME.txt e usar o comando:
 
   $ make
 

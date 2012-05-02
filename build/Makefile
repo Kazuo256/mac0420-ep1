@@ -1,5 +1,5 @@
 PROG_NAME = ep1
-FLAGS=-lGL -lGLU -lglut
+FLAGS=-lGL -lGLU -lglut -lm
 
 SRC_DIR = src
 OBJ_DIR = .temp
