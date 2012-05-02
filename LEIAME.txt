@@ -1,0 +1,69 @@
+
+MAC0420-2012: Introdução à Computação Gráfica.
+Primeiro Exercício-Programa: Simulação de partículas em um campo de forças.
+
+Alunos:                     Nº USP:
+  Thiago de Gouveia Nunes     6797289
+  Wilson Kazuo Mizutani       6797230
+
+I. COMPILAÇÃO.
+
+  Nós usamos CMake para gerar os Makefiles do nosso projeto. Não tivemos a
+oportunidade de testar em Windows ou MACOSX, por isso não podemos garantir nada
+nessas plataformas. Por outro lado, contanto que seja em um Linux com g++
+4.4.4 ou mais recente (para habilitar as funcionalidades TR1), o EP deve
+compilar sem problemas. O EP compila perfeitamente na Rede Linux, por exemplo.
+  Os comandos para compilar ele são: (a partir da mesma pasta desse LEIAME.txt)
+  
+    $ cmake .
+    $ make
+
+  Em geral é possível baixar o CMake normalmente pelo gerenciador de pacotes da
+distribuição. Mas qualquer coisa é só pegar no site oficial: www.cmake.org.
+
+II. ARGUMENTOS DA LINHA DE COMANDO.
+
+  O EP tem a seguinte assinatura de linha de comando:
+
+    ./ep1 [argumentos_do_glut] <arquivo_de_entrada> [ratio]
+
+  Os argumentos do GLUT são aqueles que a função glutInit recebe. Para maiores
+detalhes consultar a documentação do GLUT. O arquivo de entrada é como
+especificado no enunciado. Inclusive, temos alguns exemplos (incluindo os do
+monitor) na pasta campos/. Por último, o argumento ratio é um double que serve
+para redimensionar todos os objetos da simulação. O valor padrão é 1.0, mas
+valores menores são recomendados para uma melhor visualização.
+
+III. CONTROLES DO PROGRAMA.
+
+  O programa aceita os seguintes comandos durante sua execução:
+
+    Botão esquerdo do mouse + movimentação:
+      Movimenta a camera em volta do campo de forças da simulação. Variações
+      longitudinais rotacionam em torno do eixo y e variações latitudinais,
+      em torno do eixo x.
+
+    Botão direito do mouse + movimentação latitudinal:
+      Aumenta ou diminui o zoom da câmera.
+      !!!OBSERVAÇÃO IMPORTANTE!!!
+      Perguntamos no fórum do PACA se era para implementar o efeito de
+      aumentar/diminuir objetos no zoom da projeção ortogonal, mas não
+      obtivemos uma resposta clara até o momento que finalizamos o EP.
+      Portanto decidimos ficar estritamente com o que o enunciado diz, que é
+      que o zoom deve ser implementado usando apenas aproximação/distanciamento
+      da câmera em relação à origem. POR ISSO, O ZOOM NÃO SURTE EFEITOS VISÍVEIS
+      COM A PROJEÇÃO ORTOGONAL.
+
+    Botão TAB:
+      Troca entre projeção ortogonal e perspectiva. A projeção inicial é sempre
+      a ortogonal.
+
+    Botão 'q':
+      Pausa/reinicia a simulação. O programa começa com a simulação PAUSADA.
+
+    Botção 'w':
+      Mostra/esconde os vetores do campo de forças. O programa começa com os
+      vetores ESCONDIDOS.
+
+
+
