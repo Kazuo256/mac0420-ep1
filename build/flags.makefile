@@ -1,0 +1,1 @@
+FLAGS=-lGL -lGLU -lglut
