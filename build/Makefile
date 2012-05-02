@@ -3,22 +3,18 @@ FLAGS=-lGL -lGLU -lglut -lm
 
 SRC_DIR = src
 OBJ_DIR = .temp
-OUTPUT_DIR = bin
 
 CXX = g++
 CXXFLAGS = -ansi -Wall -O2 $(FLAGS)
 
-OUTPUT = bin/$(PROG_NAME)
+OUTPUT = $(PROG_NAME)
 
 include objs.makefile
 
-$(PROG_NAME): $(OBJ_DIR) $(OUTPUT_DIR) $(OBJS)
+$(PROG_NAME): $(OBJ_DIR) $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(OUTPUT)
 
 $(OBJ_DIR):
-	mkdir $@
-
-$(OUTPUT_DIR):
 	mkdir $@
 
 .temp/%.o: src/%.cc
