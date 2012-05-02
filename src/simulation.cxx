@@ -32,7 +32,7 @@ void Simulation::init (const string& info_file) {
   ));
   add_forces();
   add_particles();
-  win_->register_keyevent('e', bind(toggle_forces_keyevent, this, _1, _2));
+  win_->register_keyevent('w', bind(toggle_forces_keyevent, this, _1, _2));
 }
 
 void Simulation::show_hide_forces () {
