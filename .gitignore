@@ -10,3 +10,4 @@ doc/latex
 generator.py
 campos/torus
 .temp
+!build/Makefile
